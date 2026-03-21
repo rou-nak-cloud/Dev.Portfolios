@@ -11,7 +11,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <nav className="fixed top-0 md:top-auto md:bottom-0 w-full h-18 z-40 bg-transparent">
+    <nav className="fixed bottom-0 w-full h-18 z-40 bg-transparent">
       <div
         className="max-w-176 w-full mx-auto px-4 py-2 flex items-center justify-between border-2 border-zinc-400/40 rounded-full"
         onClick={() => navigate("/")}
@@ -30,8 +30,8 @@ export default function Navbar() {
           </button>
 
           <ul
-            className={`absolute top-14 -right-15 w-48 flex flex-col rounded-xl backdrop-blur-lg p-3 gap-2 shadow-lg overflow-hidden transition-all duration-500 ease-out shadow-amber-500/50
-              ${menuOpen ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-4"}`}
+            className={`absolute bottom-14 -right-15 w-48 flex flex-col rounded-xl backdrop-blur-lg p-3 gap-2 shadow-lg overflow-hidden transition-all duration-700 ease-out shadow-amber-500/50
+  ${menuOpen ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 translate-y-4"}`}
           >
             {navList.map((item, index) => {
               const Icon = item.icon; // Grab the component as it is in js file
