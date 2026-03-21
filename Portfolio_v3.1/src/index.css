@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  --text: #2e2a34;
+  --text-h: #0b0b0b;
+  --bg: #fff;
+  --button: rgba(245, 158, 11, 0.6);
+  --button-hover: rgba(245, 158, 11, 0.4);
+  --accent: #9c39e9;
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --cabinet: "Cabinet Grotesk", sans-serif;
+  --melodrama: "Melodrama", sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--cabinet);
+  letter-spacing: 0.18px;
+  color: var(--text-h);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection {
+  background-color: rgba(245, 158, 11, 0.6); /* amber with transparency */
+  color: #111827;
+}
+
+/* Thin scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track (background) */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Thumb (the moving part) */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.6); /* subtle */
+  border-radius: 999px;
+  transition: background 0.3s ease;
+  border: 2px solid transparent; /* creates gap */
+  background-clip: content-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid transparent; /* creates gap */
+  background-clip: content-box;
+}
+
+/* Custom tailwind config */
+@theme {
+  --font-cabinet: "Cabinet Grotesk", sans-serif;
+  --font-melodrama: "Melodrama", sans-serif;
+
+  /* Shimmer Animation */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) skewX(-20deg);
+    }
+    50% {
+      transform: translateX(50%) skewX(-20deg);
+    }
+    100% {
+      transform: translateX(100%) skewX(-20deg);
+    }
+  }
+}
+/* Normal css */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @apply h-[200vh];
+}
+.animate-shimmer {
+  animation: shimmer 3s infinite;
+}
