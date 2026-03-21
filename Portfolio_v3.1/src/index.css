@@ -8,9 +8,6 @@
   --button: rgba(245, 158, 11, 0.6);
   --button-hover: rgba(245, 158, 11, 0.4);
   --accent: #9c39e9;
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   --cabinet: "Cabinet Grotesk", sans-serif;
   --melodrama: "Melodrama", sans-serif;
@@ -76,6 +73,39 @@
       transform: translateX(100%) skewX(-20deg);
     }
   }
+  /* Multi-direction shimmer */
+  @keyframes dotsShimmer {
+    0% {
+      background-position: 0px 0px;
+    }
+    25% {
+      background-position: 40px 10px;
+    }
+    50% {
+      background-position: 60px 60px;
+    }
+    75% {
+      background-position: 10px 40px;
+    }
+    100% {
+      background-position: 0px 0px;
+    }
+  }
+  /* Flicker */
+  @keyframes dotsFlicker {
+    0% {
+      opacity: 0.35;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.75;
+      filter: brightness(1.4);
+    }
+    100% {
+      opacity: 0.4;
+      filter: brightness(1);
+    }
+  }
 }
 /* Normal css */
 html {
@@ -84,6 +114,14 @@ html {
 body {
   @apply h-[200vh];
 }
+
+/* animations */
 .animate-shimmer {
   animation: shimmer 3s infinite;
+}
+.dots-animated {
+  animation:
+    dotsShimmer 14s linear infinite,
+    dotsFlicker 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.25));
 }
