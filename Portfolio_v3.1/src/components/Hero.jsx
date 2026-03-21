@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 export default function Hero() {
   // image avatar
   const avatarUrl = "https://img.clerk.com/";
@@ -50,11 +52,21 @@ export default function Hero() {
               </span>
               .
             </p>
+            {/* buttons */}
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6 pt-2 md:pt-4">
+              <div className="work">
+                <span className="relative w-2 h-2 px-5 py-1 text-sm md:text-md font-cabinet font-regular md:font-medium text-amber-950 rounded-full bg-emerald-500 backdrop-blur-md">
+                  <span>Available for Work</span>
+                  <span className="w-1 h-1 bg-emerald-300 rounded-full absolute left-0 top-2 ml-2 mt-0.5 animate-ping"></span>
+                </span>
+              </div>
+              <Button />
+            </div>
           </div>
 
           {/* Profile Image */}
           <div className="relative">
-            <div className="h-26 w-26 overflow-hidden rounded-full border border-zinc-300 shadow-lg md:h-32 md:w-32">
+            <div className="h-26 w-26 overflow-hidden rounded-full border border-zinc-300 shadow-lg md:h-36 md:w-36 -mt-5 md:-mt-10">
               <img
                 src={avatarUrl}
                 alt="Profile"
