@@ -5,9 +5,9 @@
   --text: #2e2a34;
   --text-h: #0b0b0b;
   --bg: #fff;
-  --button: rgba(245, 158, 11, 0.6);
+  --button: rgba(245, 159, 11, 0.244);
   --button-hover: rgba(245, 158, 11, 0.4);
-  --accent: #9c39e9;
+  --accent-dark: #9d39e998;
 
   --cabinet: "Cabinet Grotesk", sans-serif;
   --melodrama: "Melodrama", sans-serif;
@@ -106,13 +106,57 @@
       filter: brightness(1);
     }
   }
+  /* highlight animation */
+  @keyframes highlightSwipe {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 105%;
+    }
+  }
 }
+
+@utility custom-underline {
+  /* specific offset underline look */
+  text-decoration: underline;
+  text-decoration-color: var(--accent-dark); /* Matches text color */
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  cursor: pointer;
+  transition: text-decoration-color 0.2s;
+
+  &:hover {
+    text-decoration-color: var(--accent-dark); /* Or any brand color */
+  }
+}
+
 /* Normal css */
 html {
   scroll-behavior: smooth;
 }
 body {
   @apply h-[200vh];
+}
+.highlight-marker {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.highlight-marker::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: 2px;
+  height: 1em;
+  background: rgba(251, 191, 36, 0.5); /* amber highlighter */
+  transform: rotate(-4deg) skewX(-8deg);
+  z-index: -1;
+  border-radius: 4px;
+
+  animation: highlightSwipe 2s ease-in-out forwards;
 }
 
 /* animations */
