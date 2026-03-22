@@ -6,6 +6,7 @@ import {
   FaBlog,
   FaProjectDiagram,
   FaTools,
+  FaLinkedin,
 } from "react-icons/fa";
 import { SiHomebridge } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
@@ -52,9 +53,9 @@ const navList = [
     type: "external",
   },
   {
-    label: "Instagram",
-    icon: FaInstagram,
-    to: "https://instagram.com/",
+    label: "LinkedIn",
+    icon: FaLinkedin,
+    to: "https://linkedin.com/",
     type: "external",
   },
 ];
@@ -96,8 +97,8 @@ const desktopNavList = [
     type: "external",
   },
   {
-    icon: FaInstagram,
-    to: "https://instagram.com/",
+    icon: FaLinkedin,
+    to: "https://linkedin.com/",
     type: "external",
   },
 ];
@@ -116,7 +117,7 @@ const aboutItems = [
 ];
 const learningItems = [
   {
-    title: "Advanced React Patterns",
+    title: "React & Advanced React Patterns",
     subtitle: "Component Architecture",
     description:
       "Learning scalable component architecture, compound components, render props, custom hooks and state patterns used in production React applications.",

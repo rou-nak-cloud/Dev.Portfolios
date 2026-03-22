@@ -11,7 +11,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <nav className="fixed bottom-0 w-full h-18 z-40 bg-transparent">
+    <nav className="fixed bottom-0 w-full h-18 z-40 bg-transparent backdrop-blur-xl">
       <div
         className="max-w-176 w-full mx-auto px-4 py-2 flex items-center justify-between border-2 border-zinc-400/40 rounded-full"
         onClick={() => navigate("/")}

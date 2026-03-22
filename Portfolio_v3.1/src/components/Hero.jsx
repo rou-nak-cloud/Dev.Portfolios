@@ -128,7 +128,9 @@ export default function Hero() {
                   key={index}
                   className="flex gap-1 items-center justify-end"
                 >
-                  <span>{item.number}+</span>
+                  <span className="font-cabinet font-medium text-lg md:text-xl pt-1">
+                    {item.number}+
+                  </span>
 
                   <div className="flex items-center justify-start gap-1">
                     {item.label.includes("github") ? (
