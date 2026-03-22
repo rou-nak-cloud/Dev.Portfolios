@@ -98,4 +98,17 @@ const desktopNavList = [
   },
 ];
 
-export { navList, desktopNavList };
+const aboutItems = [
+  {
+    label: "github projects total",
+    icon: FaGithub,
+    number: 35,
+  },
+  {
+    label: "Blog posts ",
+    icon: FaBlog,
+    number: 0,
+  },
+];
+
+export { navList, desktopNavList, aboutItems };
