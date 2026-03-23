@@ -40,9 +40,14 @@ export default function Education() {
 
                     {/* Institution */}
                     <div className="flex items-center justify-end gap-1 group  ">
-                      <p className="text-md text-right font-semibold text-zinc-500 hover:text-amber-800 mt-1 mb-5 custom-underline cursor-pointer transition-all duration-300">
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-md text-right font-semibold text-zinc-500 hover:text-amber-800 mt-1 mb-5 custom-underline cursor-pointer transition-all duration-300"
+                      >
                         {item.institution}
-                      </p>
+                      </a>
 
                       <span>
                         <Icon className="text-amber-400 -mt-3 arrow-hover" />
