@@ -18,19 +18,19 @@ export default function Navbar() {
       >
         {/* Logo */}
         <h2 className="logo font-melodrama font-medium text-[1.8rem] md:text-[2.2rem] tracking-wider cursor-grabbing">
-          &lt;Rounak/&gt;
+          &lt;&Bakshi/&gt;
         </h2>
         {/* Mobile Menu */}
         <div className="md:hidden relative">
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="text-2xl cursor-pointer w-10 h-10 grid place-items-center bg-zinc-100/10 rounded-xl ring-inset ring-1 ring-zinc-100/90 backdrop-blur-2xl hover:bg-amber-100/70 active:scale-95 transition-all duration-300"
+            className="text-2xl cursor-pointer w-10 h-10 grid place-items-center bg-zinc-500/10 rounded-xl ring-inset ring-1 ring-zinc-100/90 backdrop-blur-2xl hover:bg-amber-100/70 active:scale-95 transition-all duration-300"
           >
             {menuOpen ? <AiOutlineClose /> : <RiMenu5Line />}
           </button>
 
           <ul
-            className={`absolute bottom-14 -right-15 w-48 flex flex-col rounded-xl backdrop-blur-lg p-3 gap-2 shadow-lg overflow-hidden transition-all duration-700 ease-out shadow-amber-500/50
+            className={`absolute bottom-14 -right-18 w-52 flex flex-col rounded-xl bg-amber-50 backdrop-blur-lg p-3 gap-2 shadow-lg overflow-hidden transition-all duration-700 ease-out shadow-amber-500/50
   ${menuOpen ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 translate-y-4"}`}
           >
             {navList.map((item, index) => {

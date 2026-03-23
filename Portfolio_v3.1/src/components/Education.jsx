@@ -2,7 +2,7 @@ import { educations } from "../constants";
 
 export default function Education() {
   return (
-    <section className="py-10 px-6 font-cabinet ">
+    <section className="py-16 px-6 font-cabinet ">
       <div className="max-w-2xl mx-auto mb-1 md:mb-3">
         {/* Section Title */}
         <h2 className="text-3xl font-cabinet font-semibold text-slate-900 mb-6">
