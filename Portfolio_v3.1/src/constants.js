@@ -13,6 +13,7 @@ import { FaReact } from "react-icons/fa";
 import { SiFramer, SiGreensock } from "react-icons/si";
 import { MdDesignServices, MdOutlineArrowOutward } from "react-icons/md";
 import { SiFigma } from "react-icons/si";
+import { FaCode } from "react-icons/fa";
 
 const navList = [
   {
@@ -37,7 +38,7 @@ const navList = [
   {
     label: "Skills",
     icon: FaTools,
-    to: "/skills",
+    to: "#skills",
     type: "internal",
   },
   {
@@ -117,6 +118,14 @@ const aboutItems = [
 ];
 const learningItems = [
   {
+    title: "HTML, CSS & JavaScript",
+    subtitle: "Core Web Fundamentals",
+    description:
+      "Developed a strong foundation in frontend development by mastering semantic HTML for structured and accessible markup, modern CSS techniques including Flexbox and Grid for responsive layouts, and Tailwind CSS for efficient, scalable UI design. Advanced into JavaScript fundamentals such as DOM manipulation, asynchronous programming, and ES6+ features to build dynamic and interactive web applications.",
+    icon: FaCode,
+    date: "2023 – Present",
+  },
+  {
     title: "React & Advanced React Patterns",
     subtitle: "Component Architecture",
     description:
@@ -141,21 +150,29 @@ const learningItems = [
     date: "Ongoing",
   },
   {
-    title: "Modern UI / UX",
-    subtitle: "Minimal Interfaces & Interaction Design",
+    title: "Modern UI/UX & Figma",
+    subtitle: "Interface Design, Prototyping & Interaction Systems",
     description:
-      "Exploring modern UI design focused on minimal, aesthetic interfaces and refined interaction patterns. Practicing typography hierarchy, layout balance, and subtle micro-interactions to create clean, intuitive, and visually engaging web experiences with the help of daisy ui or shadcn ui components to save time and effort.",
+      "Developing modern user interface and user experience design skills by focusing on minimal, aesthetic, and highly usable interfaces. Practicing typography hierarchy, spacing systems, and layout balance to create visually clear and intuitive designs. Using Figma for UI ideation, component systems, auto-layout, and responsive prototyping before development. This workflow helps translate design concepts into structured frontend implementations while leveraging modern component libraries such as Shadcn UI and DaisyUI to accelerate development and maintain consistent design systems. Also exploring subtle micro-interactions and interaction patterns that enhance usability and create engaging user experiences.",
     icon: MdDesignServices,
     date: "Ongoing",
   },
-  {
-    title: "Figma",
-    subtitle: "UI Design & Prototyping",
-    description:
-      "Learning to design modern user interfaces using Figma. Practicing layout systems, design components, auto-layout, and responsive design principles while creating clean UI prototypes before development. This helps translate design ideas into structured and scalable frontend implementations.",
-    icon: SiFigma,
-    date: "Ongoing",
-  },
+  // {
+  //   title: "Modern UI / UX",
+  //   subtitle: "Minimal Interfaces & Interaction Design",
+  //   description:
+  //     "Exploring modern UI design focused on minimal, aesthetic interfaces and refined interaction patterns. Practicing typography hierarchy, layout balance, and subtle micro-interactions to create clean, intuitive, and visually engaging web experiences with the help of daisy ui or shadcn ui components to save time and effort.",
+  //   icon: MdDesignServices,
+  //   date: "Ongoing",
+  // },
+  // {
+  //   title: "Figma",
+  //   subtitle: "UI Design & Prototyping",
+  //   description:
+  //     "Learning to design modern user interfaces using Figma. Practicing layout systems, design components, auto-layout, and responsive design principles while creating clean UI prototypes before development. This helps translate design ideas into structured and scalable frontend implementations.",
+  //   icon: SiFigma,
+  //   date: "Ongoing",
+  // },
 ];
 export { navList, desktopNavList, aboutItems, learningItems };
 
