@@ -127,6 +127,15 @@
       transform: translate(0, 0);
     }
   }
+  /* Marquee */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 @utility custom-underline {
@@ -187,4 +196,11 @@ body {
 
 .group:hover .arrow-hover {
   animation: arrow-nudge 1s ease infinite;
+}
+.marquee {
+  animation: marquee 22s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
 }
