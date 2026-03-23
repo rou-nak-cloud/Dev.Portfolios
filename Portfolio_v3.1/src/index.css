@@ -115,6 +115,18 @@
       width: 105%;
     }
   }
+  /* Arrow directional hover animation */
+  @keyframes arrow-nudge {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(8px, -8px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
 }
 
 @utility custom-underline {
@@ -123,7 +135,7 @@
   text-decoration-color: var(--accent-dark); /* Matches text color */
   text-underline-offset: 4px;
   text-decoration-thickness: 1.5px;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: text-decoration-color 0.2s;
 
   &:hover {
@@ -168,4 +180,11 @@ body {
     dotsShimmer 14s linear infinite,
     dotsFlicker 5s ease-in-out infinite;
   filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.25));
+}
+.arrow-hover {
+  transition: transform 1s ease-in-out;
+}
+
+.group:hover .arrow-hover {
+  animation: arrow-nudge 1s ease infinite;
 }
