@@ -163,6 +163,7 @@ export const educations = [
   {
     title: "Madhyamik Examination (Matriculation)",
     institution: "West Bengal Board of Secondary Education",
+    link: "https://wbbse.wb.gov.in/",
     icon: MdOutlineArrowOutward,
     date: "2019",
     contents: [
@@ -173,6 +174,7 @@ export const educations = [
   {
     title: "Higher Secondary Examination (HS)",
     institution: "West Bengal Council of Higher Secondary Education",
+    link: "https://wbchse.wb.gov.in/",
     icon: MdOutlineArrowOutward,
     date: "2019-2021",
     contents: [
@@ -185,6 +187,7 @@ export const educations = [
       "Bachelor of Technology (B.Tech) in Electronics and Telecommunication Engineering",
     institution: "Guru Nanak Institute of Technology, Kolkata",
     icon: MdOutlineArrowOutward,
+    link: "https://gnit.ac.in/",
     date: "2021-2025",
     contents: [
       "Pursuing a degree in Electronics and Telecommunication Engineering with coursework in Data Structures, Algorithms, Web Development, and Database Management System",
