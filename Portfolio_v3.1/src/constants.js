@@ -255,7 +255,7 @@ export const interests = [
   },
   {
     title: "Watching Movies",
-    desc: "For me, movies are not just entertainment. Whether it’s a classic masterpiece or a thriller, I love the storytelling, the cinematography, and the reflection.",
+    desc: "For me, movies are not just entertainment. Whether it’s a classic masterpiece or a motivating, I love the storytelling, the cinematography, and the reflection.",
   },
   {
     title: "Listening Music",
