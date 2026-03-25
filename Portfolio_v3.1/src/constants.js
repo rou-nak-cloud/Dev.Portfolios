@@ -20,26 +20,25 @@ const navList = [
     label: "Home",
     icon: SiHomebridge,
     to: "/",
-    type: "internal",
+    type: "route",
   },
   {
     label: "Blogs",
     icon: FaBlog,
     to: "/blogs",
-    type: "external",
-    badge: "Coders/",
+    type: "route",
   },
   {
     label: "Projects",
     icon: FaProjectDiagram,
     to: "/projects",
-    type: "external",
+    type: "route",
   },
   {
     label: "Skills",
     icon: FaTools,
     to: "#skills",
-    type: "internal",
+    type: "hash",
   },
   {
     label: "GitHub",
@@ -63,30 +62,25 @@ const navList = [
 
 // desktopNavLinks
 const desktopNavList = [
-  // External links with text
   {
     label: "Blogs",
     icon: null,
     to: "/blogs",
-    type: "external",
+    type: "route",
     badge: "<Hi/>",
   },
   {
     label: "Projects",
     icon: null,
     to: "/projects",
-    type: "external",
+    type: "route",
   },
-
-  // Internal link with text
   {
     label: "Skills",
     icon: FaTools,
-    to: "#skills",
-    type: "internal",
+    to: "/skill",
+    type: "route",
   },
-
-  // Social icons only
   {
     icon: FaGithub,
     to: "https://github.com/rou-nak-cloud",
