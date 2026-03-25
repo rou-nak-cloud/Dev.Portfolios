@@ -77,7 +77,7 @@ const desktopNavList = [
   },
   {
     label: "Skills",
-    icon: FaTools,
+    icon: null,
     to: "/skill",
     type: "route",
   },
