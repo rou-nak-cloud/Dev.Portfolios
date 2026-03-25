@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { RiMenu5Line } from "react-icons/ri";
 
@@ -8,18 +8,20 @@ import { navList, desktopNavList } from "../constants";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
 
   return (
-    <nav className="fixed bottom-0 w-full h-18 z-40 bg-transparent backdrop-blur-xl">
+    <nav className="fixed bottom-0 w-full h-18 z-50 bg-transparent backdrop-blur-xl">
       <div
         className="max-w-176 w-full mx-auto px-4 py-2 flex items-center justify-between border-2 border-zinc-400/40 rounded-full"
-        onClick={() => navigate("/")}
+        // onClick={() => navigate("/")} BUBBLING ISSUE
       >
         {/* Logo */}
-        <h2 className="logo font-melodrama font-medium text-[1.8rem] md:text-[2.2rem] tracking-wider cursor-grabbing">
-          &lt;&Bakshi/&gt;
-        </h2>
+        <Link
+          to="/"
+          className="logo font-melodrama font-medium text-[1.8rem] md:text-[2.2rem] tracking-wider"
+        >
+          &lt;Bakshi/&gt;
+        </Link>
         {/* Mobile Menu */}
         <div className="md:hidden relative">
           <button
@@ -65,33 +67,24 @@ export default function Navbar() {
             })}
           </ul>
         </div>
+
         {/* Desktop Menu */}
         <ul className="hidden md:flex rounded-box items-center text-lg font-cabinet font-regular gap-1">
           {desktopNavList.map((item, index) => {
-            const Icon = item.icon; // as it wont work in js file so in jsx it works
+            const Icon = item.icon;
 
             return (
               <li
                 key={index}
-                className="rounded-xl px-2 py-1 transform transition-all duration-400 hover:-translate-y-1 hover:bg-(--button-hover) hover:shadow-md hover:shadow-amber-500/20 active:scale-95 cursor-pointer "
+                className="rounded-xl px-2 py-1 transform transition-all duration-400 hover:-translate-y-1 hover:bg-(--button-hover) hover:shadow-md hover:shadow-amber-500/20 active:scale-95 cursor-pointer"
               >
-                {item.type === "internal" ? (
-                  <a href={item.to} className="flex items-center gap-1">
-                    {item.label && <span>{item.label}</span>}
-                    {item.badge && (
-                      <span className="badge badge-sm font-mono">
-                        {item.badge}
-                      </span>
-                    )}
-                  </a>
-                ) : (
+                {item.type === "route" ? (
                   <Link
                     to={item.to}
-                    className={`flex items-center justify-center py-1 ${
-                      item.label ? "gap-2 " : "gap-1"
-                    } `}
+                    onClick={() => console.log("Navigating to:", item.to)}
+                    className={`flex items-center ${item.label ? "gap-2" : "gap-1"}`}
                   >
-                    {Icon && <Icon className="" />}
+                    {Icon && <Icon />}
                     {item.label && <span>{item.label}</span>}
                     {item.badge && (
                       <span className="badge badge-xs font-mono">
@@ -99,11 +92,22 @@ export default function Navbar() {
                       </span>
                     )}
                   </Link>
+                ) : (
+                  <a
+                    href={item.to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1"
+                  >
+                    {Icon && <Icon />}
+                    {item.label && <span>{item.label}</span>}
+                  </a>
                 )}
               </li>
             );
           })}
         </ul>
+        {/* Divider */}
         <div className="hidden md:flex w-px h-6 bg-zinc-500/80 mx-2"></div>
 
         {/* Contact Button */}

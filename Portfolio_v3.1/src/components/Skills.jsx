@@ -8,8 +8,8 @@ export default function Skills() {
           s.
         </span>
         {/* draggable hint */}
-        <span className="text-xs md:text-sm pl-2 font-melodrama font-medium tracking-wider text-zinc-600 italic">
-          (draggable)
+        <span className="text-xs md:text-sm pl-2 font-melodrama font-semibold tracking-widest text-zinc-700 italic">
+          (explore )
         </span>
       </h2>
 
