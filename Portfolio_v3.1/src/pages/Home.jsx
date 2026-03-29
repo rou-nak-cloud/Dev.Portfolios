@@ -7,6 +7,7 @@ import Skills from "../components/Skills";
 import Marquee from "../utilities/Marquee";
 import BackToTop from "../utilities/BackToTop";
 import Project from "../components/Project";
+import Interest from "../components/Interest";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Skills />
       <BackToTop />
       <Project />
+      <Interest />
 
       <div className="h-48"></div>
     </section>
