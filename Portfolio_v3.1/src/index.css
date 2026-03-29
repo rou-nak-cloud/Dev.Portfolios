@@ -154,7 +154,7 @@
 
 /* Normal css */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 body {
   @apply h-[200vh];
