@@ -3,7 +3,7 @@ import { LuArrowUpRight, LuGithub, LuGlobe } from "react-icons/lu";
 
 export default function ProjectCard() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 px-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 px-1 md:px-5">
       {PROJECTS.map((project, idx) => (
         <a
           key={idx}

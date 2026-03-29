@@ -2,7 +2,7 @@ import ProjectCard from "../utilities/ProjectCard";
 
 export default function Project() {
   return (
-    <section className="max-w-3xl mx-auto px-6 py-12 text-center">
+    <section className="max-w-3xl mx-auto px-3 md:px-6 py-12 text-center">
       {/* Badge with lines */}
       <div className="flex items-center justify-center gap-4 mb-6">
         <div className="h-[.8px] flex-1 bg-linear-to-l from-gray-300/60 via-zinc-400/40 to-transparent"></div>
