@@ -24,14 +24,14 @@ export default function BackToTop() {
   return (
     <button
       onClick={scrollTop}
-      className="fixed bottom-4 right-22 z-50
-      w-10 h-10 rounded-full
-      bg-amber-400 text-white
-      flex items-center justify-center
-      shadow-lg shadow-amber-300/40
-      hover:-translate-y-1 hover:bg-amber-500
-      active:scale-95
-      transition-all duration-300 cursor-pointer"
+      className="hidden md:flex fixed bottom-4 right-22 z-50
+  w-10 h-10 rounded-full
+  bg-amber-400 text-white
+  items-center justify-center
+  shadow-lg shadow-amber-300/40
+  hover:-translate-y-1 hover:bg-amber-500
+  active:scale-95
+  transition-all duration-300 cursor-pointer"
     >
       <FaArrowUp size={14} />
     </button>
