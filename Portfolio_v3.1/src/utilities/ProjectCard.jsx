@@ -5,8 +5,11 @@ export default function ProjectCard() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 px-5">
       {PROJECTS.map((project, idx) => (
-        <div
+        <a
           key={idx}
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
           className="group rounded-xl border border-zinc-400/30  overflow-hidden hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col cursor-pointer"
         >
           {/* Project Image */}
@@ -25,7 +28,7 @@ export default function ProjectCard() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 bg-zinc-900/80 backdrop-blur border border-zinc-600 text-[10px] font-semibold text-white px-3 rounded-xl hover:border-amber-600 hover:text-amber-600 transition-all duration-300"
+                  className="flex items-center gap-1.5 bg-zinc-900/80 backdrop-blur border border-zinc-600 text-[10px] font-semibold text-white px-3 -py-1 rounded-xl hover:border-amber-400 hover:text-amber-500 transition-all duration-300"
                 >
                   {link.type === "Website" ? (
                     <LuGlobe size={12} />
@@ -41,7 +44,7 @@ export default function ProjectCard() {
           {/* Content */}
           <div className="p-5 flex flex-col flex-1">
             <div className="flex justify-between items-center mb-1">
-              <h3 className="text-xl leading-tight font-cabinet font-bold text-slate-800 group-hover:text-amber-600 transition-colors">
+              <h3 className="text-xl leading-tight text-left font-cabinet font-bold text-slate-800 group-hover:text-amber-600 transition-colors">
                 {project.title}
               </h3>
               <LuArrowUpRight className="text-slate-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -67,7 +70,7 @@ export default function ProjectCard() {
               ))}
             </div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   );

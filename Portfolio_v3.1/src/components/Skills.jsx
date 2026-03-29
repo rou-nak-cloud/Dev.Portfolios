@@ -17,7 +17,7 @@ export default function Skills() {
         {SKILLS.map((skill) => (
           <div
             key={skill.name}
-            className="flex items-center gap-2 px-4 py-1.5 border border-slate-300/80 rounded-full bg-white shadow-sm hover:bg-amber-100/40 transition-colors cursor-grabbing"
+            className="flex items-center gap-2 px-4 py-1.5 border border-slate-300/80 rounded-full bg-white shadow-sm hover:bg-amber-100/40 transition-colors cursor-vertical-text"
           >
             <img
               src={skill.icon}
