@@ -533,3 +533,26 @@ export const interest = [
     desc: "Music plays a big role in my daily routine, especially while coding or working on creative projects. The right music helps me stay focused, relaxed, and productive. Different genres bring different moods — sometimes energizing me during intense work sessions and other times helping me unwind and think more creatively.",
   },
 ];
+
+export const stats = [
+  {
+    number: "3+",
+    label: "Full Stack Projects",
+    desc: "Developed complete web applications with modern frontend and backend technologies, focusing on clean architecture and scalable design.",
+  },
+  {
+    number: "10+",
+    label: "Reusable UI Components",
+    desc: "Designed modular and reusable components using React and TailwindCSS to create consistent and maintainable user interfaces.",
+  },
+  {
+    number: "500+",
+    label: "GitHub Commits",
+    desc: "Consistently pushing improvements, features, and experiments while actively maintaining and refining personal development projects.",
+  },
+  {
+    number: "5+",
+    label: "Technologies Used",
+    desc: "Comfortable working with modern tools including React, Node.js, Express, MongoDB, and TailwindCSS to build efficient applications.",
+  },
+];

@@ -2,7 +2,7 @@ import { interest } from "../constants";
 
 export default function Interest() {
   return (
-    <section className="max-w-2xl mx-auto px-4 md:px-6 py-15">
+    <section className="max-w-2xl mx-auto px-4 md:px-6 py-16">
       {/* Badge */}
       <div className="flex items-center justify-center gap-2 mb-6">
         <div className="h-px flex-1 bg-linear-to-l from-gray-300/60 via-zinc-400/40 to-transparent"></div>
@@ -35,21 +35,34 @@ export default function Interest() {
         <div className="absolute left-2 top-0 h-full w-0.5 bg-linear-to-b from-transparent via-zinc-300 to-transparent"></div>
 
         {interest.map((item, index) => (
-          <div key={index} className="relative pl-12 mb-6 group">
+          <div key={index} className="relative pl-12 mb-8 group">
             {/* Timeline Dot */}
             <span className="absolute left-0 top-2 w-5 h-5 rounded-full bg-white border border-zinc-300 flex items-center justify-center shadow-sm">
               <span className="w-2 h-2 rounded-full bg-amber-500"></span>
             </span>
 
-            {/* Card */}
-            <div className="bg-white border border-zinc-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-2xl text-center font-bold text-slate-800 font-melodrama mb-2">
-                {item.title}
-              </h3>
+            {/* Gradient Border Wrapper */}
+            <div className="relative group">
+              {/* Animated Gradient Border */}
+              <div
+                className="absolute inset-0 rounded-xl p-px
+              bg-linear-to-r from-amber-400/20 via-orange-300/60 to-amber-400/20 
+              opacity-0 group-hover:opacity-100 
+              transition-opacity duration-500"
+              ></div>
+              {/* Card */}
+              <div
+                className="relative bg-transparent border border-zinc-200/20 rounded-xl p-4 shadow-sm group-hover:scale-101
+              group-hover:shadow-md transition-all duration-300"
+              >
+                <h3 className="text-2xl text-center font-bold text-slate-800 font-melodrama mb-2">
+                  {item.title}
+                </h3>
 
-              <p className="text-md font-cabinet text-center text-zinc-600 leading-tight">
-                {item.desc}
-              </p>
+                <p className="text-md font-cabinet text-center text-zinc-700 leading-tight">
+                  {item.desc}
+                </p>
+              </div>
             </div>
           </div>
         ))}
