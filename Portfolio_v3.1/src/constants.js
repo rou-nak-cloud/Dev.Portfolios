@@ -226,6 +226,7 @@ export const skills = [
 
   { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933" },
   { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248" },
+  { name: "Postman", icon: "https://cdn.simpleicons.org/postman/FF6C37" },
 
   { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB" },
   { name: "C++", icon: "https://cdn.simpleicons.org/cplusplus/00599C" },
@@ -536,23 +537,28 @@ export const interest = [
 
 export const stats = [
   {
-    number: "3+",
+    number: "2+",
     label: "Full Stack Projects",
     desc: "Developed complete web applications with modern frontend and backend technologies, focusing on clean architecture and scalable design.",
   },
   {
     number: "10+",
     label: "Reusable UI Components",
-    desc: "Designed modular and reusable components using React and TailwindCSS to create consistent and maintainable user interfaces.",
+    desc: "Designed modular and reusable components using React and TailwindCSS to create consistent and maintainable user interfaces like Magic ui and Shadcn ui.",
   },
   {
-    number: "500+",
-    label: "GitHub Commits",
+    number: "600+",
+    label: "GitHub Commits last year",
     desc: "Consistently pushing improvements, features, and experiments while actively maintaining and refining personal development projects.",
   },
   {
     number: "5+",
     label: "Technologies Used",
-    desc: "Comfortable working with modern tools including React, Node.js, Express, MongoDB, and TailwindCSS to build efficient applications.",
+    desc: "Comfortable working with modern tools including React, Node.js, Express, MongoDB, framer motion, GSAP and TailwindCSS to build efficient applications.",
+  },
+  {
+    number: "2nd",
+    label: "Ranked 2nd in 3rd Year College Examination",
+    desc: "Achieved the second position in my third-year university examinations, reflecting consistent dedication, strong academic performance, and a disciplined approach to learning.",
   },
 ];
