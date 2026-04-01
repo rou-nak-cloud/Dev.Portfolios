@@ -559,6 +559,6 @@ export const stats = [
   {
     number: "2nd",
     label: "Ranked 2nd in 3rd Year College Examination",
-    desc: "Achieved the second position in my third-year university examinations, reflecting consistent dedication, strong academic performance, and a disciplined approach to learning.",
+    desc: "Achieved the second position in my third-year university examinations, reflecting consistent dedication and a disciplined approach to learning.",
   },
 ];

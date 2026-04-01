@@ -23,7 +23,7 @@ export default function Home() {
       <Interest />
       <Stats />
 
-      <div className="h-48"></div>
+      <div className="h-38"></div>
     </section>
   );
 }
