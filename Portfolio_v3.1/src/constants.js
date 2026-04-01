@@ -525,10 +525,10 @@ export const interest = [
     title: "Calisthenics",
     desc: "Calisthenics has become an important part of my daily life. Training with bodyweight exercises not only helps me stay physically fit but also builds discipline, patience, and mental resilience. Progress in calisthenics requires consistency and focus, and the process of gradually mastering new movements motivates me to push my limits and improve every day.",
   },
-  {
-    title: "Watching Movies",
-    desc: "Movies are a powerful form of storytelling that I deeply enjoy. From visually stunning cinematography to meaningful narratives, films inspire me in many ways. I appreciate how directors and creators bring emotions and ideas to life through visuals, music, and storytelling. Watching movies often sparks creativity and sometimes even influences how I think about design and user experiences.",
-  },
+  // {
+  //   title: "Watching Movies",
+  //   desc: "Movies are a powerful form of storytelling that I deeply enjoy. From visually stunning cinematography to meaningful narratives, films inspire me in many ways. I appreciate how directors and creators bring emotions and ideas to life through visuals, music, and storytelling. Watching movies often sparks creativity and sometimes even influences how I think about design and user experiences.",
+  // },
   {
     title: "Listening Music",
     desc: "Music plays a big role in my daily routine, especially while coding or working on creative projects. The right music helps me stay focused, relaxed, and productive. Different genres bring different moods — sometimes energizing me during intense work sessions and other times helping me unwind and think more creatively.",
