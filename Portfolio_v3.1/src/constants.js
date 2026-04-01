@@ -226,6 +226,7 @@ export const skills = [
 
   { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933" },
   { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248" },
+  { name: "Postman", icon: "https://cdn.simpleicons.org/postman/FF6C37" },
 
   { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB" },
   { name: "C++", icon: "https://cdn.simpleicons.org/cplusplus/00599C" },

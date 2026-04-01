@@ -10,9 +10,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed bottom-0 w-full h-18 z-50 bg-transparent backdrop-blur-xl">
+    <nav className="fixed bottom-0 w-full h-18 z-50">
       <div
-        className="max-w-176 w-full mx-auto px-4 py-2 flex items-center justify-between border-2 border-zinc-400/40 rounded-full"
+        className="max-w-176 w-full mx-auto px-4 py-2 flex items-center justify-between border-2 border-zinc-400/40 rounded-full  bg-linear-to-r from-white/20 via-white/10 to-white/20 backdrop-blur-lg bg-blend-color-difference shadow-sm shadow-amber-500/20"
         // onClick={() => navigate("/")} BUBBLING ISSUE
       >
         {/* Logo */}
