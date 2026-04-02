@@ -9,6 +9,7 @@ import BackToTop from "../utilities/BackToTop";
 import Project from "../components/Project";
 import Interest from "../components/Interest";
 import Stats from "../components/Stats";
+import Contact from "../components/Contact";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Project />
       <Interest />
       <Stats />
+      <Contact />
 
       <div className="h-38"></div>
     </section>

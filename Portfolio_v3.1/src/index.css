@@ -162,6 +162,13 @@
     text-decoration-color: var(--accent-dark); /* Or any brand color */
   }
 }
+@utility form-input {
+  @apply w-full bg-transparent border-b border-slate-200 py-3 outline-none transition-all duration-300;
+
+  &:focus {
+    @apply border-amber-500 translate-x-1;
+  }
+}
 
 /* Normal css */
 html {

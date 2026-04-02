@@ -38,7 +38,7 @@ export default function Hero() {
             <p className="max-w-125 font-cabinet font-medium text-md md:text-lg leading-tight text-zinc-600/80">
               Electronics Engineer, now a{" "}
               <span className="underline decoration-amber-200 decoration-2 underline-offset-4">
-                Frontend Developer
+                self-taught Frontend Developer
               </span>{" "}
               dedicated to building{" "}
               <span className=" decoration-amber-200 decoration-2 underline-offset-4">

@@ -514,21 +514,21 @@ export const projects = [
 
 export const interest = [
   {
-    title: "Coding",
-    desc: "Coding is more than just writing lines of code for me — it’s a creative process where logic meets imagination. I enjoy building applications from scratch, experimenting with new technologies, and continuously improving my problem-solving skills. Whether it’s designing a smooth user interface, optimizing performance, or learning a new framework, I find joy in turning ideas into functional and elegant digital experiences.",
+    title: "Reading Books",
+    desc: "Reading is one of the ways I expand my perspective and keep my curiosity alive. I enjoy exploring motivational books that inspire growth, knowledge-driven books that help me understand new ideas, and biographies that offer insights into the journeys of remarkable people. I also love diving into horror stories for the thrill and imagination they bring. Each book gives me a different lens to see the world, fueling both my creativity and my mindset.",
   },
-  {
-    title: "Traveling",
-    desc: "Traveling allows me to step outside my routine and experience the world from different perspectives. Exploring new places, cultures, and environments fuels my creativity and curiosity. Every journey teaches me something new, whether it's understanding different ways of life or simply appreciating the beauty of unfamiliar landscapes.",
-  },
+  // {
+  //   title: "Traveling",
+  //   desc: "Traveling allows me to step outside my routine and experience the world from different perspectives. Exploring new places, cultures, and environments fuels my creativity and curiosity. Every journey teaches me something new, whether it's understanding different ways of life or simply appreciating the beauty of unfamiliar landscapes.",
+  // },
   {
     title: "Calisthenics",
     desc: "Calisthenics has become an important part of my daily life. Training with bodyweight exercises not only helps me stay physically fit but also builds discipline, patience, and mental resilience. Progress in calisthenics requires consistency and focus, and the process of gradually mastering new movements motivates me to push my limits and improve every day.",
   },
-  {
-    title: "Watching Movies",
-    desc: "Movies are a powerful form of storytelling that I deeply enjoy. From visually stunning cinematography to meaningful narratives, films inspire me in many ways. I appreciate how directors and creators bring emotions and ideas to life through visuals, music, and storytelling. Watching movies often sparks creativity and sometimes even influences how I think about design and user experiences.",
-  },
+  // {
+  //   title: "Watching Movies",
+  //   desc: "Movies are a powerful form of storytelling that I deeply enjoy. From visually stunning cinematography to meaningful narratives, films inspire me in many ways. I appreciate how directors and creators bring emotions and ideas to life through visuals, music, and storytelling. Watching movies often sparks creativity and sometimes even influences how I think about design and user experiences.",
+  // },
   {
     title: "Listening Music",
     desc: "Music plays a big role in my daily routine, especially while coding or working on creative projects. The right music helps me stay focused, relaxed, and productive. Different genres bring different moods — sometimes energizing me during intense work sessions and other times helping me unwind and think more creatively.",
