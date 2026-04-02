@@ -30,6 +30,7 @@ const Contact = () => {
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
       if (!serviceId || !templateId || !publicKey) {
+        setIsLoading(false);
         setSubmitStatus({
           type: "error",
           message:
@@ -70,7 +71,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="max-w-2xl mx-auto px-6 py-16">
+    <section className="max-w-2xl mx-auto px-6 pt-16 -pb-10">
       {/* 1. The Badge Heading */}
       <div className="flex items-center justify-center gap-2 mb-6">
         <div className="h-px flex-1 bg-linear-to-l from-gray-300/60 via-zinc-400/40 to-transparent"></div>
