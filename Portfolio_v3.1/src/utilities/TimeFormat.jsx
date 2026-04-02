@@ -13,20 +13,19 @@ const TimeFormat = () => {
         hour12: true,
       })
         .format(new Date())
-        .replace(/am| pm/, "");
+        .replace(/\s?(am|pm)/, "");
 
       setTime(kolkataTime);
     };
 
     updateTime();
-
     const interval = setInterval(updateTime, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <p className="font-cabinet font-semibold text-slate-800 text-2xl lg:flex-1 ml-24 lg:ml-20 tabular-nums">
+    <p className="font-cabinet font-semibold text-slate-800 text-xl sm:text-2xl tabular-nums">
       {time}
     </p>
   );
