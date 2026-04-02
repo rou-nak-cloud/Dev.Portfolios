@@ -39,10 +39,10 @@ const ContactLinks = () => {
               href={space.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-center md:justify-end gap-2 text-slate-600 hover:text-amber-700 transition-colors"
+              className="group flex items-center justify-center md:justify-end gap-2 text-slate-600 hover:text-amber-700 transition-colors cursor-alias"
             >
               <space.icon className="w-4 h-4" />
-              <span className="relative font-cabinet">
+              <span className="relative font-cabinet cursor-pointer">
                 {space.label}
                 <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
               </span>

@@ -10,6 +10,7 @@ import Project from "../components/Project";
 import Interest from "../components/Interest";
 import Stats from "../components/Stats";
 import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -24,8 +25,9 @@ export default function Home() {
       <Interest />
       <Stats />
       <Contact />
+      <Footer />
 
-      <div className="h-38"></div>
+      <div className="h-8"></div>
     </section>
   );
 }
