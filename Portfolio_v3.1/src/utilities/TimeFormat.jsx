@@ -1,0 +1,35 @@
+import { useEffect, useState } from "react";
+
+const TimeFormat = () => {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const kolkataTime = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        hour12: true,
+      })
+        .format(new Date())
+        .replace(/am| pm/, "");
+
+      setTime(kolkataTime);
+    };
+
+    updateTime();
+
+    const interval = setInterval(updateTime, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <p className="font-cabinet font-semibold text-slate-800 text-2xl lg:flex-1 ml-24 lg:ml-20 tabular-nums">
+      {time}
+    </p>
+  );
+};
+
+export default TimeFormat;

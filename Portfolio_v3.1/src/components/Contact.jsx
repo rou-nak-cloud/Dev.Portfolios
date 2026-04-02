@@ -1,5 +1,6 @@
 import React from "react";
 import { FaArrowRight, FaPaperPlane } from "react-icons/fa";
+import ContactLinks from "../utilities/ContactLinks";
 
 const Contact = () => {
   return (
@@ -87,6 +88,9 @@ const Contact = () => {
           </button>
         </div>
       </form>
+
+      {/* Contact Links */}
+      <ContactLinks />
     </section>
   );
 };
