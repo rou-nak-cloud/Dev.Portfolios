@@ -16,10 +16,14 @@ const ContactLinks = () => {
             <a
               key={idx}
               href={item.href}
-              className="flex items-center justify-center md:justify-start gap-2 text-slate-600 hover:text-amber-500 transition-colors"
+              className="group relative flex items-center justify-center md:justify-start gap-2 text-slate-600 hover:text-amber-700 transition-colors"
             >
               <item.icon className="w-4 h-4" />
-              <span className="font-cabinet">{item.label}</span>
+              <span className="relative font-cabinet">
+                {item.label}
+                {/* Underline */}
+                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+              </span>
             </a>
           ))}
         </div>
@@ -36,10 +40,14 @@ const ContactLinks = () => {
               href={space.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center md:justify-end gap-2 text-slate-600 hover:text-amber-500 transition-colors"
+              className="group relative flex items-center justify-center gap-2 text-slate-600 cursor-alias"
             >
               <space.icon className="w-4 h-4" />
-              <span className="font-cabinet text-right">{space.label}</span>
+              <span className="relative font-cabinet text-right cursor-pointer hover:text-amber-700 transition-colors">
+                {space.label}
+                {/* Underline */}
+                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+              </span>
             </a>
           ))}
         </div>
@@ -55,8 +63,13 @@ const ContactLinks = () => {
               const LocationIcon = contactInfo[2].icon;
               return <LocationIcon className="w-4 h-4" />;
             })()}
-            <span className="font-cabinet">{contactInfo[2].label}</span>
+            <span className="relative font-cabinet">
+              {contactInfo[2].label}
+              {/* Optional underline if you want on location too */}
+              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+            </span>
           </div>
+
           <div className="flex items-end gap-1">
             <TimeFormat />
             <span className="text-md font-cabinet text-slate-600 mb-1 ">

@@ -26,7 +26,7 @@ const TimeFormat = () => {
   }, []);
 
   return (
-    <p className="font-cabinet font-semibold text-slate-800 text-2xl flex-1 ml-20 tabular-nums">
+    <p className="font-cabinet font-semibold text-slate-800 text-2xl lg:flex-1 ml-24 lg:ml-20 tabular-nums">
       {time}
     </p>
   );
