@@ -258,7 +258,7 @@ export const interests = [
   },
 ];
 
-import { LuArrowUpRight } from "react-icons/lu";
+import { LuArrowUpRight, LuPhone } from "react-icons/lu";
 // import chatApp from "./projects/chat-app.png";
 import duoAtelier from "./assets/projects/duo-atelier.png";
 import editor from "./assets/projects/editor.png";
@@ -561,4 +561,35 @@ export const stats = [
     label: "Ranked 2nd in 3rd Year College Examination",
     desc: "Achieved the second position in my third-year university examinations, reflecting consistent dedication and a disciplined approach to learning.",
   },
+];
+import {
+  LuGithub,
+  LuLinkedin,
+  LuYoutube,
+  LuMapPin,
+  LuMail,
+} from "react-icons/lu";
+
+export const digitalSpaces = [
+  { label: "Github", icon: LuGithub, href: "https://github.com/rou-nak-cloud" },
+  {
+    label: "LinkedIn",
+    icon: LuLinkedin,
+    href: "https://www.linkedin.com/in/rounak-bakshi/",
+  },
+  { label: "YouTube", icon: LuYoutube, href: "#" },
+];
+
+export const contactInfo = [
+  {
+    label: "github.rounak.19@gmail.com",
+    icon: LuMail,
+    href: "mailto:github.rounak.19@gmail.com",
+  },
+  {
+    label: "+91 8509061321",
+    icon: LuPhone,
+    // href: "null",
+  },
+  { label: "Kolkata(WB), India", icon: LuMapPin, href: "#" },
 ];
