@@ -1,13 +1,80 @@
 import { Link } from "react-router-dom";
 import { aboutItems } from "../constants";
 import Button from "./Button";
+import { useRef } from "react";
+import gsap from "gsap";
+// import { useGsap } from "@gsap/react";
 
 export default function Hero() {
   // image avatar
-  const avatarUrl = "https://img.clerk.com/";
+  const avatarUrl = "../../public/profilePic.jpeg";
+
+  const ContainerHomeRef = useRef(null);
+
+  const HeadTextContainerRef = useRef(null);
+  const HeadTextRef = useRef(null);
+  const ParaTextRef = useRef(null);
+
+  // GSAP settings
+  // gsap.registerPlugin(useGsap);
+
+  // Head Text Gsap
+  const mouseMoving = (e) => {
+    const el = HeadTextRef.current;
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+
+    // center position
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    // distance from center
+    const x = e.clientX - centerX;
+    const y = e.clientY - centerY;
+
+    // normalize (so movement is smooth)
+    const rotateX = (-y / rect.height) * 20;
+    const rotateY = (x / rect.width) * 20;
+
+    // clamp values
+    const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
+
+    const finalX = clamp(rotateX, -22, 22);
+    const finalY = clamp(rotateY, -22, 22);
+
+    // el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    gsap.to(el, {
+      rotateX: finalX,
+      rotateY: finalY,
+      scale: 1.02,
+      duration: 1,
+      ease: "power2.out",
+      overwrite: "auto", // prevents stacking animations
+    });
+  };
+  const handleLeave = () => {
+    const el = HeadTextRef.current;
+    if (!el) return;
+
+    gsap.to(el, {
+      rotateX: 0,
+      rotateY: 0,
+      duration: 5,
+      ease: "power3.out",
+    });
+  };
+
+  // Para Text gsap
+
   return (
     <section
       id="home"
+      onMouseMove={(e) => {
+        mouseMoving(e);
+      }}
+      onMouseLeave={handleLeave}
+      ref={ContainerHomeRef}
       className="relative w-full overflow-hidden bg-white pt-14 md:pt-16 pb-12 md:pb-15"
     >
       {/* DOT PATTERN LAYER 
@@ -28,14 +95,23 @@ export default function Hero() {
       />
 
       {/* CONTENT LAYER */}
-      <div className="container relative z-10 md:mx-auto max-w-3xl px-6">
+      <div className="container relative z-10 md:mx-auto max-w-3xl px-6 perspective-[2000px]">
         <div className="flex md:items-center justify-between gap-8 flex-col-reverse md:flex-row items-start pb-10 md:pb-11">
           {/* Text Area */}
-          <div className="flex flex-col space-y-2 md:text-left">
-            <h1 className="text-5xl font-melodrama font-semibold tracking-tight md:tracking-[-.1rem] text-black max-sm:text-4xl md:text-[3.2rem]">
+          <div
+            ref={HeadTextContainerRef}
+            className=" flex flex-col space-y-2 md:text-left transform-3d"
+          >
+            <h1
+              ref={HeadTextRef}
+              className="text-5xl font-melodrama font-semibold tracking-tight md:tracking-[-.1rem] text-black max-sm:text-4xl md:text-[3.2rem] "
+            >
               Hi, I'm Rounak
             </h1>
-            <p className="max-w-125 font-cabinet font-medium text-md md:text-lg leading-tight text-zinc-600/80">
+            <p
+              ref={ParaTextRef}
+              className="max-w-125 font-cabinet font-medium text-md md:text-lg leading-tight text-zinc-600/80"
+            >
               Electronics Engineer, now a{" "}
               <span className="underline decoration-amber-200 decoration-2 underline-offset-4">
                 self-taught Frontend Developer
@@ -68,7 +144,7 @@ export default function Hero() {
 
           {/* Profile Image */}
           <div className="relative">
-            <div className="h-26 w-26 overflow-hidden rounded-full border border-zinc-300 shadow-lg md:h-36 md:w-36 -mt-5 md:-mt-10">
+            <div className="h-30 w-30 overflow-hidden rounded-full border border-zinc-400 shadow-2xl shadow-orange-500/50 md:h-42 md:w-42 -mt-5 md:-mt-10">
               <img
                 src={avatarUrl}
                 alt="Profile"
