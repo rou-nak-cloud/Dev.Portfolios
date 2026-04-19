@@ -39,7 +39,7 @@ export default function LearningJourney() {
           // clearProps: "all",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 85%",
+            start: "top 90%",
             toggleActions: "play none none reverse",
             // markers: true,
           },
