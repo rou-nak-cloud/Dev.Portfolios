@@ -3,20 +3,24 @@ import { aboutItems } from "../constants";
 import Button from "./Button";
 import { useRef } from "react";
 import gsap from "gsap";
-// import { useGsap } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
 
 export default function Hero() {
   // image avatar
   const avatarUrl = "../../public/profilePic.jpeg";
 
   const ContainerHomeRef = useRef(null);
-
   const HeadTextContainerRef = useRef(null);
   const HeadTextRef = useRef(null);
   const ParaTextRef = useRef(null);
+  const HomeButtonsRef = useRef(null);
+  const WorkRef = useRef(null);
+  const ButtonRef = useRef(null);
+  const ProfileRef = useRef(null);
 
   // GSAP settings
-  // gsap.registerPlugin(useGsap);
+  gsap.registerPlugin(useGSAP, SplitText);
 
   // Head Text Gsap
   const mouseMoving = (e) => {
@@ -64,8 +68,74 @@ export default function Hero() {
       ease: "power3.out",
     });
   };
+  useGSAP(() => {
+    gsap.from(HeadTextRef.current, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.1,
+    });
+  });
 
   // Para Text gsap
+  useGSAP(() => {
+    const splitPara = new SplitText(ParaTextRef.current, {
+      types: "lines",
+      linesClass: "overflow-hidden", // prevents text spill
+    });
+
+    gsap.from(splitPara.lines, {
+      yPercent: 100,
+      opacity: 0,
+      duration: 1.2,
+      filter: "blur(4px)",
+      stagger: {
+        each: 0.09,
+        ease: "power2.out",
+      },
+      ease: "power4.out",
+      delay: 0.1,
+    });
+
+    return () => {
+      splitPara.revert();
+    };
+  });
+
+  // Home buttons gsap
+  useGSAP(() => {
+    const tl = gsap.timeline({ delay: 0.3 });
+
+    tl.from(WorkRef.current, {
+      y: 30,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power3.out",
+      delay: 0.4,
+    }).from(
+      ButtonRef.current,
+      {
+        y: 30,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        delay: 0.2,
+      },
+      "-=0.4",
+    );
+  });
+
+  // Profile gsap
+  useGSAP(() => {
+    gsap.from(ProfileRef.current, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.5,
+    });
+  });
 
   return (
     <section
@@ -104,9 +174,9 @@ export default function Hero() {
           >
             <h1
               ref={HeadTextRef}
-              className="text-5xl font-melodrama font-semibold tracking-tight md:tracking-[-.1rem] text-black max-sm:text-4xl md:text-[3.2rem] "
+              className="text-5xl font-melodrama font-semibold tracking-tight md:tracking-[-.1rem] text-black max-sm:text-4xl md:text-[3.4rem] "
             >
-              Hi, I'm Rounak
+              Hi, I'm Rounak<span className="text-orange-600 text-3xl">®</span>
             </h1>
             <p
               ref={ParaTextRef}
@@ -131,19 +201,24 @@ export default function Hero() {
               .
             </p>
             {/* buttons */}
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6 pt-2 md:pt-2">
-              <div className="work">
+            <div
+              ref={HomeButtonsRef}
+              className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6 pt-2 md:pt-2"
+            >
+              <div ref={WorkRef} className="work">
                 <span className="relative w-2 h-2 px-5 py-1 text-sm md:text-md font-cabinet md:font-medium text-amber-950 rounded-full bg-emerald-500 backdrop-blur-md">
                   <span>Available for Work</span>
                   <span className="w-1 h-1 bg-emerald-300 rounded-full absolute left-0 top-2 ml-2 mt-0.5 animate-ping"></span>
                 </span>
               </div>
-              <Button />
+              <div ref={ButtonRef}>
+                <Button />
+              </div>
             </div>
           </div>
 
           {/* Profile Image */}
-          <div className="relative">
+          <div ref={ProfileRef} className="relative">
             <div className="h-30 w-30 overflow-hidden rounded-full border border-zinc-400 shadow-2xl shadow-orange-500/50 md:h-42 md:w-42 -mt-5 md:-mt-10">
               <img
                 src={avatarUrl}
