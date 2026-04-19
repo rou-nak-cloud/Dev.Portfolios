@@ -128,20 +128,12 @@ const learningItems = [
     date: "2025 – Present",
   },
   {
-    title: "Framer Motion",
-    subtitle: "UI Animations & Micro-interactions",
+    title: "GSAP + Framer Motion",
+    subtitle: "Advanced Web Animations & Interactions",
     description:
-      "Exploring modern animation systems including page transitions, layout animations, gesture animations, dragging elements and micro-interactions for polished UI. It's easy as compare to Gsap animations.",
-    icon: SiFramer,
+      "Exploring modern animation systems using GSAP and Framer Motion, including scroll-triggered animations, timeline-based choreography, page transitions, layout animations, gesture handling, and micro-interactions. Combining performance-driven control with ease of use to create polished and dynamic user experiences.",
+    icon: SiGreensock, // or create a custom combined icon if you want
     date: "2025 – Present",
-  },
-  {
-    title: "GSAP",
-    subtitle: "High-performance Web Animations",
-    description:
-      "Currently learning timeline based animations, scroll triggers, complex motion choreography and performance optimized animation systems. Gsap makes a site from zero to hero by it's animation and interaction systems.",
-    icon: SiGreensock,
-    date: "Ongoing",
   },
   {
     title: "Modern UI/UX & Figma",

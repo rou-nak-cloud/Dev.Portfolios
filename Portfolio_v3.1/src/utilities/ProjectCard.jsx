@@ -10,10 +10,10 @@ export default function ProjectCard() {
           href={project.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="group rounded-xl border border-zinc-400/30  overflow-hidden hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col cursor-pointer"
+          className="group rounded-xl border border-zinc-400/40  overflow-hidden hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col cursor-pointer"
         >
           {/* Project Image */}
-          <div className="relative h-48 w-full overflow-hidden bg-zinc-800">
+          <div className="relative h-54 w-full overflow-hidden bg-zinc-800">
             <img
               src={project.image}
               alt={project.title}
@@ -47,7 +47,10 @@ export default function ProjectCard() {
               <h3 className="text-xl leading-tight text-left font-cabinet font-bold text-slate-800 group-hover:text-amber-600 transition-colors">
                 {project.title}
               </h3>
-              <LuArrowUpRight className="text-slate-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <LuArrowUpRight
+                className="text-slate-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                size={23}
+              />
             </div>
 
             <p className="text-xs text-left text-zinc-500 font-medium mb-3">
@@ -59,11 +62,11 @@ export default function ProjectCard() {
             </p>
 
             {/* Tech Tags */}
-            <div className="flex flex-wrap gap-1">
+            <div className="flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[.7rem] font-cabinet font-semibold text-zinc-800 px-3 rounded-xl border border-zinc-400/60"
+                  className="text-[.7rem] font-cabinet font-semibold text-zinc-800 px-3 rounded-xl border border-orange-950/30 hover:-translate-y-0.5 hover:text-orange-600 transition-all duration-300"
                 >
                   {tag}
                 </span>
