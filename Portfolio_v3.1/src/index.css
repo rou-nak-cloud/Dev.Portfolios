@@ -28,31 +28,31 @@
 }
 
 /* Thin scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+html::-webkit-scrollbar {
+  width: 20px;
 }
 
 /* Track (background) */
-::-webkit-scrollbar-track {
-  background: transparent;
+html::-webkit-scrollbar-track {
+  background: #fff;
 }
 
 /* Thumb (the moving part) */
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.6); /* subtle */
+html::-webkit-scrollbar-thumb {
+  background: rgba(224, 114, 4, 0.889) !important; /* subtle */
   border-radius: 999px;
   transition: background 0.3s ease;
-  border: 2px solid transparent; /* creates gap */
+  border: 2px solid transparent;
   background-clip: content-box;
 }
-::-webkit-scrollbar-track {
-  background: transparent;
+html::-webkit-scrollbar-track {
+  background: #fff;
 }
 
 /* Hover effect */
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.8);
-  border: 2px solid transparent; /* creates gap */
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(216, 85, 3, 0.902) !important; /* darker */
+  border: 2px solid transparent;
   background-clip: content-box;
 }
 

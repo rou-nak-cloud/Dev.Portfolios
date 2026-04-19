@@ -17,24 +17,25 @@ export default function App() {
       lerp: 0.08,
     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    // function raf(time) {
+    //   lenis.raf(time);
+    //   requestAnimationFrame(raf);
+    // }
 
-    requestAnimationFrame(raf);
-
-    lenis.on("scroll", ScrollTrigger.update);
+    // requestAnimationFrame(raf);
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
+    lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      gsap.ticker.remove((time) => {
+        lenis.raf(time * 1000);
+      });
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
     };
   }, []);
 
