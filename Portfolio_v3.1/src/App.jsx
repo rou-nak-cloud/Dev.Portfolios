@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Cursor from "./utilities/Cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,6 +40,7 @@ export default function App() {
 
   return (
     <>
+      <Cursor />
       <Navbar />
       <main>
         <Outlet />

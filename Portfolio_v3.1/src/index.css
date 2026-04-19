@@ -197,6 +197,7 @@ html {
 }
 body {
   @apply h-[200vh];
+  /* cursor: none; */
 }
 .highlight-marker {
   position: relative;
