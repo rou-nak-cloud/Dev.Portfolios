@@ -4,9 +4,15 @@ export default function Marquee() {
   const duplicated = [...SKILLS, ...SKILLS];
 
   return (
-    <section className="max-w-3xl mx-auto px-2 py-3 mb-14 overflow-hidden space-y-5">
+    <section className="max-w-2xl mx-auto px-2 py-3 mb-14 overflow-hidden space-y-5 select-none">
       {/* ROW 1 → LEFT */}
-      <div className="overflow-hidden">
+      <div className="relative overflow-hidden">
+        {/* LEFT FADE */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-linear-to-r from-white to-transparent z-10" />
+
+        {/* RIGHT FADE */}
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-linear-to-l from-white to-transparent z-10" />
+
         <div className="flex gap-5 w-max marquee-left marquee-left">
           {duplicated.map((skill, index) => (
             <SkillCard key={index} skill={skill} variant="default" />
@@ -15,7 +21,13 @@ export default function Marquee() {
       </div>
 
       {/* ROW 2 → RIGHT (ORANGE) */}
-      <div className="overflow-hidden">
+      <div className="relative overflow-hidden">
+        {/* LEFT FADE */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-linear-to-r from-white to-transparent z-10" />
+
+        {/* RIGHT FADE */}
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-linear-to-l from-white to-transparent z-10" />
+
         <div className="flex gap-3 w-max marquee-right marquee-wave-right">
           {duplicated.map((skill, index) => (
             <SkillCard key={index} skill={skill} variant="highlight" />

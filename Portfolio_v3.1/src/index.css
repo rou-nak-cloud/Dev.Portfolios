@@ -243,7 +243,7 @@ body {
   animation: marqueeRight 35s linear infinite;
 }
 
-.marquee-left:hover,
+/* .marquee-left:hover, */
 .marquee-right:hover {
   animation-play-state: paused;
 }
