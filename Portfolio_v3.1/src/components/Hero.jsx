@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import BlogButton from "./BlogButton";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Hero() {
   // image avatar
@@ -180,16 +181,16 @@ export default function Hero() {
     gsap.from(split.words, {
       color: "#a1a1aa", // muted gray
       stagger: 0.03,
-      opacity: 0.4,
+      opacity: 0.8,
       ease: "none",
       duration: 1,
-      scrollTrigger: {
-        trigger: AboutParaRef.current,
-        start: "top 10%",
-        end: "top 30%",
-        scrub: 1.5,
-        markers: true,
-      },
+      // scrollTrigger: {
+      //   trigger: AboutParaRef.current,
+      //   start: "top 100%",
+      //   end: "top 20%",
+      //   scrub: 1.5,
+      //   // markers: true,
+      // },
     });
 
     return () => split.revert();
