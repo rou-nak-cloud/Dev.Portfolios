@@ -29,8 +29,8 @@ const ContactLinks = () => {
 
         {/* Digital Spaces */}
         <div className="space-y-3">
-          <h3 className="font-cabinet font-bold text-xl text-slate-900 md:text-left">
-            My Digital Spaces
+          <h3 className="font-cabinet font-bold text-xl text-slate-900 md:text-right">
+            My Spaces
           </h3>
 
           {digitalSpaces.map((space, idx) => (

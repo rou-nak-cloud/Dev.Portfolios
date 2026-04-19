@@ -114,60 +114,100 @@ const learningItems = [
   {
     title: "HTML, CSS & JavaScript",
     subtitle: "Core Web Fundamentals",
-    description:
-      "Developed a strong foundation in frontend development by mastering semantic HTML for structured and accessible markup, modern CSS techniques including Flexbox and Grid for responsive layouts, and Tailwind CSS for efficient, scalable UI design. Advanced into JavaScript fundamentals such as DOM manipulation, asynchronous programming, and ES6+ features to build dynamic and interactive web applications.",
+    content: {
+      leftTitle: "THE FOUNDATION",
+      leftText:
+        "Built a strong base in frontend development using semantic HTML, modern CSS (Flexbox, Grid), and JavaScript fundamentals. Focused on writing clean, accessible markup and responsive layouts while understanding how the browser works under the hood.",
+
+      rightTitle: "KEY HIGHLIGHTS",
+      points: [
+        "Semantic and accessible HTML structure",
+        "Responsive layouts using Flexbox & Grid",
+        "Tailwind CSS for scalable UI",
+        "DOM manipulation & events",
+        "Async JavaScript (Promises, Fetch, APIs)",
+      ],
+    },
     icon: FaCode,
     date: "2023 – Present",
   },
   {
-    title: "React & Advanced React Patterns",
+    title: "React & Advanced Patterns",
     subtitle: "Component Architecture",
-    description:
-      "Learning scalable component architecture, compound components, render props, custom hooks and state patterns used in production React applications.",
+    content: {
+      leftTitle: "THE APPROACH",
+      leftText:
+        "Focused on building scalable React applications using reusable component patterns and clean state management. Exploring modern practices that make apps maintainable and production-ready.",
+
+      rightTitle: "KEY HIGHLIGHTS",
+      points: [
+        "Reusable component architecture",
+        "Custom hooks & abstraction",
+        "State & prop management patterns",
+        "Performance optimization techniques",
+        "Clean and modular folder structure",
+      ],
+    },
     icon: FaReact,
     date: "2025 – Present",
   },
   {
-    title: "Framer Motion",
-    subtitle: "UI Animations & Micro-interactions",
-    description:
-      "Exploring modern animation systems including page transitions, layout animations, gesture animations, dragging elements and micro-interactions for polished UI. It's easy as compare to Gsap animations.",
-    icon: SiFramer,
+    title: "GSAP + Framer Motion",
+    subtitle: "Advanced Web Animations & Interactions",
+    content: {
+      leftTitle: "THE APPROACH",
+      leftText:
+        "Combining GSAP and Framer Motion to craft smooth, meaningful animations that enhance user experience. Focused on motion that feels natural, responsive, and purposeful rather than decorative.",
+
+      rightTitle: "KEY HIGHLIGHTS",
+      points: [
+        "Scroll-triggered animations",
+        "Timeline-based motion choreography",
+        "Page & layout transitions",
+        "Gesture-based interactions",
+        "Performance-focused animation design",
+      ],
+    },
+    icon: SiGreensock,
     date: "2025 – Present",
   },
   {
-    title: "GSAP",
-    subtitle: "High-performance Web Animations",
-    description:
-      "Currently learning timeline based animations, scroll triggers, complex motion choreography and performance optimized animation systems. Gsap makes a site from zero to hero by it's animation and interaction systems.",
-    icon: SiGreensock,
-    date: "Ongoing",
-  },
-  {
     title: "Modern UI/UX & Figma",
-    subtitle: "Interface Design, Prototyping & Interaction Systems",
-    description:
-      "Developing modern user interface and user experience design skills by focusing on minimal, aesthetic, and highly usable interfaces. Practicing typography hierarchy, spacing systems, and layout balance to create visually clear and intuitive designs. Using Figma for UI ideation, component systems, auto-layout, and responsive prototyping before development. This workflow helps translate design concepts into structured frontend implementations while leveraging modern component libraries such as Shadcn UI and DaisyUI to accelerate development and maintain consistent design systems. Also exploring subtle micro-interactions and interaction patterns that enhance usability and create engaging user experiences.",
+    subtitle: "Design Systems & Interaction",
+    content: {
+      leftTitle: "THE PROCESS",
+      leftText:
+        "Designing clean, minimal, and user-focused interfaces using proper spacing, typography, and layout systems. Using Figma to prototype and translate ideas into structured frontend implementations.",
+
+      rightTitle: "KEY HIGHLIGHTS",
+      points: [
+        "Typography & spacing systems",
+        "Component-based design in Figma",
+        "Auto-layout & responsive design",
+        "Design-to-code workflow",
+        "Micro-interactions for better UX",
+      ],
+    },
     icon: MdDesignServices,
     date: "Ongoing",
   },
-  // {
-  //   title: "Modern UI / UX",
-  //   subtitle: "Minimal Interfaces & Interaction Design",
-  //   description:
-  //     "Exploring modern UI design focused on minimal, aesthetic interfaces and refined interaction patterns. Practicing typography hierarchy, layout balance, and subtle micro-interactions to create clean, intuitive, and visually engaging web experiences with the help of daisy ui or shadcn ui components to save time and effort.",
-  //   icon: MdDesignServices,
-  //   date: "Ongoing",
-  // },
-  // {
-  //   title: "Figma",
-  //   subtitle: "UI Design & Prototyping",
-  //   description:
-  //     "Learning to design modern user interfaces using Figma. Practicing layout systems, design components, auto-layout, and responsive design principles while creating clean UI prototypes before development. This helps translate design ideas into structured and scalable frontend implementations.",
-  //   icon: SiFigma,
-  //   date: "Ongoing",
-  // },
 ];
+// {
+//   title: "Modern UI / UX",
+//   subtitle: "Minimal Interfaces & Interaction Design",
+//   description:
+//     "Exploring modern UI design focused on minimal, aesthetic interfaces and refined interaction patterns. Practicing typography hierarchy, layout balance, and subtle micro-interactions to create clean, intuitive, and visually engaging web experiences with the help of daisy ui or shadcn ui components to save time and effort.",
+//   icon: MdDesignServices,
+//   date: "Ongoing",
+// },
+// {
+//   title: "Figma",
+//   subtitle: "UI Design & Prototyping",
+//   description:
+//     "Learning to design modern user interfaces using Figma. Practicing layout systems, design components, auto-layout, and responsive design principles while creating clean UI prototypes before development. This helps translate design ideas into structured and scalable frontend implementations.",
+//   icon: SiFigma,
+//   date: "Ongoing",
+// },
 export { navList, desktopNavList, aboutItems, learningItems };
 
 export const educations = [
