@@ -5,6 +5,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
+import BlogButton from "./BlogButton";
 
 export default function Hero() {
   // image avatar
@@ -17,7 +18,11 @@ export default function Hero() {
   const HomeButtonsRef = useRef(null);
   const WorkRef = useRef(null);
   const ButtonRef = useRef(null);
+  const BlogButtonRef = useRef(null);
   const ProfileRef = useRef(null);
+
+  const AboutRef = useRef(null);
+  const AboutParaRef = useRef(null);
 
   // GSAP settings
   gsap.registerPlugin(useGSAP, SplitText);
@@ -113,17 +118,29 @@ export default function Hero() {
       duration: 0.9,
       ease: "power3.out",
       delay: 0.4,
-    }).from(
-      ButtonRef.current,
-      {
-        y: 30,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        delay: 0.2,
-      },
-      "-=0.4",
-    );
+    })
+      .from(
+        ButtonRef.current,
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          delay: 0.2,
+        },
+        "-=0.9",
+      )
+      .from(
+        BlogButtonRef.current,
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          delay: 0.2,
+        },
+        "-=1",
+      );
   });
 
   // Profile gsap
@@ -135,6 +152,47 @@ export default function Hero() {
       ease: "power3.out",
       delay: 0.5,
     });
+  });
+
+  // AboutPara Gsap
+  useGSAP(() => {
+    const split = new SplitText(AboutParaRef.current, {
+      type: "lines,words",
+      linesClass: "overflow-hidden",
+      tag: "span", // ignore for spans for the underline to show
+    });
+
+    //LINE REVEAL (entry)
+    // gsap.from(split.lines, {
+    //   yPercent: 100,
+    //   opacity: 0,
+    //   stagger: 0.12,
+    //   ease: "power3.out",
+    //   scrollTrigger: {
+    //     trigger: AboutParaRef.current,
+    //     start: "top 85%",
+    //     end: "top 55%",
+    //     scrub: 1,
+    //   },
+    // });
+
+    // WORD COLOR FADE (scrub effect)
+    gsap.from(split.words, {
+      color: "#a1a1aa", // muted gray
+      stagger: 0.03,
+      opacity: 0.4,
+      ease: "none",
+      duration: 1,
+      scrollTrigger: {
+        trigger: AboutParaRef.current,
+        start: "top 10%",
+        end: "top 30%",
+        scrub: 1.5,
+        markers: true,
+      },
+    });
+
+    return () => split.revert();
   });
 
   return (
@@ -214,6 +272,9 @@ export default function Hero() {
               <div ref={ButtonRef}>
                 <Button />
               </div>
+              <div ref={BlogButtonRef}>
+                <BlogButton />
+              </div>
             </div>
           </div>
 
@@ -230,15 +291,18 @@ export default function Hero() {
         </div>
 
         {/* About section */}
-        <div>
-          <h2 className="text-2xl font-cabinet font-bold text-slate-900 mb-3">
+        <div ref={AboutRef}>
+          <h2 className="text-2xl font-cabinet font-bold text-slate-900 mb-3 mt-4">
             About{" "}
             <span className="font-melodrama font-bold text-3xl md:text-[3.2xl] pl-2 tracking-wider highlight-marker">
               ME
             </span>
           </h2>
           {/* Body Content */}
-          <p className="max-w-3xl font-cabinet text-md md:text-lg leading-tighter tracking-normal text-zinc-700/90">
+          <p
+            ref={AboutParaRef}
+            className="max-w-3xl font-cabinet text-md md:text-lg leading-tighter tracking-normal text-zinc-800/90"
+          >
             Hi, I'm{" "}
             <span className="custom-underline font-melodrama font-bold tracking-wider text-xl text-slate-900">
               Rounak Bakshi
