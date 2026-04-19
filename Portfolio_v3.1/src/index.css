@@ -147,6 +147,24 @@
       transform: translateY(0px) scale(1);
     }
   }
+  /* marquee for skills */
+  @keyframes marqueeLeft {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marqueeRight {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
 }
 
 @utility custom-underline {
@@ -215,13 +233,21 @@ body {
 .group:hover .arrow-hover {
   animation: arrow-nudge 1s ease infinite;
 }
-.marquee {
-  animation: marquee 22s linear infinite;
+
+.marquee-left {
+  animation: marqueeLeft 40s infinite;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.marquee:hover {
+.marquee-right {
+  animation: marqueeRight 35s linear infinite;
+}
+
+.marquee-left:hover,
+.marquee-right:hover {
   animation-play-state: paused;
 }
+
 .fade-slide {
   animation: fadeSlide 0.6s ease-out forwards;
 }
