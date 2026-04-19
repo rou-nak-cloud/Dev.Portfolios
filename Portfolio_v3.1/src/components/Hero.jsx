@@ -1,13 +1,208 @@
 import { Link } from "react-router-dom";
 import { aboutItems } from "../constants";
 import Button from "./Button";
+import { useRef } from "react";
+import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
+import BlogButton from "./BlogButton";
 
 export default function Hero() {
   // image avatar
-  const avatarUrl = "https://img.clerk.com/";
+  const avatarUrl = "../../public/profilePic.jpeg";
+
+  const ContainerHomeRef = useRef(null);
+  const HeadTextContainerRef = useRef(null);
+  const HeadTextRef = useRef(null);
+  const ParaTextRef = useRef(null);
+  const HomeButtonsRef = useRef(null);
+  const WorkRef = useRef(null);
+  const ButtonRef = useRef(null);
+  const BlogButtonRef = useRef(null);
+  const ProfileRef = useRef(null);
+
+  const AboutRef = useRef(null);
+  const AboutParaRef = useRef(null);
+
+  // GSAP settings
+  gsap.registerPlugin(useGSAP, SplitText);
+
+  // Head Text Gsap
+  const mouseMoving = (e) => {
+    const el = HeadTextRef.current;
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+
+    // center position
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    // distance from center
+    const x = e.clientX - centerX;
+    const y = e.clientY - centerY;
+
+    // normalize (so movement is smooth)
+    const rotateX = (-y / rect.height) * 20;
+    const rotateY = (x / rect.width) * 20;
+
+    // clamp values
+    const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
+
+    const finalX = clamp(rotateX, -22, 22);
+    const finalY = clamp(rotateY, -22, 22);
+
+    // el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    gsap.to(el, {
+      rotateX: finalX,
+      rotateY: finalY,
+      scale: 1.02,
+      duration: 1,
+      ease: "power2.out",
+      overwrite: "auto", // prevents stacking animations
+    });
+  };
+  const handleLeave = () => {
+    const el = HeadTextRef.current;
+    if (!el) return;
+
+    gsap.to(el, {
+      rotateX: 0,
+      rotateY: 0,
+      duration: 5,
+      ease: "power3.out",
+    });
+  };
+  useGSAP(() => {
+    gsap.from(HeadTextRef.current, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.1,
+    });
+  });
+
+  // Para Text gsap
+  useGSAP(() => {
+    const splitPara = new SplitText(ParaTextRef.current, {
+      types: "lines",
+      linesClass: "overflow-hidden", // prevents text spill
+    });
+
+    gsap.from(splitPara.lines, {
+      yPercent: 100,
+      opacity: 0,
+      duration: 1.2,
+      filter: "blur(4px)",
+      stagger: {
+        each: 0.09,
+        ease: "power2.out",
+      },
+      ease: "power4.out",
+      delay: 0.1,
+    });
+
+    return () => {
+      splitPara.revert();
+    };
+  });
+
+  // Home buttons gsap
+  useGSAP(() => {
+    const tl = gsap.timeline({ delay: 0.3 });
+
+    tl.from(WorkRef.current, {
+      y: 30,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power3.out",
+      delay: 0.4,
+    })
+      .from(
+        ButtonRef.current,
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          delay: 0.2,
+        },
+        "-=0.9",
+      )
+      .from(
+        BlogButtonRef.current,
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          delay: 0.2,
+        },
+        "-=1",
+      );
+  });
+
+  // Profile gsap
+  useGSAP(() => {
+    gsap.from(ProfileRef.current, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.5,
+    });
+  });
+
+  // AboutPara Gsap
+  useGSAP(() => {
+    const split = new SplitText(AboutParaRef.current, {
+      type: "lines,words",
+      linesClass: "overflow-hidden",
+      tag: "span", // ignore for spans for the underline to show
+    });
+
+    //LINE REVEAL (entry)
+    // gsap.from(split.lines, {
+    //   yPercent: 100,
+    //   opacity: 0,
+    //   stagger: 0.12,
+    //   ease: "power3.out",
+    //   scrollTrigger: {
+    //     trigger: AboutParaRef.current,
+    //     start: "top 85%",
+    //     end: "top 55%",
+    //     scrub: 1,
+    //   },
+    // });
+
+    // WORD COLOR FADE (scrub effect)
+    gsap.from(split.words, {
+      color: "#a1a1aa", // muted gray
+      stagger: 0.03,
+      opacity: 0.4,
+      ease: "none",
+      duration: 1,
+      scrollTrigger: {
+        trigger: AboutParaRef.current,
+        start: "top 10%",
+        end: "top 30%",
+        scrub: 1.5,
+        markers: true,
+      },
+    });
+
+    return () => split.revert();
+  });
+
   return (
     <section
       id="home"
+      onMouseMove={(e) => {
+        mouseMoving(e);
+      }}
+      onMouseLeave={handleLeave}
+      ref={ContainerHomeRef}
       className="relative w-full overflow-hidden bg-white pt-14 md:pt-16 pb-12 md:pb-15"
     >
       {/* DOT PATTERN LAYER 
@@ -28,14 +223,23 @@ export default function Hero() {
       />
 
       {/* CONTENT LAYER */}
-      <div className="container relative z-10 md:mx-auto max-w-3xl px-6">
+      <div className="container relative z-10 md:mx-auto max-w-3xl px-6 perspective-[2000px]">
         <div className="flex md:items-center justify-between gap-8 flex-col-reverse md:flex-row items-start pb-10 md:pb-11">
           {/* Text Area */}
-          <div className="flex flex-col space-y-2 md:text-left">
-            <h1 className="text-5xl font-melodrama font-semibold tracking-tight md:tracking-[-.1rem] text-black max-sm:text-4xl md:text-[3.2rem]">
-              Hi, I'm Rounak
+          <div
+            ref={HeadTextContainerRef}
+            className=" flex flex-col space-y-2 md:text-left transform-3d"
+          >
+            <h1
+              ref={HeadTextRef}
+              className="text-5xl font-melodrama font-semibold tracking-tight md:tracking-[-.1rem] text-black max-sm:text-4xl md:text-[3.4rem] "
+            >
+              Hi, I'm Rounak<span className="text-orange-600 text-3xl">®</span>
             </h1>
-            <p className="max-w-125 font-cabinet font-medium text-md md:text-lg leading-tight text-zinc-600/80">
+            <p
+              ref={ParaTextRef}
+              className="max-w-125 font-cabinet font-medium text-md md:text-lg leading-tight text-zinc-600/80"
+            >
               Electronics Engineer, now a{" "}
               <span className="underline decoration-amber-200 decoration-2 underline-offset-4">
                 self-taught Frontend Developer
@@ -55,20 +259,28 @@ export default function Hero() {
               .
             </p>
             {/* buttons */}
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6 pt-2 md:pt-2">
-              <div className="work">
+            <div
+              ref={HomeButtonsRef}
+              className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6 pt-2 md:pt-2"
+            >
+              <div ref={WorkRef} className="work">
                 <span className="relative w-2 h-2 px-5 py-1 text-sm md:text-md font-cabinet md:font-medium text-amber-950 rounded-full bg-emerald-500 backdrop-blur-md">
                   <span>Available for Work</span>
                   <span className="w-1 h-1 bg-emerald-300 rounded-full absolute left-0 top-2 ml-2 mt-0.5 animate-ping"></span>
                 </span>
               </div>
-              <Button />
+              <div ref={ButtonRef}>
+                <Button />
+              </div>
+              <div ref={BlogButtonRef}>
+                <BlogButton />
+              </div>
             </div>
           </div>
 
           {/* Profile Image */}
-          <div className="relative">
-            <div className="h-26 w-26 overflow-hidden rounded-full border border-zinc-300 shadow-lg md:h-36 md:w-36 -mt-5 md:-mt-10">
+          <div ref={ProfileRef} className="relative">
+            <div className="h-30 w-30 overflow-hidden rounded-full border border-zinc-400 shadow-2xl shadow-orange-500/50 md:h-42 md:w-42 -mt-5 md:-mt-10">
               <img
                 src={avatarUrl}
                 alt="Profile"
@@ -79,15 +291,18 @@ export default function Hero() {
         </div>
 
         {/* About section */}
-        <div>
-          <h2 className="text-2xl font-cabinet font-bold text-slate-900 mb-3">
+        <div ref={AboutRef}>
+          <h2 className="text-2xl font-cabinet font-bold text-slate-900 mb-3 mt-4">
             About{" "}
             <span className="font-melodrama font-bold text-3xl md:text-[3.2xl] pl-2 tracking-wider highlight-marker">
               ME
             </span>
           </h2>
           {/* Body Content */}
-          <p className="max-w-3xl font-cabinet text-md md:text-lg leading-tighter tracking-normal text-zinc-700/90">
+          <p
+            ref={AboutParaRef}
+            className="max-w-3xl font-cabinet text-md md:text-lg leading-tighter tracking-normal text-zinc-800/90"
+          >
             Hi, I'm{" "}
             <span className="custom-underline font-melodrama font-bold tracking-wider text-xl text-slate-900">
               Rounak Bakshi

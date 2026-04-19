@@ -147,6 +147,24 @@
       transform: translateY(0px) scale(1);
     }
   }
+  /* marquee for skills */
+  @keyframes marqueeLeft {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marqueeRight {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
 }
 
 @utility custom-underline {
@@ -156,6 +174,9 @@
   text-underline-offset: 4px;
   text-decoration-thickness: 1.5px;
   /* cursor: pointer; */
+  position: relative;
+  display: inline-block;
+  z-index: 1;
   transition: text-decoration-color 0.2s;
 
   &:hover {
@@ -190,12 +211,23 @@ body {
   right: -2px;
   bottom: 2px;
   height: 1em;
-  background: rgba(251, 191, 36, 0.5); /* amber highlighter */
+  background: rgba(251, 191, 36, 0.5);
   transform: rotate(-4deg) skewX(-8deg);
+  transform-origin: left;
   z-index: -1;
   border-radius: 4px;
 
   animation: highlightSwipe 2s ease-in-out forwards;
+}
+
+/* 3D container (parent) */
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+/* perspective helper (optional) */
+.perspective {
+  perspective: 700px;
 }
 
 /* animations */
@@ -215,13 +247,21 @@ body {
 .group:hover .arrow-hover {
   animation: arrow-nudge 1s ease infinite;
 }
-.marquee {
-  animation: marquee 22s linear infinite;
+
+.marquee-left {
+  animation: marqueeLeft 40s infinite;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.marquee:hover {
+.marquee-right {
+  animation: marqueeRight 35s linear infinite;
+}
+
+/* .marquee-left:hover, */
+.marquee-right:hover {
   animation-play-state: paused;
 }
+
 .fade-slide {
   animation: fadeSlide 0.6s ease-out forwards;
 }
