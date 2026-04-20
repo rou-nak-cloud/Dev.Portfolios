@@ -17,13 +17,6 @@ export default function App() {
       lerp: 0.08,
     });
 
-    // function raf(time) {
-    //   lenis.raf(time);
-    //   requestAnimationFrame(raf);
-    // }
-
-    // requestAnimationFrame(raf);
-
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
