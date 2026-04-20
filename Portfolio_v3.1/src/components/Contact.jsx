@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FaArrowRight, FaCheckCircle, FaPaperPlane } from "react-icons/fa";
 import { IoMdAlert } from "react-icons/io";
 import ContactLinks from "../utilities/ContactLinks";
 import emailjs from "@emailjs/browser";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Contact = () => {
+  const containerRef = useRef(null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,18 +19,38 @@ const Contact = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({
-    type: null, //'success' or 'error'
+    type: null,
     message: "",
   });
 
+  // GSAP PREMIUM ENTRANCE
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 65%", // Starts when 85% of the section is visible
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      tl.from(".contact-reveal", {
+        y: 80,
+        opacity: 0,
+        duration: 1.2,
+        ease: "expo.out",
+        stagger: 0.25,
+        clearProps: "all",
+      });
+    },
+    { scope: containerRef },
+  );
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
     setIsLoading(true);
-    setSubmitStatus({
-      type: null,
-      message: "",
-    });
+    setSubmitStatus({ type: null, message: "" });
+
     try {
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -33,11 +60,11 @@ const Contact = () => {
         setIsLoading(false);
         setSubmitStatus({
           type: "error",
-          message:
-            "Email service is not configured properly. Please try again later.",
+          message: "Email service is not configured properly.",
         });
         return;
       }
+
       await emailjs.send(
         serviceId,
         templateId,
@@ -48,22 +75,17 @@ const Contact = () => {
         },
         publicKey,
       );
+
       setSubmitStatus({
         type: "success",
         message: "Message sent successfully!",
       });
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Email sending error:", error);
       setSubmitStatus({
         type: "error",
-        message:
-          error.text ||
-          "An error occurred while sending the message. Please try again later.",
+        message: error.text || "An error occurred. Please try again later.",
       });
     } finally {
       setIsLoading(false);
@@ -71,20 +93,18 @@ const Contact = () => {
   };
 
   return (
-    <section className="max-w-2xl mx-auto px-6 pt-16 -pb-10">
-      {/* 1. The Badge Heading */}
-      <div className="flex items-center justify-center gap-2 mb-6">
+    <section ref={containerRef} className="max-w-2xl mx-auto px-6 pt-16 -pb-10">
+      {/* 1. Badge (contact-reveal) */}
+      <div className="contact-reveal flex items-center justify-center gap-2 mb-6">
         <div className="h-px flex-1 bg-linear-to-l from-gray-300/60 via-zinc-400/40 to-transparent"></div>
-
         <span className="text-sm md:text-md font-cabinet font-semibold tracking-wider text-amber-100 border border-amber-900 bg-black px-4 py-1 rounded-full">
           Contact Me
         </span>
-
         <div className="h-px flex-1 bg-linear-to-r from-gray-300/60 via-zinc-400/40 to-transparent"></div>
       </div>
 
-      {/* 2. Intro Text */}
-      <div className="text-center mb-12">
+      {/* 2. Intro Text (contact-reveal) */}
+      <div className="contact-reveal text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-cabinet font-bold text-slate-900 mb-2 tracking-tight leading-tight">
           Have an awe
           <span className="font-melodrama font-bold text-amber-400 text-3xl md:text-4xl">
@@ -97,17 +117,14 @@ const Contact = () => {
           bring it to life.
         </h2>
         <p className="text-slate-500 font-cabinet">
-          I am looking for freelance opportunities or internships in startups
-          and agencies.
+          I am looking for freelance opportunities or internships.
         </p>
       </div>
 
-      {/* 3. The Form (Stacked Layout) */}
+      {/* 3. The Form */}
       <form onSubmit={handleSubmit} className="space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Name Field */}
+        <div className="contact-reveal grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="relative group">
-            {/* <label htmlFor="name">Name</label> */}
             <input
               type="text"
               required
@@ -116,11 +133,10 @@ const Contact = () => {
                 setFormData({ ...formData, name: e.target.value })
               }
               placeholder="Your name"
-              className="w-full bg-transparent border-b border-slate-200 py-3 outline-none focus:border-amber-500 transition-colors font-cabinet "
+              className="w-full bg-transparent border-b border-slate-200 py-3 outline-none focus:border-amber-500 transition-colors font-cabinet"
             />
           </div>
 
-          {/* Email Field */}
           <div className="relative group">
             <input
               type="email"
@@ -135,8 +151,8 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Message Field */}
-        <div className="relative group">
+        {/* Message Field (contact-reveal) */}
+        <div className="contact-reveal relative group">
           <textarea
             placeholder="Your message"
             value={formData.message}
@@ -148,46 +164,32 @@ const Contact = () => {
           ></textarea>
         </div>
 
-        {/* 4. Action Button (Using your Premium Glass Style) */}
-
-        <div className="flex flex-col items-center justify-center gap-4 pt-2">
+        {/* 4. Action Button (contact-reveal) */}
+        <div className="contact-reveal flex flex-col items-center justify-center gap-4 pt-2">
           <button
             type="submit"
             disabled={isLoading}
             className="group flex items-center gap-3 bg-black text-amber-100 px-8 py-2 rounded-full font-cabinet font-medium hover:bg-slate-800 active:scale-95 transition-all duration-500 shadow-md shadow-black/10 cursor-pointer"
           >
-            {isLoading ? (
-              <span className="transition-transform duration-300 group-hover:-translate-x-1">
-                Sending...
-              </span>
-            ) : (
-              <span className="transition-transform duration-300 group-hover:-translate-x-1">
-                Send Message
-              </span>
-            )}
-
-            {/* Icon container */}
+            <span>{isLoading ? "Sending..." : "Send Message"}</span>
             <span className="relative w-4 h-4 flex items-center justify-center">
-              {/* Send icon (default) */}
               <FaPaperPlane className="absolute transition-all duration-500 opacity-100 group-hover:opacity-0 group-hover:-translate-x-2" />
-
-              {/* Arrow icon (hover) */}
               <FaArrowRight className="absolute transition-all duration-500 opacity-0 translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-1" />
             </span>
           </button>
-          {/* Submit Status Check */}
+
           {submitStatus.type && (
             <div
               className={`flex items-center gap-3 p-4 rounded-xl transition-all duration-500 w-full max-w-md ${
                 submitStatus.type === "success"
-                  ? "bg-green-500/10 border border-green-500/20 text-green-600"
-                  : "bg-red-500/10 border border-red-500/20 text-red-600"
+                  ? "bg-green-500/10 border-green-500/20 text-green-600"
+                  : "bg-red-500/10 border-red-500/20 text-red-600"
               }`}
             >
               {submitStatus.type === "success" ? (
-                <FaCheckCircle className="w-5 h-5 shrink-0" />
+                <FaCheckCircle />
               ) : (
-                <IoMdAlert className="w-5 h-5 shrink-0" />
+                <IoMdAlert />
               )}
               <p className="text-sm font-medium">{submitStatus.message}</p>
             </div>
@@ -195,8 +197,10 @@ const Contact = () => {
         </div>
       </form>
 
-      {/* Contact Links */}
-      <ContactLinks />
+      {/* Links (contact-reveal) */}
+      <div className="contact-reveal mt-10">
+        <ContactLinks />
+      </div>
     </section>
   );
 };
