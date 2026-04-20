@@ -75,7 +75,7 @@ export default function Education() {
           {/*  Animated Line */}
           <div
             ref={lineRef}
-            className="absolute left-4 md:left-5 top-0 w-0.5 bg-orange-200/70"
+            className="absolute left-2.5 md:left-3 top-0 w-0.5 bg-orange-200/70"
             style={{ height: "100%" }}
           ></div>
 
@@ -89,7 +89,7 @@ export default function Education() {
                   className="flex gap-2 md:gap-3 items-start relative"
                 >
                   {/* Circle */}
-                  <div className="relative z-10 w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-amber-300/80 bg-white flex items-center justify-center shadow-sm">
+                  <div className="relative z-10 w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-amber-300/80 bg-white flex items-center justify-center shadow-sm">
                     <div className="w-1 h-1 md:w-1.5 md:h-1.5 bg-amber-600 rounded-full"></div>
                   </div>
 
