@@ -24,8 +24,7 @@ export default function Education() {
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 70%",
-            end: "bottom 80%",
+            start: "top 80%",
             scrub: true,
           },
         },
@@ -35,7 +34,7 @@ export default function Education() {
       gsap.fromTo(
         cards,
         {
-          y: 40,
+          y: 50,
           opacity: 0,
           scale: 0.98,
         },
@@ -43,13 +42,13 @@ export default function Education() {
           y: 0,
           opacity: 1,
           scale: 1,
-          duration: 0.4,
-          stagger: 0.3,
-          ease: "power2.out",
+          duration: 0.3,
+          stagger: 0.2,
+          ease: "expo.out",
           scrollTrigger: {
             trigger: containerRef.current,
-            start: "top 90%",
-            end: "top -50%",
+            start: "top 80%",
+            end: "top -30%",
             scrub: true,
             toggleActions: "play none none reverse",
           },
@@ -120,7 +119,7 @@ export default function Education() {
                     </div>
 
                     {/* Content */}
-                    <ul className="list-disc pl-4 text-sm md:text-md text-zinc-700 space-y-1">
+                    <ul className="list-disc pl-4 text-md md:text-lg tracking-tight leading-5.5 text-zinc-700 space-y-1">
                       {item.contents.map((content, i) => (
                         <li key={i}>{content}</li>
                       ))}

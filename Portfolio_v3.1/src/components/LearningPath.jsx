@@ -27,19 +27,20 @@ export default function LearningJourney() {
       gsap.fromTo(
         items,
         {
-          y: 60,
+          y: 50,
           opacity: 0,
         },
         {
           y: 0,
           opacity: 1,
-          duration: 0.5,
+          duration: 0.4,
           stagger: 0.2,
-          ease: "power3.out",
+          ease: "power2.out",
           // clearProps: "all",
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top 80%",
+            end: "top -20%",
             toggleActions: "play none none reverse",
             // markers: true,
           },
