@@ -18,16 +18,16 @@ export default function Skills() {
         gsap.fromTo(
           badge,
           {
-            y: gsap.utils.random(30, 80),
+            y: gsap.utils.random(20, 90),
             opacity: 0,
-            scale: 0.85,
+            scale: 0.9,
           },
           {
             y: 0,
             opacity: 1,
             scale: 1,
             duration: gsap.utils.random(0.5, 0.9),
-            delay: gsap.utils.random(0, 0.6),
+            delay: gsap.utils.random(0, 0.8),
             ease: "back.out(1.7)", //  premium pop feel
             scrollTrigger: {
               trigger: containerRef.current,

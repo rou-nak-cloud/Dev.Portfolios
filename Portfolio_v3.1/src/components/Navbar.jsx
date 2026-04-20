@@ -3,14 +3,47 @@ import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 import { RiMenu5Line } from "react-icons/ri";
 
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 // constants
 import { navList, desktopNavList } from "../constants";
 
 export default function Navbar() {
+  gsap.registerPlugin(useGSAP);
+
+  const navRef = useRef(null);
+  const navItemsRef = useRef([]);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(navRef.current, {
+        y: 80,
+        opacity: 0,
+        filter: "blur(5px)",
+        duration: 1,
+        delay: 0.7,
+        ease: "power3.out",
+      });
+      // Nav items stagger
+      gsap.from(navItemsRef.current, {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.08,
+        delay: 0.8, // after navbar animation
+        ease: "power2.out",
+        clearProps: "all", // prevent stuck styles
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <nav className="fixed bottom-0 w-full h-18 z-50">
+    <nav ref={navRef} className="fixed bottom-0 w-full h-18 z-50">
       <div
         className="max-w-176 w-full mx-auto px-4 py-2 flex items-center justify-between border-2 border-zinc-400/40 rounded-full  bg-linear-to-r from-white/20 via-white/10 to-white/20 backdrop-blur-lg bg-blend-color-difference shadow-sm shadow-amber-500/20"
         // onClick={() => navigate("/")} BUBBLING ISSUE
@@ -40,6 +73,7 @@ export default function Navbar() {
               return (
                 <li
                   key={index}
+                  ref={(el) => (navItemsRef.current[index] = el)}
                   className="rounded-xl hover:bg-amber-200/40 active:scale-95 transition-all duration-300"
                 >
                   {item.type === "internal" ? (
@@ -76,6 +110,7 @@ export default function Navbar() {
             return (
               <li
                 key={index}
+                ref={(el) => (navItemsRef.current[index] = el)}
                 className="rounded-xl px-2 py-1 transform transition-all duration-400 hover:-translate-y-1 hover:bg-(--button-hover) hover:shadow-md hover:shadow-amber-500/20 active:scale-95 cursor-pointer"
               >
                 {item.type === "route" ? (
