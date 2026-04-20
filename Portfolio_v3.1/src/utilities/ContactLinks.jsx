@@ -7,7 +7,7 @@ const ContactLinks = () => {
       {/* Responsive Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-center md:text-left">
         {/* Contact Details */}
-        <div className="space-y-3">
+        <div className="space-y-1">
           <h3 className="font-cabinet font-bold text-xl text-slate-900">
             Contact Details
           </h3>
@@ -16,7 +16,7 @@ const ContactLinks = () => {
             <a
               key={idx}
               href={item.href}
-              className="group flex items-center justify-center md:justify-start gap-2 text-slate-600 hover:text-amber-700 transition-colors"
+              className="group flex items-center justify-center md:justify-start gap-1 text-lg text-slate-900 hover:text-amber-700 transition-colors"
             >
               <item.icon className="w-4 h-4" />
               <span className="relative font-cabinet">
@@ -28,7 +28,7 @@ const ContactLinks = () => {
         </div>
 
         {/* Digital Spaces */}
-        <div className="space-y-3">
+        <div className="space-y-2">
           <h3 className="font-cabinet font-bold text-xl text-slate-900 md:text-right">
             My Spaces
           </h3>
@@ -51,7 +51,7 @@ const ContactLinks = () => {
         </div>
 
         {/* Location */}
-        <div className="space-y-3 md:col-span-2 lg:col-span-1">
+        <div className="space-y-1 md:col-span-2 lg:col-span-1">
           <h3 className="font-cabinet font-bold text-xl text-slate-900">
             Location
           </h3>
