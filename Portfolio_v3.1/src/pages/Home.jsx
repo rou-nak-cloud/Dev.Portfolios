@@ -11,6 +11,7 @@ import Interest from "../components/Interest";
 import Stats from "../components/Stats";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import TextMarquee from "../utilities/TextMarquee";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <LearningPath />
       <Education />
       <Skills />
+      <TextMarquee />
       <BackToTop />
       <Project />
       <Interest />
