@@ -299,3 +299,8 @@ body {
 .marquee-text span {
   transform: translateX(-12px);
 }
+
+/* for project card gsap animation */
+.project-card {
+  will-change: transform, opacity;
+}
