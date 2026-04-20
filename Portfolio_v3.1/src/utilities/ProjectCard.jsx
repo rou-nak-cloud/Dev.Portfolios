@@ -99,7 +99,7 @@ export default function ProjectCard() {
               {project.dates}
             </p>
 
-            <p className="text-sm text-left text-zinc-700 leading-tight mb-6 flex-1">
+            <p className="text-md leading-4 text-left text-zinc-800/80 mb-6 flex-1">
               {project.description}
             </p>
 
