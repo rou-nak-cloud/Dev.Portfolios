@@ -12,29 +12,30 @@ gsap.registerPlugin(ScrollTrigger);
 export default function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.4,
       smooth: true,
       lerp: 0.08,
     });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    // function raf(time) {
+    //   lenis.raf(time);
+    //   requestAnimationFrame(raf);
+    // }
 
-    requestAnimationFrame(raf);
-
-    lenis.on("scroll", ScrollTrigger.update);
+    // requestAnimationFrame(raf);
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
+    lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      gsap.ticker.remove((time) => {
+        lenis.raf(time * 1000);
+      });
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
     };
   }, []);
 
