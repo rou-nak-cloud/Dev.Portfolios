@@ -147,7 +147,9 @@ export default function LearningJourney() {
                     <ul className="space-y-2">
                       {item.content.points.map((point, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <span className="text-zinc-400 text-xs mt-1">★</span>
+                          <span className="text-purple-800/70 text-xs mt-1">
+                            ★
+                          </span>
                           <span>{point}</span>
                         </li>
                       ))}
