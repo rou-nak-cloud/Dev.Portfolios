@@ -181,7 +181,7 @@ export default function Hero() {
     gsap.from(split.words, {
       color: "#a1a1aa", // muted gray
       stagger: 0.03,
-      opacity: 0.6,
+      opacity: 0.4,
       ease: "none",
       duration: 1,
       // scrollTrigger: {

@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.4,
       smooth: true,
       lerp: 0.08,
     });
