@@ -46,10 +46,11 @@ export default function ProjectCard() {
       className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 px-1 md:px-5"
     >
       {PROJECTS.map((project, idx) => (
-        <a
+        <div
           key={idx}
-          href={project.href}
-          target="_blank"
+          // href={project.href}
+          // target="_blank"
+          onClick={() => window.open(project.href, "_blank")}
           rel="noopener noreferrer"
           className="project-card group rounded-xl border border-zinc-400/40 overflow-hidden hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col cursor-pointer"
         >
@@ -115,7 +116,7 @@ export default function ProjectCard() {
               ))}
             </div>
           </div>
-        </a>
+        </div>
       ))}
     </div>
   );
