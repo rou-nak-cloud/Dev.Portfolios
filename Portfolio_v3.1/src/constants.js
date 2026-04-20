@@ -275,26 +275,37 @@ export const skills = [
   { name: "GitHub", icon: "https://cdn.simpleicons.org/github/181717" },
 ];
 
+// constants/index.js or constants.js
 export const interests = [
   {
+    step: "01",
     title: "Coding",
-    desc: "Building applications, and exploring new technologies. I love turning ideas into reality through clean and efficient code.",
+    date: "Current Passion", // This can appear in the top-right metadata
+    desc: "Building applications and exploring new technologies. I love turning ideas into reality through clean and efficient code. My focus is on React and modern CSS frameworks.",
   },
+  // {
+  //   step: "02",
+  //   title: "Traveling",
+  //   date: "Soul Searching",
+  //   desc: "Exploring new places, experiencing different cultures, and meeting people from around the world keeps me inspired and open-minded about design and life.",
+  // },
   {
-    title: "Traveling",
-    desc: "Exploring new places, experiencing different cultures, and meeting people from around the world keeps me inspired and open-minded.",
-  },
-  {
+    step: "03",
     title: "Calisthenics",
-    desc: "Bodyweight training helps me stay fit, disciplined, and constantly challenge myself to grow stronger both physically and mentally.",
+    date: "Daily Discipline",
+    desc: "Bodyweight training helps me stay fit and disciplined. It challenges me to grow stronger both physically and mentally, much like solving a complex bug.",
   },
   {
-    title: "Watching Movies",
-    desc: "For me, movies are not just entertainment. Whether it’s a classic masterpiece or a motivating, I love the storytelling, the cinematography, and the reflection.",
+    step: "04",
+    title: "Watching YouTube",
+    date: "Digital Horizon",
+    desc: "Beyond just entertainment, YouTube is my personal university. I use it to master new development frameworks, stay updated on tech trends, and explore diverse perspectives—all while appreciating the high-quality storytelling and creative editing of modern content creators.",
   },
   {
+    step: "05",
     title: "Listening Music",
-    desc: "I love to hear music during coding, it keeps me focused and makes the process more enjoyable. Music keeps me focused while coding.",
+    date: "Deep Focus",
+    desc: "I love to hear music during coding; it keeps me focused and makes the creative process more enjoyable. It's the rhythm behind my development workflow.",
   },
 ];
 

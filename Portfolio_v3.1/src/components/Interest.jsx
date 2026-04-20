@@ -1,76 +1,114 @@
-import { interest } from "../constants";
+import { interests } from "../constants";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Interest() {
-  return (
-    <section className="max-w-2xl mx-auto px-4 sm:px-6 py-10 md:py-12">
-      {/* Badge */}
-      <div className="flex items-center justify-center gap-2 mb-6">
-        <div className="h-px flex-1 bg-linear-to-l from-gray-300/60 via-zinc-400/40 to-transparent"></div>
+  const containerRef = useRef(null);
+  const headerRef = useRef(null);
 
-        <span className="text-xs sm:text-sm md:text-md font-cabinet font-semibold tracking-wider text-amber-100 border border-amber-900 bg-black px-3 py-1 rounded-full">
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+  useGSAP(
+    () => {
+      gsap.from(headerRef.current, {
+        y: 80,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: 0.5,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 75%",
+          end: "bottom 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      const cards = gsap.utils.toArray(".interest-row");
+      gsap.from(cards, {
+        y: 60,
+        opacity: 0,
+        duration: 0.3,
+        ease: "expo.out",
+        stagger: 0.15,
+        clearProps: "all", // Clears GSAP styles after animation completes
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 95%",
+          end: "top -80%",
+          scrub: true,
+          // toggleActions: "play none none reverse",
+        },
+      });
+    },
+    { scope: containerRef },
+  );
+
+  return (
+    <section
+      ref={containerRef}
+      className="max-w-2xl mx-auto px-4 sm:px-6 py-16 md:py-20 font-cabinet"
+    >
+      {/* BADGE STYLE */}
+      <div
+        ref={headerRef}
+        className="flex items-center justify-center gap-2 mb-5"
+      >
+        <div className="h-px flex-1 bg-linear-to-l from-gray-400/60 via-zinc-400/40 to-transparent"></div>
+        <span className="text-xs font-semibold tracking-wider text-amber-100 border border-amber-900 bg-black px-3 py-1 rounded-full">
           Interests
         </span>
-
-        <div className="h-px flex-1 bg-linear-to-r from-gray-300/60 via-zinc-400/40 to-transparent"></div>
+        <div className="h-px flex-1 bg-linear-to-r from-gray-400/60 via-zinc-400/40 to-transparent"></div>
       </div>
 
       {/* Heading */}
-      <div className="pb-10 md:pb-14 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-cabinet font-bold text-slate-800 mb-3 md:mb-4 tracking-tight">
-          <span className="font-melodrama text-amber-500">B</span>
-          eyond the code
-          <span className="font-melodrama text-amber-500">.</span>
+      <div ref={headerRef} className="text-center mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
+          <span className="text-amber-500 font-melodrama">B</span>eyond the cod
+          <span className="text-amber-500 font-melodrama">e.</span>
         </h2>
-
-        <p className="text-sm sm:text-base md:text-lg font-cabinet text-zinc-600 leading-tight max-w-xl mx-auto">
-          A glimpse into the things that keep me inspired outside of
-          development. These interests help me stay curious, creative, and
-          balanced in life.
-        </p>
       </div>
 
-      {/* Timeline */}
-      <div className="relative">
-        {/* Vertical Line */}
-        <div className="absolute left-2 sm:left-3 top-0 h-full w-0.5 bg-linear-to-b from-transparent via-zinc-300 to-transparent"></div>
-
-        {interest.map((item, index) => (
+      <div className="space-y-1">
+        {interests.map((item, index) => (
           <div
             key={index}
-            className="relative pl-8 sm:pl-16 mb-6 sm:mb-8 group"
+            className="interest-row relative border-b border-zinc-200 py-6 group transition-all duration-500 hover:bg-orange-100/50 px-6 -mx-6 rounded-xl"
           >
-            {/* Timeline Dot */}
-            <span className="absolute left-0 sm:left-1 top-2 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border border-zinc-300 flex items-center justify-center shadow-sm">
-              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-500"></span>
-            </span>
+            {/* Top Metadata Style */}
+            <div className="flex items-center justify-between mb-6">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">
+                Topic // 0{index + 1}
+              </span>
+              <span className="text-[10px] text-zinc-400 uppercase tracking-widest font-medium">
+                {item.date || "2026"}
+              </span>
+            </div>
 
-            {/* Gradient Border Wrapper */}
-            <div className="relative group">
-              {/* Animated Gradient Border */}
-              <div
-                className="absolute inset-0 rounded-xl p-px
-                bg-linear-to-r from-amber-400/20 via-orange-300/60 to-amber-400/20
-                opacity-0 group-hover:opacity-100
-                transition-opacity duration-500"
-              ></div>
-
-              {/* Card */}
-              <div
-                className="relative bg-transparent border border-zinc-200/20 rounded-xl
-                p-4 sm:p-5
-                shadow-sm
-                group-hover:scale-[1.01]
-                group-hover:shadow-md
-                transition-all duration-300"
-              >
-                <h3 className="text-xl sm:text-2xl md:text-2xl text-center font-bold text-slate-800 font-melodrama mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+              {/* Title */}
+              <div className="md:col-span-5">
+                <h3 className="text-2xl md:text-4xl font-bold text-zinc-800 group-hover:text-amber-600 transition-colors duration-300">
                   {item.title}
                 </h3>
+              </div>
 
-                <p className="text-sm sm:text-base font-cabinet text-left md:text-center text-zinc-700 leading-tight">
+              {/* Description */}
+              <div className="md:col-span-7">
+                <p className="text-zinc-600 text-sm md:text-base leading-tight font-medium">
                   {item.desc}
                 </p>
               </div>
+            </div>
+
+            {/* The "Step" indicator - Bottom Left */}
+            <div className="mt-10 flex items-center gap-3">
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-400 group-hover:text-zinc-900 transition-colors">
+                Step 0{index + 1}
+              </span>
+              <div className="h-px w-8 bg-zinc-200 group-hover:w-15 group-hover:bg-amber-400 transition-all duration-500"></div>
             </div>
           </div>
         ))}

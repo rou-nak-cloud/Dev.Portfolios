@@ -278,7 +278,7 @@ body {
 }
 
 .marquee-text {
-  animation: textMarqueeLeft 35s linear infinite;
+  animation: textMarqueeLeft 25s linear infinite;
 }
 
 /* pause on hover (optional) */

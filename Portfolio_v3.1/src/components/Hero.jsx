@@ -213,7 +213,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 z-0 h-50 w-full dots-animated"
         style={{
-          backgroundImage: `radial-gradient(#000000 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(#fb923c 2px, transparent 1px)`,
           backgroundSize: "6px 6px",
           // This mask makes the dots visible at the top and disappear smoothly
           maskImage: "linear-gradient(to bottom, black 10%, transparent 90%)",
