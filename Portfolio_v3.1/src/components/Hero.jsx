@@ -44,8 +44,8 @@ export default function Hero() {
     const y = e.clientY - centerY;
 
     // normalize (so movement is smooth)
-    const rotateX = (-y / rect.height) * 20;
-    const rotateY = (x / rect.width) * 20;
+    const rotateX = (-y / rect.height) * 40;
+    const rotateY = (x / rect.width) * 40;
 
     // clamp values
     const clamp = (val, min, max) => Math.max(min, Math.min(max, val));
