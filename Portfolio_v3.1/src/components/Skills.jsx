@@ -36,7 +36,30 @@ export default function Skills() {
             },
           },
         );
+        //  HOVER EFFECT
+        badge.addEventListener("mouseenter", () => {
+          gsap.to(badge, {
+            y: -8,
+            scale: 1.05,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+
+        badge.addEventListener("mouseleave", () => {
+          gsap.to(badge, {
+            y: 0,
+            scale: 1,
+            duration: 0.4,
+            ease: "power3.out",
+          });
+        });
       });
+      return () => {
+        badges.forEach((badge) => {
+          badge.replaceWith(badge.cloneNode(true));
+        });
+      };
     }, containerRef);
 
     return () => ctx.revert();
