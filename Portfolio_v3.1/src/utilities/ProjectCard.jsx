@@ -50,6 +50,7 @@ export default function ProjectCard() {
           key={idx}
           href={project.href}
           target="_blank"
+          // onClick={() => window.open(project.href, "_blank")}
           rel="noopener noreferrer"
           className="project-card group rounded-xl border border-zinc-400/40 overflow-hidden hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col cursor-pointer"
         >
