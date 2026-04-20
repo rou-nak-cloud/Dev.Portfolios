@@ -34,7 +34,7 @@ html::-webkit-scrollbar {
 
 /* Track (background) */
 html::-webkit-scrollbar-track {
-  background: #fff;
+  background: transparent;
 }
 
 /* Thumb (the moving part) */
@@ -46,7 +46,7 @@ html::-webkit-scrollbar-thumb {
   background-clip: content-box;
 }
 html::-webkit-scrollbar-track {
-  background: #fff;
+  background: transparent;
 }
 
 /* Hover effect */
