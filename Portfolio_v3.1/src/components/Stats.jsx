@@ -1,10 +1,41 @@
 import { FaChevronLeft, FaChevronRight, FaQuoteLeft } from "react-icons/fa";
 import { stats } from "../constants";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Stats() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [direction, setDirection] = useState("next");
+
+  const containerRef = useRef(null);
+  const statTextRef = useRef(null);
+  const statHeadingRef = useRef(null);
+  const statCardRef = useRef(null);
+
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+  useGSAP(
+    () => {
+      gsap.from(
+        [statTextRef.current, statHeadingRef.current, statCardRef.current],
+        {
+          y: 60,
+          opacity: 0,
+          duration: 1.5,
+          ease: "expo.out",
+          stagger: 0.3,
+          clearProps: "all",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 75%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
+    },
+    { scope: containerRef },
+  );
 
   const nextStat = () => {
     setDirection("next");
@@ -18,9 +49,15 @@ export default function Stats() {
 
   return (
     <div>
-      <section className="max-w-2xl mx-auto px-4 md:px-6 py-6">
+      <section
+        ref={containerRef}
+        className="max-w-2xl mx-auto px-4 md:px-6 py-6"
+      >
         {/* Badge */}
-        <div className="flex items-center justify-center gap-2 mb-6">
+        <div
+          ref={statTextRef}
+          className="flex items-center justify-center gap-2 mb-6"
+        >
           <div className="h-px flex-1 bg-linear-to-l from-gray-300/60 via-zinc-400/40 to-transparent"></div>
 
           <span className="text-sm md:text-md font-cabinet font-semibold tracking-wider text-amber-100 border border-amber-900 bg-black px-4 py-1 rounded-full">
@@ -31,7 +68,7 @@ export default function Stats() {
         </div>
 
         {/* Heading */}
-        <div className="pb-14 text-center">
+        <div ref={statHeadingRef} className="pb-14 text-center">
           <h2 className="text-3xl md:text-4xl font-cabinet font-bold text-slate-800 mb-4 tracking-tight">
             <span className="font-melodrama text-amber-500">B</span>
             uilding with purpose
@@ -46,7 +83,7 @@ export default function Stats() {
         </div>
 
         {/* Animated Card */}
-        <div className="max-w-3xl mx-auto ">
+        <div ref={statCardRef} className="max-w-3xl mx-auto ">
           <div
             key={activeIdx}
             className="relative group transition-all duration-500 ease-in-out fade-slide"
