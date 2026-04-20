@@ -17,6 +17,9 @@ export default function App() {
       lerp: 0.08,
     });
 
+    //  ADD THIS LINE
+    window.lenis = lenis;
+
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });

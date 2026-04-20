@@ -24,7 +24,7 @@ export default function BackToTop() {
   return (
     <button
       onClick={scrollTop}
-      className="hidden md:flex fixed bottom-25 right-62 z-50
+      className="hidden md:flex fixed bottom-25 right-52 z-50
   w-10 h-10 rounded-full
   bg-amber-400 text-white
   items-center justify-center
