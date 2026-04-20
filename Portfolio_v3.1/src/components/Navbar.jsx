@@ -35,7 +35,7 @@ export default function Navbar() {
         stagger: 0.08,
         delay: 0.8, // after navbar animation
         ease: "power2.out",
-        clearProps: "all", // prevent stuck styles
+        clearProps: "all", // prevent stuck animations
       });
     });
 
@@ -151,6 +151,18 @@ export default function Navbar() {
           <span className="absolute inset-0 w-1/2 h-full translate-x-full bg-linear-to-r from-transparent via-white/70 to-transparent animate-shimmer"></span>
           <a
             href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+
+              const target = document.querySelector("#contact");
+              if (target && window.lenis) {
+                window.lenis.scrollTo(target, {
+                  offset: 0,
+                  duration: 1.6, // control speed (try 1.2–2)
+                  easing: (t) => 1 - Math.pow(1 - t, 6), // smooth easeOut
+                });
+              }
+            }}
             className="relative z-10 text-md md:text-lg font-melodrama font-bold"
           >
             Contact.
