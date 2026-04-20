@@ -75,8 +75,13 @@ export default function Interest() {
         {interests.map((item, index) => (
           <div
             key={index}
-            className="interest-row relative border-b border-zinc-200 py-6 group transition-all duration-500 hover:bg-orange-100/50 px-6 -mx-6 rounded-xl"
+            className="interest-row relative border border-zinc-200/50 py-8 px-6 -mx-4 mb-4 rounded-2xl 
+                     bg-white/40 backdrop-blur-lg shadow-sm transition-all duration-500 
+                     hover:bg-orange-100/60 hover:border-amber-200/50 hover:shadow-xl hover:shadow-amber-500/5 
+                     group overflow-hidden"
           >
+            {/* TOP DECORATION: Subtle Amber Gradient Glow */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-amber-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             {/* Top Metadata Style */}
             <div className="flex items-center justify-between mb-6">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600">
