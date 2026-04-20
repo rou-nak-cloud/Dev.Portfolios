@@ -10,6 +10,8 @@ import Cursor from "./utilities/Cursor";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
+  // const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.4,
@@ -37,14 +39,16 @@ export default function App() {
 
   return (
     <>
-      {/* {loading && <Loader onComplete={() => setLoading(false)} />} */}
-
       <Cursor />
-      <Navbar className="nav" />
 
-      <main>
-        <Outlet />
-      </main>
+      {/* IMPORTANT WRAPPER */}
+      <div className="pageLoader">
+        <Navbar className="nav" />
+
+        <main>
+          <Outlet />
+        </main>
+      </div>
     </>
   );
 }
