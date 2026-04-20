@@ -10,7 +10,7 @@ import gsap from "gsap";
 // constants
 import { navList, desktopNavList } from "../constants";
 
-export default function Navbar() {
+export default function Navbar({ className = "" }) {
   gsap.registerPlugin(useGSAP);
 
   const navRef = useRef(null);
@@ -43,7 +43,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav ref={navRef} className="fixed bottom-0 w-full h-18 z-50">
+    <nav
+      ref={navRef}
+      className={`fixed bottom-0 w-full h-18 z-50 ${className}`}
+    >
       <div
         className="max-w-176 w-full mx-auto px-4 py-2 flex items-center justify-between border-2 border-zinc-400/40 rounded-full  bg-linear-to-r from-white/20 via-white/10 to-white/20 backdrop-blur-lg bg-blend-color-difference shadow-sm shadow-amber-500/20"
         // onClick={() => navigate("/")} BUBBLING ISSUE
