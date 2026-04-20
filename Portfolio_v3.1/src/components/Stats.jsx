@@ -94,10 +94,10 @@ export default function Stats() {
             }}
           >
             {/* Gradient Border */}
-            <div className="absolute inset-0 rounded-2xl p-2 bg-linear-to-r from-amber-400/40 via-orange-500/50 to-amber-300/40"></div>
+            <div className="absolute inset-0 rounded-2xl p-2 bg-linear-to-r from-amber-500/40 via-orange-700/50 to-amber-400/40"></div>
 
             {/* Card */}
-            <div className="relative px-6 md:px-10 py-6 rounded-2xl bg-white/80 backdrop-blur border border-zinc-200/40 shadow-sm hover:shadow-lg transition-all duration-300">
+            <div className="relative px-6 md:px-10 py-6 rounded-2xl bg-white/80 backdrop-blur-xl border border-zinc-200/40 shadow-sm hover:shadow-lg transition-all duration-300">
               {/* Quote Icon */}
               <div className="absolute -top-5 left-5 w-10 h-10 rounded-full bg-amber-400/40 text-black flex items-center justify-center shadow-md">
                 <FaQuoteLeft className="w-4 h-4" />
