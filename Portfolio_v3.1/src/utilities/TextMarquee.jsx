@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function TextMarquee() {
-  const words = ["REACT", "GSAP", "DESIGN", "ANIMATION", "UI/UX", "FRONTEND"];
+  const words = ["REACTJS", "GSAP", "DESIGN", "ANIMATION", "UI/UX", "FRONTEND"];
 
   const repeated = [...words, ...words]; // duplicate for loop
 
