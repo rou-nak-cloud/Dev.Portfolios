@@ -70,73 +70,89 @@ export default function LearningJourney() {
         return (
           <div
             key={index}
-            className="learning-item border-b border-zinc-300/50 pb-2 font-cabinet rounded-xl transition-all duration-300"
+            className="learning-item group relative overflow-hidden border-b border-zinc-300/50 pb-2 font-cabinet rounded-xl transition-all duration-300"
           >
-            {/* HEADER */}
+            {/*  ORANGE HOVER FILL (TOP → BOTTOM) */}
             <div
-              onClick={() => toggleItem(index)}
-              className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 cursor-pointer group p-2 md:p-3 hover:bg-zinc-100/60 rounded-xl transition"
-            >
-              {/* LEFT */}
-              <div className="flex items-start sm:items-center gap-4">
-                <div className="w-9 h-9 rounded-full border flex items-center justify-center text-amber-500">
-                  <Icon />
+              className="
+                absolute inset-0 
+                bg-orange-200/30 
+                scale-y-0 origin-top 
+                transition-transform duration-500 ease-out 
+                group-hover:scale-y-100 
+                z-0 rounded-xl
+              "
+            ></div>
+
+            {/* CONTENT */}
+            <div className="relative z-10">
+              {/* HEADER */}
+              <div
+                onClick={() => toggleItem(index)}
+                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 cursor-pointer p-2 md:p-3 rounded-xl transition"
+              >
+                {/* LEFT */}
+                <div className="flex items-start sm:items-center gap-4">
+                  <div className="w-9 h-9 rounded-full border flex items-center justify-center text-amber-500">
+                    <Icon />
+                  </div>
+
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold flex items-center gap-2">
+                      {item.title}
+
+                      <span
+                        className={`transition-transform duration-300 ${
+                          isOpen ? "rotate-90" : ""
+                        }`}
+                      >
+                        <FaArrowRight
+                          size={10}
+                          className="text-zinc-400 group-hover:translate-x-1 transition"
+                        />
+                      </span>
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-zinc-500">
+                      {item.subtitle}
+                    </p>
+                  </div>
                 </div>
 
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold flex items-center gap-2">
-                    {item.title}
-
-                    <span
-                      className={`transition-transform duration-300 
-                      ${isOpen ? "rotate-90" : ""}`}
-                    >
-                      <FaArrowRight
-                        size={10}
-                        className="text-zinc-400 group-hover:translate-x-1 transition"
-                      />
-                    </span>
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-zinc-500">
-                    {item.subtitle}
-                  </p>
-                </div>
+                {/* DATE */}
+                <span className="text-xs sm:text-sm text-zinc-400">
+                  {item.date}
+                </span>
               </div>
 
-              {/* DATE */}
-              <span className="text-xs sm:text-sm text-zinc-400">
-                {item.date}
-              </span>
-            </div>
+              {/* DROPDOWN */}
+              <div
+                className={`transition-all duration-500 overflow-hidden
+                ${isOpen ? "max-h-125 opacity-100 mt-4" : "max-h-0 opacity-0"}`}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pl-0 sm:pl-16 font-cabinet text-sm text-zinc-700">
+                  {/* LEFT SIDE */}
+                  <div>
+                    <h4 className="text-xs tracking-widest text-orange-600 mb-2">
+                      {item.content.leftTitle}
+                    </h4>
+                    <p className="leading-relaxed">{item.content.leftText}</p>
+                  </div>
 
-            {/* DROPDOWN */}
-            <div
-              className={`transition-all duration-500 overflow-hidden
-              ${isOpen ? "max-h-125 opacity-100 mt-4" : "max-h-0 opacity-0"}`}
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pl-0 sm:pl-16 font-cabinet text-sm text-zinc-700">
-                {/* LEFT SIDE */}
-                <div>
-                  <h4 className="text-xs tracking-widest text-orange-600 mb-2">
-                    {item.content.leftTitle}
-                  </h4>
-                  <p className="leading-relaxed">{item.content.leftText}</p>
-                </div>
-
-                {/* RIGHT SIDE */}
-                <div>
-                  <h4 className="text-xs tracking-wider text-orange-600 mb-2">
-                    {item.content.rightTitle}
-                  </h4>
-                  <ul className="space-y-2">
-                    {item.content.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-zinc-400 text-xs mt-1">★</span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* RIGHT SIDE */}
+                  <div>
+                    <h4 className="text-xs tracking-wider text-orange-600 mb-2">
+                      {item.content.rightTitle}
+                    </h4>
+                    <ul className="space-y-2">
+                      {item.content.points.map((point, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-zinc-400 text-xs mt-1">★</span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
