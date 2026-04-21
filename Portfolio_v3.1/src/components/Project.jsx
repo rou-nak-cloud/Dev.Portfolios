@@ -37,7 +37,12 @@ export default function Project() {
       className="max-w-4xl mx-auto px-3 md:px-6 py-12 text-center"
     >
       {/*  Badge + SVG Line */}
-      <div className="project-reveal relative flex items-center justify-center mb-10">
+      <div className="project-reveal relative flex items-center justify-center mb-8">
+        <div className="pointer-events-none absolute left-40 top-0 h-full w-16 bg-linear-to-r from-white to-transparent z-10" />
+
+        {/* RIGHT FADE */}
+        <div className="pointer-events-none absolute right-40 top-0 h-full w-16 bg-linear-to-l from-white to-transparent z-10" />
+
         {/* SVG LINE (behind) */}
         <div className="absolute max-w-xl mx-auto flex items-center">
           <AnimatedLine />

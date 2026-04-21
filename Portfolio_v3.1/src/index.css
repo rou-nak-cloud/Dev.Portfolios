@@ -304,3 +304,19 @@ body {
 .project-card {
   will-change: transform, opacity;
 }
+
+/* for the noSplit text no hover animation*/
+.no-split span {
+  position: relative;
+  display: inline-block;
+}
+
+.no-split span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1.5px;
+  background: #f97316; /* orange */
+}
