@@ -44,19 +44,19 @@ export default function App() {
     <>
       <Cursor />
 
-      {/* ✅ LOADER */}
+      {/* LOADER */}
       {loading && (
         <Loader
           onComplete={() => {
             setLoading(false);
 
-            // ✅ START Lenis after loader
+            // START Lenis after loader
             if (window.lenis) window.lenis.start();
           }}
         />
       )}
 
-      {/* ✅ MAIN CONTENT */}
+      {/* MAIN CONTENT */}
       {!loading && (
         <>
           <Navbar className="nav" />

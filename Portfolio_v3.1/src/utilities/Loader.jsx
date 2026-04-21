@@ -5,7 +5,7 @@ export default function Loader({ onComplete }) {
   const [counter, setCounter] = useState(0);
   const barRef = useRef(null);
 
-  // ✅ LOCK SCROLL DURING LOADER
+  //  LOCK SCROLL DURING LOADER
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
@@ -14,7 +14,7 @@ export default function Loader({ onComplete }) {
     };
   }, []);
 
-  // ✅ REVEAL ANIMATION
+  //  REVEAL ANIMATION
   const reveal = () => {
     const tl = gsap.timeline({
       onComplete: onComplete,
@@ -32,7 +32,7 @@ export default function Loader({ onComplete }) {
       .to(".loader-text", {
         display: "none",
       })
-      // ✅ FIXED (no width overflow)
+      //  FIXED (no width overflow)
       .to(".loader-content", {
         scaleX: 1,
         duration: 0.8,
@@ -41,13 +41,13 @@ export default function Loader({ onComplete }) {
       .to(".reveal-line", {
         opacity: 1,
         y: 0,
-        stagger: 0.15,
-        duration: 0.6,
+        stagger: 0.25,
+        duration: 0.8,
         ease: "power3.out",
       });
   };
 
-  // ✅ COUNTER
+  // COUNTER
   useEffect(() => {
     const interval = setInterval(() => {
       setCounter((prev) => {
@@ -62,7 +62,7 @@ export default function Loader({ onComplete }) {
     return () => clearInterval(interval);
   });
 
-  // ✅ SYNC BAR WITH COUNTER
+  //  SYNC BAR WITH COUNTER
   useEffect(() => {
     gsap.to(barRef.current, {
       scaleX: counter / 100,
@@ -72,9 +72,17 @@ export default function Loader({ onComplete }) {
   }, [counter]);
 
   return (
-    <div className="fixed inset-0 z-9999 bg-black flex items-center justify-center overflow-hidden">
-      {/* STATIC LINE */}
-      <div className="absolute w-full h-px bg-white/20 top-1/2 left-0 -translate-y-1/2" />
+    <div className="fixed inset-0 z-9999 bg-[#f8f8f8] flex items-center justify-center overflow-hidden">
+      {/* TOP NAME BAR */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 text-center">
+        <p className="text-sm tracking-[0.2em] text-orange-500 font-cabinet">
+          ROUNAK BAKSHI
+        </p>
+        <div className="w-20 h-px bg-orange-400/50 mx-auto mt-2"></div>
+      </div>
+
+      {/*  STATIC LINE */}
+      <div className="absolute w-full h-px bg-orange-200 top-1/2 left-0 -translate-y-1/2" />
 
       {/* PROGRESS LINE */}
       <div
@@ -82,19 +90,38 @@ export default function Loader({ onComplete }) {
         className="absolute left-0 top-1/2 h-0.5 bg-orange-500 origin-left scale-x-0 w-full"
       />
 
-      {/* COUNTER */}
-      <h1 className="loader-text absolute text-white text-6xl md:text-8xl font-bold">
+      {/*  COUNTER */}
+      <h1 className="loader-text absolute text-orange-500 text-6xl md:text-8xl font-bold tracking-tight">
         {counter}%
       </h1>
 
-      {/* REVEAL CONTENT */}
-      <div className="loader-content absolute inset-0 bg-black flex flex-col items-center justify-center text-white scale-x-0 origin-left">
-        <p className="reveal-line opacity-0 translate-y-6 text-4xl md:text-6xl font-semibold text-white text-center">
+      {/*  SMALL STATUS TEXT */}
+      <p className="loader-text font-cabinet absolute top-[60%] text-sm text-zinc-500 tracking-wide">
+        Loading Portfolio...
+      </p>
+
+      {/*  REVEAL CONTENT */}
+      <div className="loader-content absolute inset-0 bg-[#f8f8f8] flex flex-col items-center justify-center scale-x-0 origin-left">
+        {/* MAIN TEXT */}
+        <p className="reveal-line opacity-0 translate-y-6 text-4xl md:text-6xl font-semibold text-zinc-900 text-center">
           Crafting modern experiences.
         </p>
 
-        <p className="reveal-line opacity-0 translate-y-6 text-4xl md:text-6xl font-semibold text-orange-400 text-center mt-2">
+        <p className="reveal-line opacity-0 translate-y-6 text-4xl md:text-6xl font-semibold text-orange-500 text-center mt-2">
           Smooth interactions matter.
+        </p>
+
+        {/*  SUB TEXT (NEW) */}
+        <p className="reveal-line opacity-0 translate-y-6 text-sm md:text-base text-zinc-500 text-center mt-6 max-w-md leading-tight font-melodrama">
+          Focused on clean UI, subtle motion, and thoughtful user experiences.
+        </p>
+
+        {/*  DECORATIVE LINE */}
+        <div className="reveal-line opacity-0 translate-y-6 w-24 h-0.5 bg-orange-400 mt-6 rounded-full"></div>
+
+        {/*  FOOT TEXT */}
+        <p className="reveal-line opacity-0 font-cabinet translate-y-6 text-xs tracking-widest text-zinc-400 mt-3">
+          FRONTEND DEVELOPER • UI ENTHUSIAST
         </p>
       </div>
     </div>
