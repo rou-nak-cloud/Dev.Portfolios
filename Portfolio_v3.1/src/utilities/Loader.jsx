@@ -22,12 +22,12 @@ export default function Loader({ onComplete }) {
 
     tl.to(barRef.current, {
       scaleX: 1,
-      duration: 1,
+      duration: 0.9,
       ease: "expo.inOut",
     })
       .to(".loader-text", {
         opacity: 0,
-        duration: 0.3,
+        duration: 0.7,
       })
       .to(".loader-text", {
         display: "none",
@@ -42,7 +42,7 @@ export default function Loader({ onComplete }) {
         opacity: 1,
         y: 0,
         stagger: 0.25,
-        duration: 0.8,
+        duration: 1,
         ease: "power3.out",
       });
   };
@@ -96,9 +96,16 @@ export default function Loader({ onComplete }) {
       </h1>
 
       {/*  SMALL STATUS TEXT */}
-      <p className="loader-text font-cabinet absolute top-[60%] text-sm text-zinc-500 tracking-wide">
+      <p className="loader-text font-melodrama absolute top-[60%] text-lg text-orange-600/90 tracking-widest">
         Loading Portfolio...
       </p>
+      <span className="text-[22px] font-cabinet absolute bottom-25 left-20 font-bold uppercase tracking-normal text-zinc-500/50">
+        Step{" "}
+        <span className="font-melodrama text-zinc-500 text-[20px] pl-1">
+          {" "}
+          00
+        </span>
+      </span>
 
       {/*  REVEAL CONTENT */}
       <div className="loader-content absolute inset-0 bg-[#f8f8f8] flex flex-col items-center justify-center scale-x-0 origin-left">
@@ -107,12 +114,12 @@ export default function Loader({ onComplete }) {
           Crafting modern experiences.
         </p>
 
-        <p className="reveal-line opacity-0 translate-y-6 text-4xl md:text-6xl font-semibold text-orange-500 text-center mt-2">
+        <p className="reveal-line opacity-0 translate-y-6 text-4xl md:text-6xl font-semibold text-orange-600/70 text-center mt-2">
           Smooth interactions matter.
         </p>
 
         {/*  SUB TEXT (NEW) */}
-        <p className="reveal-line opacity-0 translate-y-6 text-sm md:text-base text-zinc-500 text-center mt-6 max-w-md leading-tight font-melodrama">
+        <p className="reveal-line opacity-0 translate-y-6 text-sm md:text-base text-zinc-600 text-center mt-6 max-w-md leading-tight font-melodrama">
           Focused on clean UI, subtle motion, and thoughtful user experiences.
         </p>
 
@@ -120,7 +127,7 @@ export default function Loader({ onComplete }) {
         <div className="reveal-line opacity-0 translate-y-6 w-24 h-0.5 bg-orange-400 mt-6 rounded-full"></div>
 
         {/*  FOOT TEXT */}
-        <p className="reveal-line opacity-0 font-cabinet translate-y-6 text-xs tracking-widest text-zinc-400 mt-3">
+        <p className="reveal-line opacity-0 font-cabinet translate-y-6 text-sm tracking-widest text-zinc-500 mt-3">
           FRONTEND DEVELOPER • UI ENTHUSIAST
         </p>
       </div>

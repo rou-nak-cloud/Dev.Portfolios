@@ -42,8 +42,6 @@ export default function App() {
 
   return (
     <>
-      <Cursor />
-
       {/* LOADER */}
       {loading && (
         <Loader
@@ -59,6 +57,7 @@ export default function App() {
       {/* MAIN CONTENT */}
       {!loading && (
         <>
+          <Cursor />
           <Navbar className="nav" />
           <main>
             <Outlet />
