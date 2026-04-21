@@ -34,7 +34,7 @@ export default function Project() {
   return (
     <section
       ref={containerRef}
-      className="max-w-4xl mx-auto px-3 md:px-6 py-12 text-center"
+      className="md:max-w-4xl max-w-3xl mx-auto px-2 md:px-6 py-12 text-center"
     >
       {/*  Badge + SVG Line */}
       <div className="project-reveal relative flex items-center justify-center mb-8">

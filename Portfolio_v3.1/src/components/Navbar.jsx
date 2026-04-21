@@ -19,24 +19,41 @@ export default function Navbar({ className = "" }) {
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
-      gsap.from(navRef.current, {
-        y: 80,
-        opacity: 0,
-        filter: "blur(5px)",
-        duration: 1,
-        delay: 0.7,
-        ease: "power3.out",
-      });
-      // Nav items stagger
-      gsap.from(navItemsRef.current, {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.08,
-        delay: 0.8, // after navbar animation
-        ease: "power2.out",
-        clearProps: "all", // prevent stuck animations
-      });
+      // NAVBAR
+      gsap.fromTo(
+        navRef.current,
+        {
+          y: 80,
+          opacity: 0,
+          filter: "blur(5px)",
+        },
+        {
+          y: 0,
+          opacity: 1,
+          filter: "blur(0px)",
+          duration: 1,
+          delay: 0.7,
+          ease: "power3.out",
+        },
+      );
+
+      // NAV ITEMS (STAGGER)
+      gsap.fromTo(
+        navItemsRef.current,
+        {
+          y: 20,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.08,
+          delay: 0.8,
+          ease: "power2.out",
+          clearProps: "all", // keep this
+        },
+      );
     });
 
     return () => ctx.revert();
@@ -45,58 +62,68 @@ export default function Navbar({ className = "" }) {
   return (
     <nav
       ref={navRef}
-      className={`fixed bottom-0 w-full h-18 z-50 ${className}`}
+      className={`fixed bottom-4 w-full z-50 ${className}`} //  small gap from bottom
     >
       <div
-        className="max-w-176 w-full mx-auto px-4 py-2 flex items-center justify-between border-2 border-zinc-400/40 rounded-full  bg-linear-to-r from-white/20 via-white/10 to-white/20 backdrop-blur-lg bg-blend-color-difference shadow-sm shadow-amber-500/20"
-        // onClick={() => navigate("/")} BUBBLING ISSUE
+        className="max-w-6xl w-[80%] mx-auto px-3 sm:px-4 py-2 flex items-center justify-between 
+        border border-zinc-400/40 rounded-full 
+        bg-linear-to-r from-white/20 via-white/10 to-white/20 
+        backdrop-blur-xl shadow-sm shadow-amber-500/20"
       >
         {/* Logo */}
         <Link
           to="/"
-          className="logo font-melodrama font-medium text-[1.8rem] md:text-[2.2rem] tracking-wider"
+          className="logo font-melodrama font-medium text-xl sm:text-2xl md:text-[2.2rem] tracking-wider"
         >
           &lt;Bakshi/&gt;
         </Link>
+
         {/* Mobile Menu */}
         <div className="md:hidden relative">
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="text-2xl cursor-pointer w-10 h-10 grid place-items-center bg-zinc-500/10 rounded-xl ring-inset ring-1 ring-zinc-100/90 backdrop-blur-2xl hover:bg-amber-100/70 active:scale-95 transition-all duration-300"
+            className="text-xl sm:text-2xl cursor-pointer w-9 h-9 sm:w-10 sm:h-10 
+            grid place-items-center bg-zinc-500/10 rounded-xl 
+            ring-1 ring-zinc-100/90 backdrop-blur-2xl 
+            hover:bg-amber-100/70 active:scale-95 transition-all duration-300"
           >
             {menuOpen ? <AiOutlineClose /> : <RiMenu5Line />}
           </button>
 
           <ul
-            className={`absolute bottom-14 -right-18 w-52 flex flex-col rounded-xl bg-amber-50 backdrop-blur-lg p-3 gap-2 shadow-lg overflow-hidden transition-all duration-700 ease-out shadow-amber-500/50
-  ${menuOpen ? "max-h-96 opacity-100 translate-y-0" : "max-h-0 opacity-0 translate-y-4"}`}
+            className={`absolute bottom-14 right-0 w-48 sm:w-52 flex flex-col 
+            rounded-xl bg-amber-50 backdrop-blur-lg p-3 gap-2 shadow-lg 
+            overflow-hidden transition-all duration-500 ease-out shadow-amber-500/30
+            ${
+              menuOpen
+                ? "max-h-96 opacity-100 translate-y-0"
+                : "max-h-0 opacity-0 translate-y-4"
+            }`}
           >
             {navList.map((item, index) => {
-              const Icon = item.icon; // Grab the component as it is in js file
+              const Icon = item.icon;
               return (
                 <li
                   key={index}
                   ref={(el) => (navItemsRef.current[index] = el)}
-                  className="rounded-xl hover:bg-amber-200/40 active:scale-95 transition-all duration-300"
+                  className="rounded-lg hover:bg-amber-200/40 active:scale-95 transition-all duration-300"
                 >
                   {item.type === "internal" ? (
                     <Link
                       to={item.to}
                       onClick={() => setMenuOpen(false)}
-                      className="flex items-center gap-3"
+                      className="flex items-center gap-3 px-2 py-1"
                     >
-                      <Icon className="text-amber-400" /> {/* Render as JSX */}
+                      <Icon className="text-amber-500" />
                       {item.label}
                     </Link>
                   ) : (
-                    <Link to={item.to} className="flex items-center gap-3">
-                      <Icon className="text-amber-400" /> {/* Render as JSX */}
+                    <Link
+                      to={item.to}
+                      className="flex items-center gap-3 px-2 py-1"
+                    >
+                      <Icon className="text-amber-500" />
                       {item.label}
-                      {item.badge && (
-                        <span className="badge badge-sm font-mono ml-4">
-                          {item.badge}
-                        </span>
-                      )}
                     </Link>
                   )}
                 </li>
@@ -106,7 +133,7 @@ export default function Navbar({ className = "" }) {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex rounded-box items-center text-lg font-cabinet font-regular gap-1">
+        <ul className="hidden md:flex items-center text-base lg:text-lg font-cabinet gap-1 lg:gap-2">
           {desktopNavList.map((item, index) => {
             const Icon = item.icon;
 
@@ -114,21 +141,20 @@ export default function Navbar({ className = "" }) {
               <li
                 key={index}
                 ref={(el) => (navItemsRef.current[index] = el)}
-                className="rounded-xl px-2 py-1 transform transition-all duration-400 hover:-translate-y-1 hover:bg-(--button-hover) hover:shadow-md hover:shadow-amber-500/20 active:scale-95 cursor-pointer"
+                className="rounded-xl px-2 py-1 transition-all duration-300 
+                hover:-translate-y-1 hover:bg-(--button-hover) 
+                hover:shadow-md hover:shadow-amber-500/20 
+                active:scale-95 cursor-pointer"
               >
                 {item.type === "route" ? (
                   <Link
                     to={item.to}
-                    onClick={() => console.log("Navigating to:", item.to)}
-                    className={`flex items-center ${item.label ? "gap-2" : "gap-1"}`}
+                    className={`flex items-center ${
+                      item.label ? "gap-2" : "gap-1"
+                    }`}
                   >
                     {Icon && <Icon />}
                     {item.label && <span>{item.label}</span>}
-                    {item.badge && (
-                      <span className="badge badge-xs font-mono">
-                        {item.badge}
-                      </span>
-                    )}
                   </Link>
                 ) : (
                   <a
@@ -145,28 +171,37 @@ export default function Navbar({ className = "" }) {
             );
           })}
         </ul>
+
         {/* Divider */}
-        <div className="hidden md:flex w-px h-6 bg-zinc-500/80 mx-2"></div>
+        <div className="hidden md:flex w-px h-5 bg-zinc-500/60 mx-2"></div>
 
         {/* Contact Button */}
-        <button className="relative overflow-hidden text-lg font-cabinet font-regular bg-(--button) hover:bg-(--button-hover) active:scale-95 hover:-translate-y-1 transition-all duration-300 rounded-xl px-4 py-1 md:px-4 md:py-2 cursor-pointer ml-2">
-          {/* Shimmer effect */}
-          <span className="absolute inset-0 w-1/2 h-full translate-x-full bg-linear-to-r from-transparent via-white/70 to-transparent animate-shimmer"></span>
+        <button
+          className="relative overflow-hidden text-sm sm:text-base md:text-lg 
+          font-cabinet bg-(--button) hover:bg-(--button-hover) 
+          active:scale-95 hover:-translate-y-1 
+          transition-all duration-300 rounded-xl 
+          px-3 py-1 sm:px-4 sm:py-2 cursor-pointer ml-1 sm:ml-2"
+        >
+          {/* Shimmer */}
+          <span
+            className="absolute inset-0 w-1/2 h-full translate-x-full 
+          bg-linear-to-r from-transparent via-white/70 to-transparent animate-shimmer"
+          ></span>
+
           <a
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
-
               const target = document.querySelector("#contact");
               if (target && window.lenis) {
                 window.lenis.scrollTo(target, {
-                  offset: 0,
-                  duration: 1.6, // control speed (try 1.2–2)
-                  easing: (t) => 1 - Math.pow(1 - t, 6), // smooth easeOut
+                  duration: 1.6,
+                  easing: (t) => 1 - Math.pow(1 - t, 6),
                 });
               }
             }}
-            className="relative z-10 text-md md:text-lg font-melodrama font-bold"
+            className="relative z-10 font-melodrama font-bold"
           >
             Contact.
           </a>
