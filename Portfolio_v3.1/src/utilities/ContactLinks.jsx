@@ -1,7 +1,65 @@
 import { digitalSpaces, contactInfo } from "../constants";
 import TimeFormat from "./TimeFormat";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import SplitText from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(SplitText, ScrollTrigger, useGSAP);
 
 const ContactLinks = () => {
+  const textRef = useRef(null);
+  const mainTextRef = useRef(null);
+
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      if (!textRef.current) return;
+
+      const split = new SplitText([textRef.current, mainTextRef.current], {
+        type: "lines, words",
+      });
+
+      //  LINE ANIMATION (scroll)
+      gsap.from(split.lines, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.18,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: textRef.current,
+          start: "top 85%",
+        },
+      });
+
+      //  WORD HOVER EFFECT
+      split.words.forEach((word) => {
+        //  skip words inside .no-hover
+        if (word.closest(".no-split")) return;
+        word.style.display = "inline-block"; // for moving the words it is required
+
+        word.addEventListener("mouseenter", () => {
+          gsap.to(word, {
+            y: -6,
+            duration: 0.4,
+            ease: "power2.out",
+          });
+        });
+
+        word.addEventListener("mouseleave", () => {
+          gsap.to(word, {
+            y: 0,
+            duration: 0.5,
+            ease: "power2.out",
+          });
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="max-w-2xl mx-auto mt-10 px-4">
       {/* Responsive Grid */}
@@ -83,17 +141,26 @@ const ContactLinks = () => {
               <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
 
-            <span className="font-cabinet text-xl font-bold text-slate-500">
+            <span
+              ref={mainTextRef}
+              className="font-cabinet text-xl font-bold text-slate-500"
+            >
               Currently Available
             </span>
           </div>
 
-          <p className="text-slate-700 text-md sm:text-lg px-3 md:px-4 font-cabinet leading-tight text-center">
+          <p
+            ref={textRef}
+            className="text-slate-700 text-md sm:text-lg px-3 md:px-4 font-cabinet leading-tight text-center"
+          >
             I'm currently open to new opportunities and exciting projects.
             Whether you need a frontend developer or a freelance consultant,
-            <span className="text-amber-700 font-medium italic ml-1 underline underline-offset-4">
+            <a
+              href="#contact"
+              className="no-split text-amber-700 font-medium italic ml-1 underline underline-offset-4"
+            >
               Let's Talk!
-            </span>
+            </a>
           </p>
         </div>
       </div>
