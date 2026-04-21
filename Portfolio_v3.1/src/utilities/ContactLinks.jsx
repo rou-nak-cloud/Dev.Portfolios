@@ -14,13 +14,42 @@ const ContactLinks = () => {
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
+      if (!mainTextRef.current) return;
+
+      const splitHead = new SplitText(mainTextRef.current, {
+        type: "chars",
+        charsClass: "char",
+      });
+
+      gsap.from(splitHead.chars, {
+        opacity: 0,
+        y: 20,
+        filter: "blur(6px)",
+        duration: 0.4,
+        stagger: 0.06,
+        ease: "power2.out",
+
+        scrollTrigger: {
+          trigger: mainTextRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+          // immediateRender: false,
+        },
+      });
+    }, mainTextRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
       if (!textRef.current) return;
 
-      const split = new SplitText([textRef.current, mainTextRef.current], {
+      const split = new SplitText(textRef.current, {
         type: "lines, words",
       });
 
-      //  LINE ANIMATION (scroll)
+      //  LINE ANIMATION
       gsap.from(split.lines, {
         y: 40,
         opacity: 0,
@@ -33,29 +62,28 @@ const ContactLinks = () => {
         },
       });
 
-      //  WORD HOVER EFFECT
+      //  WORD HOVER
       split.words.forEach((word) => {
-        //  skip words inside .no-hover
         if (word.closest(".no-split")) return;
-        word.style.display = "inline-block"; // for moving the words it is required
 
-        word.addEventListener("mouseenter", () => {
-          gsap.to(word, {
-            y: -6,
-            duration: 0.4,
-            ease: "power2.out",
-          });
-        });
+        word.style.display = "inline-block";
 
-        word.addEventListener("mouseleave", () => {
-          gsap.to(word, {
-            y: 0,
-            duration: 0.5,
-            ease: "power2.out",
-          });
-        });
+        const enter = () =>
+          gsap.to(word, { y: -7, duration: 0.5, ease: "power2.out" });
+
+        const leave = () =>
+          gsap.to(word, { y: 0, duration: 0.6, ease: "power2.out" });
+
+        word.addEventListener("mouseenter", enter);
+        word.addEventListener("mouseleave", leave);
+
+        // cleanup
+        return () => {
+          word.removeEventListener("mouseenter", enter);
+          word.removeEventListener("mouseleave", leave);
+        };
       });
-    });
+    }, textRef); // scope to paragraph only
 
     return () => ctx.revert();
   }, []);
@@ -143,7 +171,7 @@ const ContactLinks = () => {
 
             <span
               ref={mainTextRef}
-              className="font-cabinet text-xl font-bold text-slate-500"
+              className="font-cabinet text-xl font-bold text-slate-500 "
             >
               Currently Available
             </span>
