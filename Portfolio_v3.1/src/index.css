@@ -208,6 +208,9 @@ body {
   @apply h-[200vh];
   cursor: none;
 }
+body {
+  overscroll-behavior: none;
+}
 .highlight-marker {
   position: relative;
   display: inline-block;
