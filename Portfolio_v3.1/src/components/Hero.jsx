@@ -10,7 +10,7 @@ import BlogButton from "./BlogButton";
 
 export default function Hero() {
   // image avatar
-  const avatarUrl = "../../public/profilePic.jpeg";
+  const avatarUrl = "/profilePic.jpeg";
 
   const ContainerHomeRef = useRef(null);
   const HeadTextContainerRef = useRef(null);
