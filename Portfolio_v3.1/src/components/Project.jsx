@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AnimatedLine from "../utilities/AnimatedLine";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,15 +15,14 @@ export default function Project() {
       const elements = gsap.utils.toArray(".project-reveal");
 
       gsap.from(elements, {
-        y: 30, //  subtle move up
+        y: 30,
         opacity: 0,
         duration: 0.8,
         ease: "power2.out",
-        stagger: 0.15, //  minimal stagger
+        stagger: 0.15,
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%",
-          // once: true, // run only once
           toggleActions: "play none none reverse",
         },
       });
@@ -36,15 +36,17 @@ export default function Project() {
       ref={containerRef}
       className="max-w-4xl mx-auto px-3 md:px-6 py-12 text-center"
     >
-      {/* Badge */}
-      <div className="project-reveal flex items-center justify-center gap-4 mb-6">
-        <div className="h-[.8px] flex-1 bg-linear-to-l from-gray-300/60 via-zinc-400/40 to-transparent"></div>
+      {/*  Badge + SVG Line */}
+      <div className="project-reveal relative flex items-center justify-center mb-10">
+        {/* SVG LINE (behind) */}
+        <div className="absolute max-w-xl mx-auto flex items-center">
+          <AnimatedLine />
+        </div>
 
-        <span className="text-sm md:text-md font-cabinet font-semibold tracking-wider text-amber-100 border border-amber-900 bg-black px-4 py-1 rounded-full">
+        {/* BADGE */}
+        <span className="relative z-10 text-sm md:text-md font-cabinet font-semibold tracking-wider text-amber-100 border border-amber-900 bg-black px-4 py-1 rounded-full">
           My Projects
         </span>
-
-        <div className="h-[.8px] flex-1 bg-linear-to-r from-gray-300/60 via-zinc-400/40 to-transparent"></div>
       </div>
 
       {/* Heading */}
@@ -64,7 +66,7 @@ export default function Project() {
         </p>
       </div>
 
-      {/* Cards (already animated separately) */}
+      {/* Cards */}
       <ProjectCard />
     </section>
   );
