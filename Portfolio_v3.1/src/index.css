@@ -218,6 +218,7 @@ body {
 }
 body {
   overscroll-behavior: none;
+  overflow-x: hidden;
 }
 .highlight-marker {
   position: relative;

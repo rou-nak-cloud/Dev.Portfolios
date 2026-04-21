@@ -43,19 +43,18 @@ export default function ProjectCard() {
   return (
     <div
       ref={containerRef}
-      className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 px-1 md:px-5"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 px-2 sm:px-3 md:px-5 "
     >
       {PROJECTS.map((project, idx) => (
         <a
           key={idx}
           href={project.href}
           target="_blank"
-          // onClick={() => window.open(project.href, "_blank")}
           rel="noopener noreferrer"
           className="project-card group rounded-xl border border-zinc-400/40 overflow-hidden hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 flex flex-col cursor-pointer"
         >
           {/* Image */}
-          <div className="relative h-54 w-full overflow-hidden bg-zinc-800">
+          <div className="relative h-44 sm:h-48 md:h-52 lg:h-56 w-full overflow-hidden bg-zinc-800">
             <img
               src={project.image}
               alt={project.title}
@@ -63,19 +62,19 @@ export default function ProjectCard() {
             />
 
             {/* Floating Badges */}
-            <div className="absolute top-3 right-3 flex gap-2">
+            <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex gap-1.5 sm:gap-2">
               {project.links.map((link, i) => (
                 <a
                   key={i}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 bg-zinc-900/80 backdrop-blur border border-zinc-600 text-[10px] font-semibold text-white px-3 py-1 rounded-xl hover:border-amber-400 hover:text-amber-500 transition-all duration-300"
+                  className="flex items-center gap-1 bg-zinc-900/80 backdrop-blur border border-zinc-600 text-[9px] sm:text-[10px] font-semibold text-white px-2 py-0.5 sm:px-3 sm:py-1 rounded-xl hover:border-amber-400 hover:text-amber-500 transition-all duration-300"
                 >
                   {link.type === "Website" ? (
-                    <LuGlobe size={12} />
+                    <LuGlobe size={10} />
                   ) : (
-                    <LuGithub size={12} />
+                    <LuGithub size={10} />
                   )}
                   {link.type}
                 </a>
@@ -84,23 +83,23 @@ export default function ProjectCard() {
           </div>
 
           {/* Content */}
-          <div className="p-5 flex flex-col flex-1">
-            <div className="flex justify-between items-center mb-1">
-              <h3 className="text-xl leading-tight text-left font-cabinet font-bold text-slate-800 group-hover:text-amber-600 transition-colors">
+          <div className="p-4 sm:p-5 flex flex-col flex-1">
+            <div className="flex justify-between items-start mb-1 gap-2">
+              <h3 className="text-base sm:text-lg md:text-xl leading-tight text-left font-cabinet font-bold text-slate-800 group-hover:text-amber-600 transition-colors">
                 {project.title}
               </h3>
 
               <LuArrowUpRight
-                className="text-slate-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                size={23}
+                className="text-slate-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform shrink-0"
+                size={20}
               />
             </div>
 
-            <p className="text-xs text-left text-zinc-500 font-medium mb-3">
+            <p className="text-[10px] sm:text-xs text-left text-zinc-500 font-medium mb-2 sm:mb-3">
               {project.dates}
             </p>
 
-            <p className="text-md leading-4 text-left text-zinc-800/80 mb-6 flex-1">
+            <p className="text-sm sm:text-base leading-snug text-left text-zinc-800/80 mb-4 sm:mb-6 flex-1">
               {project.description}
             </p>
 
@@ -109,7 +108,7 @@ export default function ProjectCard() {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[.7rem] font-cabinet font-semibold text-zinc-800 px-3 rounded-xl border border-orange-950/30 hover:-translate-y-0.5 hover:text-orange-600 transition-all duration-300"
+                  className="text-[10px] sm:text-[.7rem] font-cabinet font-semibold text-zinc-800 px-2 sm:px-3 py-0.5 rounded-xl border border-orange-950/30 hover:-translate-y-0.5 hover:text-orange-600 transition-all duration-300"
                 >
                   {tag}
                 </span>
