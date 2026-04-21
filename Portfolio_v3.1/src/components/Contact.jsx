@@ -6,6 +6,7 @@ import emailjs from "@emailjs/browser";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import AnimatedLine from "../utilities/AnimatedLine";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -99,12 +100,16 @@ const Contact = () => {
       className="max-w-2xl mx-auto px-6 pt-16 -pb-10"
     >
       {/* 1. Badge (contact-reveal) */}
-      <div className="contact-reveal flex items-center justify-center gap-2 mb-6">
-        <div className="h-px flex-1 bg-linear-to-l from-gray-300/60 via-zinc-400/40 to-transparent"></div>
-        <span className="text-sm md:text-md font-cabinet font-semibold tracking-wider text-amber-100 border border-amber-900 bg-black px-4 py-1 rounded-full">
+      <div className="contact-reveal relative flex items-center justify-center mb-8">
+        {/* SVG LINE (behind) */}
+        <div className="absolute inset-0 flex items-center">
+          <AnimatedLine />
+        </div>
+
+        {/* BADGE */}
+        <span className="relative z-10 text-sm md:text-md font-cabinet font-semibold tracking-wider text-amber-100 border border-amber-900 bg-black px-4 py-1 rounded-full pointer-events-none">
           Contact Me
         </span>
-        <div className="h-px flex-1 bg-linear-to-r from-gray-300/60 via-zinc-400/40 to-transparent"></div>
       </div>
 
       {/* 2. Intro Text (contact-reveal) */}
