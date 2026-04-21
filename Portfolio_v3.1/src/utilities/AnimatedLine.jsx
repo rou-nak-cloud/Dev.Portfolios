@@ -59,7 +59,7 @@ export default function AnimatedLine() {
         stroke="#463947"
         strokeWidth="1"
         fill="transparent"
-        opacity="0.7"
+        opacity="0.5"
       />
     </svg>
   );
