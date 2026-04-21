@@ -101,6 +101,11 @@ const Contact = () => {
     >
       {/* 1. Badge (contact-reveal) */}
       <div className="contact-reveal relative flex items-center justify-center mb-8">
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-linear-to-r from-white to-transparent z-10" />
+
+        {/* RIGHT FADE */}
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-linear-to-l from-white to-transparent z-10" />
+
         {/* SVG LINE (behind) */}
         <div className="absolute inset-0 flex items-center">
           <AnimatedLine />
