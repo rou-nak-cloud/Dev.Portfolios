@@ -41,14 +41,10 @@ export default function App() {
     <>
       <Cursor />
 
-      {/* IMPORTANT WRAPPER */}
-      <div className="pageLoader">
-        <Navbar className="nav" />
-
-        <main>
-          <Outlet />
-        </main>
-      </div>
+      <Navbar className="nav" />
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 }

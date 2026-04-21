@@ -304,6 +304,3 @@ body {
 .project-card {
   will-change: transform, opacity;
 }
-.pageLoader {
-  will-change: transform;
-}
