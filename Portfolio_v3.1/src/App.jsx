@@ -14,28 +14,28 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // 1. Force body to have a clean slate
+    // document.body.style.backgroundColor = "#f8f8f8";
+
     const lenis = new Lenis({
       duration: 1.4,
-      smooth: true,
-      lerp: 0.08,
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      lerp: 0.1,
     });
 
-    //  ADD THIS LINE
     window.lenis = lenis;
-    // stop during loader
     lenis.stop();
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.lagSmoothing(0);
-
     return () => {
-      gsap.ticker.remove((time) => {
-        lenis.raf(time * 1000);
-      });
       lenis.destroy();
     };
   }, []);
@@ -50,19 +50,22 @@ export default function App() {
 
             // START Lenis after loader
             if (window.lenis) window.lenis.start();
+            requestAnimationFrame(() => {
+              ScrollTrigger.refresh();
+            });
           }}
         />
       )}
 
       {/* MAIN CONTENT */}
       {!loading && (
-        <>
+        <div id="main-wrapper">
           <Cursor />
           <Navbar className="nav" />
           <main>
             <Outlet />
           </main>
-        </>
+        </div>
       )}
     </>
   );
