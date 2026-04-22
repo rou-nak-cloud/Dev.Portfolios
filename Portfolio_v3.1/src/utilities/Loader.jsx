@@ -25,7 +25,7 @@ export default function Loader({ onComplete }) {
 
     tl.to(barRef.current, {
       scaleX: 1,
-      duration: 0.7,
+      duration: 0.8,
       ease: "expo.inOut",
     })
       .to(".loader-text", {
@@ -85,12 +85,12 @@ export default function Loader({ onComplete }) {
       </div>
 
       {/* STATIC LINE */}
-      <div className="absolute w-[90%] max-w-5xl h-px bg-orange-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute w-[90%] max-w-7xl h-px bg-orange-300/90 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
       {/* PROGRESS LINE */}
       <div
         ref={barRef}
-        className="absolute left-1/2 -translate-x-1/2 top-1/2 h-0.5 bg-orange-500 origin-left scale-x-0 w-[90%] max-w-5xl"
+        className="absolute left-1/2 -translate-x-1/2 top-1/2 h-0.5 bg-orange-400/80 origin-left scale-x-0 w-[90%] max-w-7xl"
       />
 
       {/* COUNTER */}
@@ -104,7 +104,7 @@ export default function Loader({ onComplete }) {
       </p>
 
       {/* STEP TEXT (FIXED POSITION ISSUE) */}
-      <span className="text-sm sm:text-base md:text-[22px] font-cabinet absolute bottom-10 sm:bottom-16 md:bottom-24 left-4 sm:left-8 md:left-20 font-bold uppercase tracking-normal text-zinc-500/50">
+      <span className="text-sm sm:text-base md:text-[22px] font-cabinet absolute bottom-10 sm:bottom-16 md:bottom-24 left-4 sm:left-8 md:left-20 font-bold uppercase tracking-normal text-amber-600/50">
         Step{" "}
         <span className="font-melodrama text-zinc-500 text-sm sm:text-base md:text-[20px] pl-1">
           00
@@ -123,7 +123,7 @@ export default function Loader({ onComplete }) {
         </p>
 
         {/* SUB TEXT */}
-        <p className="reveal-line opacity-0 translate-y-6 text-xs sm:text-sm md:text-base text-zinc-600 text-center mt-4 md:mt-6 max-w-md leading-relaxed font-melodrama">
+        <p className="reveal-line opacity-0 translate-y-6 text-xs sm:text-md md:text-lg text-zinc-700 text-center mt-4 md:mt-6 max-w-md tracking-wider leading-tighter font-melodrama">
           Focused on clean UI, subtle motion, and thoughtful user experiences.
         </p>
 
