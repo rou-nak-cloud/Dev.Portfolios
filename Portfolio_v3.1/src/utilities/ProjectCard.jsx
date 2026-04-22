@@ -19,7 +19,7 @@ export default function ProjectCard() {
         const isLeft = i % 2 === 0;
 
         gsap.from(card, {
-          x: isLeft ? -100 : 100, // alternate direction
+          xPercent: isLeft ? -30 : 30, // alternate direction
           y: 10, // subtle upward feel
           rotate: isLeft ? -4 : 4, //  subtle tilt
           opacity: 0,
@@ -43,7 +43,7 @@ export default function ProjectCard() {
   return (
     <div
       ref={containerRef}
-      className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 px-2 sm:px-3 md:px-5 "
+      className="max-sm:overflow-x-hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 px-2 sm:px-3 md:px-5 "
     >
       {PROJECTS.map((project, idx) => (
         <a
