@@ -44,6 +44,7 @@ This portfolio is a reflection of:
 
 > “Crafting modern experiences where design meets motion and performance.”
 >"I believe great interfaces are not just built — they are **felt**."
+
 ---
 
 ## 🔮 Future Improvements
@@ -52,7 +53,6 @@ This portfolio is a reflection of:
 - 🧠 Skills & Tech Breakdown Section  
 - ✍️ Blog System (sharing learnings & insights)  
 - 🌐 Backend integration (for dynamic content)  
-- 🎨 More advanced animations & micro-interactions  
 ---
 
 ## 📝 Blog (Coming Soon)
