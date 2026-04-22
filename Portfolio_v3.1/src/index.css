@@ -213,19 +213,34 @@ html {
   scroll-behavior: auto;
 }
 body {
-  @apply h-[200vh];
   cursor: none;
+  overscroll-behavior: none;
 }
 body {
-  overscroll-behavior: none;
-  overflow-x: hidden;
+  width: 100%;
+  position: relative; /* Prevent the double scrollbar bug */
+  overflow-x: clip; /* better than hidden */
 }
+
+/* Ensure the body doesn't create its own scrollbar while Lenis is working */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* component css */
 .highlight-marker {
   position: relative;
   display: inline-block;
   z-index: 1;
 }
-
 .highlight-marker::before {
   content: "";
   position: absolute;

@@ -17,12 +17,15 @@ export default function Loader({ onComplete }) {
   //  REVEAL ANIMATION
   const reveal = () => {
     const tl = gsap.timeline({
-      onComplete: onComplete,
+      onComplete: () => {
+        // Small delay ensures GSAP finishes all property resets
+        setTimeout(onComplete, 100);
+      },
     });
 
     tl.to(barRef.current, {
       scaleX: 1,
-      duration: 0.9,
+      duration: 0.7,
       ease: "expo.inOut",
     })
       .to(".loader-text", {
@@ -82,12 +85,12 @@ export default function Loader({ onComplete }) {
       </div>
 
       {/* STATIC LINE */}
-      <div className="absolute w-full max-w-5xl h-px bg-orange-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute w-[90%] max-w-5xl h-px bg-orange-200 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
       {/* PROGRESS LINE */}
       <div
         ref={barRef}
-        className="absolute left-1/2 -translate-x-1/2 top-1/2 h-0.5 bg-orange-500 origin-left scale-x-0 w-full max-w-5xl"
+        className="absolute left-1/2 -translate-x-1/2 top-1/2 h-0.5 bg-orange-500 origin-left scale-x-0 w-[90%] max-w-5xl"
       />
 
       {/* COUNTER */}

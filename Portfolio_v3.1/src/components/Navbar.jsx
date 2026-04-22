@@ -65,10 +65,10 @@ export default function Navbar({ className = "" }) {
       className={`fixed bottom-4 w-full z-50 ${className}`} //  small gap from bottom
     >
       <div
-        className="max-w-6xl w-[80%] mx-auto px-3 sm:px-4 py-2 flex items-center justify-between 
-        border border-zinc-400/40 rounded-full 
-        bg-linear-to-r from-white/20 via-white/10 to-white/20 
-        backdrop-blur-xl shadow-sm shadow-amber-500/20"
+        className="max-w-2xl md:w-[80%] w-[80%] mx-auto px-3 sm:px-4 py-1 flex items-center justify-between 
+  border border-zinc-400/40 rounded-full 
+  bg-orange-50/90 backdrop-blur-2xl backdrop-saturate-150 
+  shadow-sm shadow-amber-500/20"
       >
         {/* Logo */}
         <Link
@@ -91,7 +91,7 @@ export default function Navbar({ className = "" }) {
           </button>
 
           <ul
-            className={`absolute bottom-14 right-0 w-48 sm:w-52 flex flex-col 
+            className={`absolute bottom-16 left-[50%] -translate-x-[50%] w-48 sm:w-52 flex flex-col items-start 
             rounded-xl bg-amber-50 backdrop-blur-lg p-3 gap-2 shadow-lg 
             overflow-hidden transition-all duration-500 ease-out shadow-amber-500/30
             ${
@@ -133,7 +133,7 @@ export default function Navbar({ className = "" }) {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center text-base lg:text-lg font-cabinet gap-1 lg:gap-2">
+        <ul className="hidden md:flex items-center text-base lg:text-lg font-cabinet gap-1 lg:gap-1">
           {desktopNavList.map((item, index) => {
             const Icon = item.icon;
 
@@ -141,7 +141,7 @@ export default function Navbar({ className = "" }) {
               <li
                 key={index}
                 ref={(el) => (navItemsRef.current[index] = el)}
-                className="rounded-xl px-2 py-1 transition-all duration-300 
+                className="rounded-lg px-2 py-1 transition-all duration-300 
                 hover:-translate-y-1 hover:bg-(--button-hover) 
                 hover:shadow-md hover:shadow-amber-500/20 
                 active:scale-95 cursor-pointer"
@@ -150,18 +150,23 @@ export default function Navbar({ className = "" }) {
                   <Link
                     to={item.to}
                     className={`flex items-center ${
-                      item.label ? "gap-2" : "gap-1"
+                      item.label ? "gap-1" : "gap-0.5"
                     }`}
                   >
                     {Icon && <Icon />}
                     {item.label && <span>{item.label}</span>}
+                    {item.badge && (
+                      <span className="pb-2 pl-.5 text-[12px] text-orange-600 font-mono">
+                        {item.badge}
+                      </span>
+                    )}
                   </Link>
                 ) : (
                   <a
                     href={item.to}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1"
+                    className="flex items-center px-.5 py-.5 gap-.5"
                   >
                     {Icon && <Icon />}
                     {item.label && <span>{item.label}</span>}
@@ -173,15 +178,15 @@ export default function Navbar({ className = "" }) {
         </ul>
 
         {/* Divider */}
-        <div className="hidden md:flex w-px h-5 bg-zinc-500/60 mx-2"></div>
+        <div className="hidden md:flex w-px h-5 bg-zinc-800/60 mx-1"></div>
 
         {/* Contact Button */}
         <button
           className="relative overflow-hidden text-sm sm:text-base md:text-lg 
           font-cabinet bg-(--button) hover:bg-(--button-hover) 
-          active:scale-95 hover:-translate-y-1 
-          transition-all duration-300 rounded-xl 
-          px-3 py-1 sm:px-4 sm:py-2 cursor-pointer ml-1 sm:ml-2"
+          active:scale-95 hover:-translate-x-2 
+          transition-all duration-400 rounded-xl 
+          px-3 py-1 sm:px-4 sm:py-2 cursor-pointer ml-1 sm:ml-1"
         >
           {/* Shimmer */}
           <span
