@@ -7,7 +7,7 @@ export default function SkillSection() {
   const containerRef = useRef(null);
 
   return (
-    <div className="relative w-full overflow-hidden bg-white pt-14 md:pt-10 pb-12 md:pb-15">
+    <div className="relative w-full overflow-hidden bg-white pt-14 md:pt-10 pb-12 md:pb-15 select-none">
       {/* DOT PATTERN LAYER */}
       <div
         className="absolute inset-0 z-0 h-50 w-full dots-animated"
@@ -21,33 +21,36 @@ export default function SkillSection() {
         }}
       />
 
-      <div className="container relative z-10 md:mx-auto max-w-3xl px-6">
-        {/* YOUR ORIGINAL HEADING (UNCHANGED STYLE, JUST TEXT UPDATED) */}
-        <h1 className="flex items-center justify-center text-5xl md:text-7xl tracking-wider text-zinc-900 font-melodrama">
+      <div className="container relative z-10 md:mx-auto max-w-3xl px-4 sm:px-6">
+        {/* HEADING */}
+        <h1 className="flex items-center justify-center text-4xl sm:text-5xl md:text-7xl tracking-wider text-zinc-900 font-melodrama">
           Skills
           <span className="text-emerald-500">.</span>
         </h1>
-        {/*  DRAG AREA */}
+
+        {/* DRAG AREA */}
         <motion.div
           ref={containerRef}
-          className="relative w-full h-64 md:h-80 mb-12"
+          className="relative w-full h-65 sm:h-80 md:h-80 mb-12 mt-12"
         >
-          {/* Bucket Outer Shell */}
+          {/* Bucket */}
           <div className="absolute inset-0 rounded-2xl border border-amber-200/50 bg-linear-to-b from-amber-100/60 via-amber-50/40 to-white/30 backdrop-blur-md shadow-inner overflow-hidden">
-            {/* Top Inner Highlight (gives depth) */}
+            {/* Top highlight */}
             <div className="absolute inset-x-0 top-0 h-12 bg-linear-to-b from-white/60 to-transparent pointer-events-none" />
 
-            {/* Bottom Shadow (bucket depth illusion) */}
+            {/* Bottom shadow */}
             <div className="absolute bottom-0 left-0 w-full h-12 bg-linear-to-t from-emerald-100/70 via-emerald-50/50 to-transparent pointer-events-none blur-[0.3px]" />
 
+            {/* Center Hint */}
             <div className="absolute inset-0 flex items-end justify-center pointer-events-none">
-              <span className="text-emerald-500 font-melodrama text-[3vw] md:text-[6.5vw] leading-22 tracking-wider opacity-60">
+              <span className="text-emerald-500 font-melodrama text-[8vw] sm:text-[6vw] md:text-[6.5vw] leading-none tracking-wider opacity-60">
                 DRAG ME
               </span>
             </div>
 
-            {/* Inner Content Area */}
-            <div className="relative w-full h-full">
+            {/* CONTENT */}
+            <div className="relative w-full h-full overflow-hidden">
+              {/* ICONS */}
               {skills.map((skill, i) => (
                 <motion.div
                   key={skill.name}
@@ -64,21 +67,23 @@ export default function SkillSection() {
                     ease: "easeInOut",
                   }}
                   className="absolute cursor-grab active:cursor-grabbing 
-                   bg-white/80 backdrop-blur-md shadow-md rounded-xl p-3 border border-white/40 touch-none"
+                  bg-white/80 backdrop-blur-md shadow-md rounded-xl 
+                  p-2 sm:p-2.5 md:p-3 border border-white/40 touch-none"
                   style={{
-                    top: `${10 + ((i * 7) % 47)}%`,
-                    left: `${10 + ((i * 9) % 90)}%`,
+                    top: `${8 + ((i * 13) % 70)}%`,
+                    left: `${5 + ((i * 17) % 80)}%`,
                   }}
                 >
                   <img
                     src={skill.icon}
                     alt={skill.name}
-                    className="w-6 h-6 md:w-8 md:h-8 object-contain"
+                    className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 object-contain"
                     draggable={false}
                   />
                 </motion.div>
               ))}
-              {/* Draggable Texts */}
+
+              {/* TEXT TAGS */}
               {skillWords.map((word, i) => (
                 <motion.div
                   key={word}
@@ -89,12 +94,13 @@ export default function SkillSection() {
                   whileDrag={{ scale: 0.9 }}
                   whileTap={{ scale: 1.05 }}
                   className="absolute cursor-grab active:cursor-grabbing 
-      text-xs md:text-sm font-cabinet font-medium 
-      text-emerald-600 bg-white/70 backdrop-blur-sm 
-      px-3 py-1 rounded-full shadow-sm border border-white/40 touch-none"
+                  text-[10px] sm:text-xs md:text-sm font-cabinet font-medium 
+                  text-emerald-600 bg-white/70 backdrop-blur-sm 
+                  px-2 sm:px-2.5 md:px-3 py-0.5 sm:py-1 rounded-full 
+                  shadow-sm border border-white/40 touch-none"
                   style={{
-                    top: `${15 + ((i * 9) % 65)}%`,
-                    left: `${20 + ((i * 11) % 56)}%`,
+                    top: `${10 + ((i * 15) % 75)}%`,
+                    left: `${10 + ((i * 19) % 75)}%`,
                   }}
                 >
                   {word}
@@ -103,7 +109,7 @@ export default function SkillSection() {
             </div>
           </div>
 
-          {/* Optional Outer Glow */}
+          {/* Outer Glow */}
           <div className="absolute inset-0 rounded-2xl pointer-events-none shadow-[0_10px_40px_rgba(16,185,129,0.15)]" />
         </motion.div>
       </div>
