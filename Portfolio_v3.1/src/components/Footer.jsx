@@ -109,7 +109,7 @@ const Footer = () => {
           style={{
             backgroundImage: `radial-gradient(#fb923c 1.6px, transparent 1px)`,
             backgroundSize: "6px 6px",
-            maskImage: "linear-gradient(to bottom, black 0%, transparent 80%)",
+            maskImage: "linear-gradient(to bottom, black 0%, transparent 120%)",
             WebkitMaskImage:
               "linear-gradient(to bottom, black 0%, transparent 80%)",
             opacity: 1,
