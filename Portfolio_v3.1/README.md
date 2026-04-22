@@ -1,16 +1,93 @@
-# React + Vite
+# 🌐 Rounak Studio — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, minimal, and interactive portfolio showcasing my work, skills, and creative approach to frontend development.
 
-Currently, two official plugins are available:
+🔗 **Live Site:** https://rounak-studio.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ About
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+I'm an Engineering graduate passionate about building **intuitive, visually engaging, and performant web experiences**.
 
-## Expanding the ESLint configuration
+This portfolio is a reflection of:
+- Clean UI design
+- Smooth animations
+- Thoughtful user experience
+- Modern frontend architecture
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Tech Stack
+
+- ⚛️ React.js  
+- 🎨 Tailwind CSS  
+- 🧠 JavaScript (ES6+)  
+- 🎬 GSAP (ScrollTrigger, animations)  
+- 🌊 Lenis (smooth scrolling)  
+- ⚡ Vite  
+- ▲ Vercel (deployment)
+
+---
+
+## 🎯 Features
+
+- ✨ Smooth scroll experience with Lenis  
+- 🎬 GSAP-powered animations & interactions  
+- 🧊 Glassmorphism & modern UI design  
+- 📱 Fully responsive across devices  
+- ⚡ Optimized performance  
+- 🎯 Interactive sections (Projects, Contact, etc.)
+---
+
+## 📸 Preview
+> See from the live preview...
+---
+
+## 🧠 Philosophy
+
+> “Crafting modern experiences where design meets motion and performance.”
+
+I believe great interfaces are not just built — they are **felt**.
+---
+
+## 🔮 Future Improvements
+
+- 🧩 Dedicated Projects Page  
+- 🧠 Skills & Tech Breakdown Section  
+- ✍️ Blog System (sharing learnings & insights)  
+- 🌐 Backend integration (for dynamic content)  
+- 🎨 More advanced animations & micro-interactions  
+---
+
+## 📝 Blog (Coming Soon)
+
+I plan to share:
+- Frontend learnings  
+- GSAP & animation deep dives  
+- UI/UX insights  
+- Developer journey  
+
+Stay tuned 🚀
+---
+
+## 🤝 Connect With Me
+
+- 💼 LinkedIn: *(add later)*  
+- 🧑‍💻 GitHub: *(add later)*  
+- 📧 Email: *(add later)*  
+---
+
+## 🪪 License
+
+This project is licensed under the Apache License 2.0.
+You are free to use, modify, and distribute this project with proper attribution.
+
+---
+
+## ⭐ Support Rounak
+If you found this project helpful or inspiring:
+
+- ⭐ Give it a star on GitHub  
+- 📢 Share it with others  
+- 🚀 Follow for more creative frontend work  
