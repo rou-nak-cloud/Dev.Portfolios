@@ -25,7 +25,10 @@ export default function Home() {
       <TextMarquee />
       <BackToTop />
       <Project />
-      <ParaMarquee />
+      <ParaMarquee
+        lines={["Building scalable interfaces.", "Design meets performance."]}
+      />
+      <ParaMarquee speedClass="marquee-text" />
       <Interest />
       <Stats />
       <Contact />
