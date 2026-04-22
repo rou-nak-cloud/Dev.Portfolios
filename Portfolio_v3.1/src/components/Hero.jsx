@@ -293,7 +293,7 @@ export default function Hero() {
 
         {/* About section */}
         <div ref={AboutRef}>
-          <h2 className="text-2xl font-cabinet font-bold text-slate-900 mb-1 mt-2">
+          <h2 className="text-2xl font-cabinet font-bold text-slate-900 mb-3 mt-5">
             About{" "}
             <span className="font-melodrama font-bold text-3xl md:text-[3.2xl] pl-2 tracking-wider highlight-marker">
               ME

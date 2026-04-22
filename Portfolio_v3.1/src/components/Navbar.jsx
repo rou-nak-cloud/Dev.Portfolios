@@ -66,16 +66,35 @@ export default function Navbar({ className = "" }) {
     >
       <div
         className="max-w-2xl md:w-[80%] w-[80%] mx-auto px-3 sm:px-4 py-1 flex items-center justify-between 
-  border border-zinc-400/40 rounded-full 
-  bg-orange-50/90 backdrop-blur-2xl backdrop-saturate-150 
-  shadow-sm shadow-amber-500/20"
+  border border-purple-500/20 rounded-full 
+  bg-white/90 backdrop-blur-2xl shadow-sm shadow-amber-500/20"
       >
         {/* Logo */}
         <Link
           to="/"
-          className="logo font-melodrama font-medium text-xl sm:text-2xl md:text-[2.2rem] tracking-wider"
+          className="logo font-melodrama font-medium text-xl sm:text-2xl md:text-[2.2rem] tracking-wider group relative"
         >
-          &lt;Bakshi/&gt;
+          <span className="text-orange-600">&lt;</span>
+
+          <span className="relative inline-block">
+            {/* Default text */}
+            <span className="text-black">Bakshi/</span>
+
+            {/* Gradient overlay */}
+            <span
+              className="
+               absolute inset-0
+                bg-linear-to-r from-orange-500 via-amber-400 to-orange-600
+               bg-clip-text text-transparent
+                opacity-0 group-hover:opacity-100
+                transition-all duration-500
+               "
+            >
+              Bakshi/
+            </span>
+          </span>
+
+          <span className="text-orange-600">&gt;</span>
         </Link>
 
         {/* Mobile Menu */}
@@ -141,9 +160,9 @@ export default function Navbar({ className = "" }) {
               <li
                 key={index}
                 ref={(el) => (navItemsRef.current[index] = el)}
-                className="rounded-lg px-2 py-1 transition-all duration-300 
+                className="rounded-lg px-2 py-1 transition-all duration-400 
                 hover:-translate-y-1 hover:bg-(--button-hover) 
-                hover:shadow-md hover:shadow-amber-500/20 
+                hover:shadow-md hover:shadow-amber-400/20
                 active:scale-95 cursor-pointer"
               >
                 {item.type === "route" ? (
