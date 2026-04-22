@@ -35,4 +35,4 @@ Across these projects, I focus on:
 [Portfolio](https://rounak-studio.vercel.app) • [GitHub](https://github.com/rou-nak-cloud)
 
 ---
-*Generated for Rounak Bakshi's Portfolio Hub*
+*Rounak Bakshi's Portfolio Hub*
