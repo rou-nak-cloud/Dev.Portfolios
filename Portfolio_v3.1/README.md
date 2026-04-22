@@ -40,15 +40,10 @@ This portfolio is a reflection of:
 - 🎯 Interactive sections (Projects, Contact, etc.)
 ---
 
-## 📸 Preview
-> See from the live preview...
----
-
 ## 🧠 Philosophy
 
 > “Crafting modern experiences where design meets motion and performance.”
-
-I believe great interfaces are not just built — they are **felt**.
+>"I believe great interfaces are not just built — they are **felt**."
 ---
 
 ## 🔮 Future Improvements
