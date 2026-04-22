@@ -215,10 +215,14 @@ html {
 body {
   @apply h-[200vh];
   cursor: none;
-}
-body {
   overscroll-behavior: none;
+}
+/* body {
   overflow-x: hidden;
+} */
+html,
+body {
+  overflow-x: clip; /* better than hidden */
 }
 .highlight-marker {
   position: relative;
