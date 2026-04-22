@@ -350,3 +350,8 @@ html.lenis {
   height: 1.5px;
   background: #f97316; /* orange */
 }
+
+/* SKILLS PAGE */
+.touch-none {
+  touch-action: none;
+}
