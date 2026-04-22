@@ -43,7 +43,7 @@ export default function ProjectCard() {
   return (
     <div
       ref={containerRef}
-      className=" overflow-x-hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 px-2 sm:px-3 md:px-5 "
+      className="max-sm:overflow-x-hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 px-2 sm:px-3 md:px-5 "
     >
       {PROJECTS.map((project, idx) => (
         <a
@@ -95,11 +95,11 @@ export default function ProjectCard() {
               />
             </div>
 
-            <p className="text-[10px] sm:text-xs text-left text-zinc-500 font-medium mb-2 sm:mb-3">
+            <p className="text-[10px] sm:text-xs text-left text-orange-500 font-medium mb-2 sm:mb-3">
               {project.dates}
             </p>
 
-            <p className="text-sm sm:text-base leading-snug text-left text-zinc-800/80 mb-4 sm:mb-6 flex-1">
+            <p className="text-sm sm:text-[1.1rem] leading-5 tracking-normal font-cabinet text-left text-zinc-800/90 mb-4 sm:mb-6 flex-1">
               {project.description}
             </p>
 
