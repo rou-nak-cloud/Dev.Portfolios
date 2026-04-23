@@ -30,7 +30,7 @@ export default function CurrentFocus() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 80%", // Animation starts when top of section hits 80% of viewport
-            markers: true, // UNCOMMENT THIS LINE TO SEE THE TRIGGERS ON SCREEN
+            // markers: true,
             toggleActions: "play none none reverse",
           },
         },
@@ -54,7 +54,7 @@ export default function CurrentFocus() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-5 pb-25 bg-white overflow-hidden">
+    <section ref={sectionRef} className="py-5 pb-16 bg-white overflow-hidden">
       <div className="max-w-5xl mx-auto px-6">
         <div
           ref={cardContainerRef}
