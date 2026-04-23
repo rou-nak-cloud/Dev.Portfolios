@@ -447,22 +447,22 @@ export const projects = [
       },
     ],
   },
-  {
-    title: "Ochi Website Clone",
-    href: "https://ochi-website.onrender.com",
-    dates: "2024",
-    description:
-      "A faithful replica of the award-winning Ochi website built with React and TailwindCSS, focusing on pixel-perfect layout, modern UI design, smooth transitions, and responsive performance.",
-    image: ochi,
-    tags: ["React", "TailwindCSS", "UI/UX", "Responsive Design"],
-    links: [
-      { type: "Website", href: "https://ochi-website.onrender.com" },
-      {
-        type: "Source",
-        href: "https://github.com/rou-nak-cloud/Ochi_C-Website",
-      },
-    ],
-  },
+  // {
+  //   title: "Ochi Website Clone",
+  //   href: "https://ochi-website.onrender.com",
+  //   dates: "2024",
+  //   description:
+  //     "A faithful replica of the award-winning Ochi website built with React and TailwindCSS, focusing on pixel-perfect layout, modern UI design, smooth transitions, and responsive performance.",
+  //   image: ochi,
+  //   tags: ["React", "TailwindCSS", "UI/UX", "Responsive Design"],
+  //   links: [
+  //     { type: "Website", href: "https://ochi-website.onrender.com" },
+  //     {
+  //       type: "Source",
+  //       href: "https://github.com/rou-nak-cloud/Ochi_C-Website",
+  //     },
+  //   ],
+  // },
   {
     title: "K72 Creative Agency Website Clone",
     href: "https://k72-ca-clone-25y5.onrender.com/",
@@ -535,32 +535,32 @@ export const projects = [
       },
     ],
   },
-  {
-    title: "Cocktail Heaven - GSAP Animation Project",
-    href: "https://coquetel-taupe.vercel.app/",
-    dates: "2025",
-    description:
-      "An interactive cocktail-themed web experience built to explore modern web animations using GSAP. The project features smooth scroll-triggered effects, animated UI elements, masked imagery, and a dynamic cocktail carousel. Designed with React and Tailwind CSS, it focuses on creating a visually engaging interface inspired by award-winning cocktail websites.",
-    image: cocktail,
-    tags: [
-      "React",
-      "GSAP",
-      "TailwindCSS",
-      "ScrollTrigger",
-      "UI Animation",
-      "Responsive Design",
-    ],
-    links: [
-      {
-        type: "Website",
-        href: "https://coquetel-taupe.vercel.app/",
-      },
-      {
-        type: "Source",
-        href: "https://github.com/rou-nak-cloud/Cocktail_Drink",
-      },
-    ],
-  },
+  // {
+  //   title: "Cocktail Heaven - GSAP Animation Project",
+  //   href: "https://coquetel-taupe.vercel.app/",
+  //   dates: "2025",
+  //   description:
+  //     "An interactive cocktail-themed web experience built to explore modern web animations using GSAP. The project features smooth scroll-triggered effects, animated UI elements, masked imagery, and a dynamic cocktail carousel. Designed with React and Tailwind CSS, it focuses on creating a visually engaging interface inspired by award-winning cocktail websites.",
+  //   image: cocktail,
+  //   tags: [
+  //     "React",
+  //     "GSAP",
+  //     "TailwindCSS",
+  //     "ScrollTrigger",
+  //     "UI Animation",
+  //     "Responsive Design",
+  //   ],
+  //   links: [
+  //     {
+  //       type: "Website",
+  //       href: "https://coquetel-taupe.vercel.app/",
+  //     },
+  //     {
+  //       type: "Source",
+  //       href: "https://github.com/rou-nak-cloud/Cocktail_Drink",
+  //     },
+  //   ],
+  // },
 ];
 
 export const interest = [
