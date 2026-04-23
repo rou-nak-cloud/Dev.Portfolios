@@ -4,20 +4,26 @@ export default function AestheticClock() {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
-    // Update time every second
-    const interval = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
+    let raf;
 
-    return () => clearInterval(interval);
+    const update = () => {
+      setTime(new Date());
+      raf = requestAnimationFrame(update);
+    };
+
+    raf = requestAnimationFrame(update);
+
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   // Calculate rotations
+  const milliseconds = time.getMilliseconds();
   const seconds = time.getSeconds();
   const minutes = time.getMinutes();
   const hours = time.getHours();
 
-  const secDeg = seconds * 6; // 360 / 60
+  // const secDeg = seconds * 6; // 360 / 60
+  const secDeg = (seconds + milliseconds / 1000) * 6;
   const minDeg = minutes * 6 + seconds * 0.1; // 360 / 60 + extra adjustment for smooth movement
   const hourDeg = (hours % 12) * 30 + minutes * 0.5; // 360 / 12 + extra adjustment
 
