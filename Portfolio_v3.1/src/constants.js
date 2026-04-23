@@ -37,7 +37,7 @@ const navList = [
   {
     label: "Skills",
     icon: FaTools,
-    to: "#skills",
+    to: "/skill",
     type: "hash",
   },
   {

@@ -1,23 +1,23 @@
 // import chatApp from "./projects/chat-app.png";
-import duoAtelier from "./assets/projects/duo-atelier.png";
-import editor from "./assets/projects/editor.png";
-import lightMode from "./assets/projects/light-mode.png";
-import lofifyHome from "./assets/projects/lofify-home.png";
-// import mernHome from "./assets/projects/mern-home.png";
-import ochi from "./assets/projects/ochi.png";
-import cocktail from "./assets/projects/cocktail.png";
+import duoAtelier from "../assets/projects/duo-atelier.png";
+import editor from "../assets/projects/editor.png";
+import lightMode from "../assets/projects/light-mode.png";
+import lofifyHome from "../assets/projects/lofify-home.png";
+// import mernHome from "../assets/projects/mern-home.png";
+import ochi from "../assets/projects/ochi.png";
+import cocktail from "../assets/projects/cocktail.png";
 // import youtubeBackend from "./assets/projects/youtube-backend.png";
 
-import chatApp2 from "./assets/projects/chat-app2.png";
-import backend from "./assets/projects/youtube-backend.png";
-import k72Clone from "./assets/projects/k72-clone.png";
-import kanbanBoard from "./assets/projects/kanbanBoard.png";
-import miranda from "./assets/projects/miranda.png";
-import Sundown from "./assets/projects/Sundown.png";
-// import codeInspector from "./assets/projects/editor.png";
-// import ochi from "./assets/projects/ochi.png";
-// import lofifyHome from "./assets/projects/lofify-home.png";
-// import mernHome from "./assets/projects/mern-home.png";
+import chatApp2 from "../assets/projects/chat-app2.png";
+import backend from "../assets/projects/youtube-backend.png";
+import k72Clone from "../assets/projects/k72-clone.png";
+import kanbanBoard from "../assets/projects/kanbanBoard.png";
+import miranda from "../assets/projects/miranda.png";
+import Sundown from "../assets/projects/Sundown.png";
+// import codeInspector from "../assets/projects/editor.png";
+// import ochi from "../assets/projects/ochi.png";
+// import lofifyHome from "../assets/projects/lofify-home.png";
+// import mernHome from "../assets/projects/mern-home.png";
 
 export const projectImages = [
   // chatApp,
