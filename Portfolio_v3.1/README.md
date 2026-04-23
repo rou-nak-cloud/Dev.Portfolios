@@ -47,14 +47,6 @@ This portfolio is a reflection of:
 
 ---
 
-## 🔮 Future Improvements
-
-- 🧩 Dedicated Projects Page  
-- 🧠 Skills & Tech Breakdown Section  
-- ✍️ Blog System (sharing learnings & insights)  
-- 🌐 Backend integration (for dynamic content)  
----
-
 ## 📝 Blog (Coming Soon)
 
 I plan to share:
@@ -65,6 +57,28 @@ I plan to share:
 
 Stay tuned 🚀
 ---
+
+## 🔮 Future Improvements
+
+- 🧠 Skills & Tech Breakdown Section  (DONE)
+- 🧩 Dedicated Projects Page  
+- ✍️ Blog System (sharing learnings & insights)  
+- 🌐 Backend integration (for dynamic content)  
+---
+
+## 🛠️ Skills Section
+
+An interactive showcase of my technical stack, designed with motion and minimal aesthetics in mind.
+
+### ✨ Highlights
+- 🎯 Draggable skill icons using Framer Motion  
+- 🧲 Physics-based interactions for a playful feel  
+- 🧠 Skill keywords to reflect tools & mindset  
+- 🎨 Clean UI with subtle gradients and depth  
+- ⚡ Smooth animations powered by GSAP  
+
+### 🎯 Purpose
+To present not just the tools I use, but how I think, build, and interact with modern web technologies.
 
 ## 🤝 Connect With Me
 
