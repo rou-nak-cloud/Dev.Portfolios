@@ -7,10 +7,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SkillSplit() {
   const sectionRef = useRef(null);
+  const skillHeadRef = useRef(null);
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".split-item-1, .split-item-2", {
+      gsap.from(".split-item-1, .split-item-2, .skill-head", {
         y: 70,
         opacity: 0,
         duration: 1.2,
@@ -30,10 +31,10 @@ export default function SkillSplit() {
   return (
     <section
       ref={sectionRef}
-      className="max-w-6xl mx-auto px-6 py-12 md:pb-24 overflow-hidden"
+      className="max-w-6xl mx-auto px-6 py-12 md:pb-1 overflow-hidden"
     >
-      <div className="mb-14 text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-melodrama tracking-wide text-zinc-900">
+      <div ref={skillHeadRef} className="mb-14 text-center">
+        <h1 className="skill-head text-3xl sm:text-4xl md:text-5xl font-melodrama tracking-wide text-zinc-900">
           Skills
           <span className="text-emerald-500"> & Groups</span>
         </h1>
