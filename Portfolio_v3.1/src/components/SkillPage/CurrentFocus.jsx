@@ -54,7 +54,10 @@ export default function CurrentFocus() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-5 pb-16 bg-white overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-5 pb-8 md:pb-16 bg-white overflow-hidden"
+    >
       <div className="max-w-5xl mx-auto px-6">
         <div
           ref={cardContainerRef}

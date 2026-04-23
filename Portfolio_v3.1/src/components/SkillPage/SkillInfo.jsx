@@ -30,7 +30,7 @@ export default function SkillInfo() {
   return (
     <section
       ref={sectionRef}
-      className="max-w-3xl mx-auto px-6 py-5 pb-20 text-center overflow-hidden"
+      className="max-w-3xl mx-auto px-6 py-5 pb-8 md:pb-20 text-center overflow-hidden"
     >
       {/* Main Text */}
       <p className="skill-info-item text-lg md:text-xl tracking-normal text-zinc-800 leading-snug font-cabinet">
