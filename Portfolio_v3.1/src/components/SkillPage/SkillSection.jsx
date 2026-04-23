@@ -123,7 +123,7 @@ export default function SkillSection() {
     >
       {/* DOT PATTERN LAYER */}
       <div
-        className="absolute inset-0 z-0 h-50 w-full dots-animated pointer-events-none"
+        className="absolute inset-0 z-0 h-52 w-full dots-animated pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(#fbbf24 2px, transparent 1px)`,
           backgroundSize: "6px 6px",
@@ -148,7 +148,7 @@ export default function SkillSection() {
         {/* DRAG AREA */}
         <motion.div
           ref={containerRef}
-          className="relative w-full h-65 sm:h-80 md:h-80 mb-12 mt-12"
+          className="relative w-full h-65 sm:h-96 md:h-80 mb-12 mt-12"
         >
           {/* Bucket */}
           <div
