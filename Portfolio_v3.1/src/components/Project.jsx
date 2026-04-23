@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedLine from "../utilities/AnimatedLine";
+import SoftProjectCTA from "../utilities/SoftProjectCTA";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,6 +74,7 @@ export default function Project() {
 
       {/* Cards */}
       <ProjectCard />
+      <SoftProjectCTA />
     </section>
   );
 }
