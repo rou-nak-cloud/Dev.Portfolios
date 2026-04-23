@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import DetailedProjects from "./DetailedProjects";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -97,6 +98,7 @@ export default function ProjectSection() {
           <span className="text-[#fbbf24]">.</span>
         </h1>
       </div>
+      <DetailedProjects />
     </div>
   );
 }
