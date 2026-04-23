@@ -14,7 +14,26 @@ import Footer from "../components/Footer";
 import TextMarquee from "../utilities/TextMarquee";
 import ParaMarquee from "../utilities/ParaMarquee";
 
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 export default function Home() {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash === "#contact") {
+      const el = document.querySelector("#contact");
+
+      if (el && window.lenis) {
+        setTimeout(() => {
+          window.lenis.scrollTo(el, {
+            duration: 1.6,
+            easing: (t) => 1 - Math.pow(1 - t, 6),
+          });
+        }, 100); // small delay = DOM ready
+      }
+    }
+  }, [location]);
+
   return (
     <section>
       <Hero />

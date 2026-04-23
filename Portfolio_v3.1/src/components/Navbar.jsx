@@ -7,10 +7,31 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
+import { useNavigate, useLocation } from "react-router-dom";
+
 // constants
 import { navList, desktopNavList } from "../constants";
 
 export default function Navbar({ className = "" }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleContactClick = () => {
+    if (location.pathname === "/") {
+      // already on home → scroll
+      const target = document.querySelector("#contact");
+      if (target && window.lenis) {
+        window.lenis.scrollTo(target, {
+          duration: 1.6,
+          easing: (t) => 1 - Math.pow(1 - t, 6),
+        });
+      }
+    } else {
+      // not on home → go + scroll
+      navigate("/#contact");
+    }
+  };
+
   gsap.registerPlugin(useGSAP);
 
   const navRef = useRef(null);
@@ -201,34 +222,21 @@ export default function Navbar({ className = "" }) {
 
         {/* Contact Button */}
         <button
+          onClick={handleContactClick}
           className="relative overflow-hidden text-sm sm:text-base md:text-lg 
-          font-cabinet bg-(--button) hover:bg-(--button-hover) 
-          active:scale-95 hover:-translate-x-2 
-          transition-all duration-400 rounded-xl 
-          px-3 py-1 sm:px-4 sm:py-2 cursor-pointer ml-1 sm:ml-1"
+  font-cabinet bg-(--button) hover:bg-(--button-hover) 
+  active:scale-95 hover:-translate-x-2 
+  transition-all duration-400 rounded-xl 
+  px-3 py-1 sm:px-4 sm:py-2 cursor-pointer ml-1 sm:ml-1"
         >
-          {/* Shimmer */}
           <span
             className="absolute inset-0 w-1/2 h-full translate-x-full 
-          bg-linear-to-r from-transparent via-white/70 to-transparent animate-shimmer"
+  bg-linear-to-r from-transparent via-white/70 to-transparent animate-shimmer"
           ></span>
 
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              const target = document.querySelector("#contact");
-              if (target && window.lenis) {
-                window.lenis.scrollTo(target, {
-                  duration: 1.6,
-                  easing: (t) => 1 - Math.pow(1 - t, 6),
-                });
-              }
-            }}
-            className="relative z-10 font-melodrama font-bold"
-          >
+          <span className="relative z-10 font-melodrama font-bold">
             Contact.
-          </a>
+          </span>
         </button>
       </div>
     </nav>
