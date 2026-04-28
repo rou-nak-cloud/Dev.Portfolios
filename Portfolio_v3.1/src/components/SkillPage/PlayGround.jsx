@@ -58,7 +58,7 @@ export default function Playground() {
       <div className="max-w-4xl mx-auto px-6">
         <div className="flex items-center justify-between mb-12">
           <div>
-            <h2 className="text-[10px] font-cabinet font-bold uppercase tracking-[0.3em] text-orange-400 mb-2">
+            <h2 className="text-[13px] font-cabinet font-bold uppercase tracking-[0.3em] text-orange-400 mb-2">
               The Lab
             </h2>
             <h3 className="text-4xl font-melodrama text-zinc-900 flex flex-wrap items-baseline gap-3">
