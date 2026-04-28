@@ -42,12 +42,12 @@ function ProjectRow({ project, number }) {
   return (
     <div className="group flex flex-col gap-10 ">
       {/* 1. Number & Title Header */}
-      <div className="flex items-end justify-between border-b border-zinc-100 pb-6">
+      <div className="flex items-end justify-between border-b border-zinc-100 pb-1">
         <div className="flex flex-col">
           <span className="text-5xl md:text-7xl font-cabinet font-light text-zinc-200 mb-2">
             {number}
           </span>
-          <h3 className="text-2xl md:text-4xl font-melodrama text-zinc-900">
+          <h3 className="text-2xl md:text-5xl font-melodrama text-zinc-900">
             {project.title}
           </h3>
         </div>
@@ -60,9 +60,9 @@ function ProjectRow({ project, number }) {
               href={link.href}
               target="_blank"
               rel="noreferrer"
-              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileHover={{ scale: 1.1, rotate: 10 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 rounded-full border border-zinc-200 bg-white text-zinc-600 hover:bg-zinc-900 hover:text-white hover:border-zinc-900 transition-colors duration-300 shadow-sm"
+              className="p-3 rounded-full border border-zinc-200 bg-white text-zinc-600 hover:bg-amber-50 hover:text-orange-500 hover:border-zinc-200 transition-colors duration-300 shadow-sm"
             >
               {link.type === "Source" ? (
                 <FaGithub size={18} />
@@ -108,7 +108,7 @@ function ProjectRow({ project, number }) {
                 whileHover={{
                   y: -5,
                   backgroundColor: "#fff",
-                  borderColor: "#10b981", // Emerald-500
+                  borderColor: "#fdba74", // Amber-500
                   color: "#d97706", // amber-800
                 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
