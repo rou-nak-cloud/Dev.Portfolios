@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import CurrentFocus from "../components/SkillPage/CurrentFocus";
+import Playground from "../components/SkillPage/PlayGround";
 import ProcessSection from "../components/SkillPage/ProcessSection";
 import SkillInfo from "../components/SkillPage/SkillInfo";
 import SkillSection from "../components/SkillPage/SkillSection";
@@ -19,6 +20,7 @@ export default function Skill() {
       <TextMarquee />
       <SkillGroups />
       <ProcessSection />
+      <Playground />
       <SoftCTA />
       <Footer />
     </section>
