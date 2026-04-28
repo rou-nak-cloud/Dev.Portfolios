@@ -98,7 +98,7 @@ export default function ProjectSection() {
           <span className="text-[#fbbf24]">.</span>
         </h1>
       </div>
-      <DetailedProjects />
+      <DetailedProjects sectionRef={projectSectionRef} />
     </div>
   );
 }
