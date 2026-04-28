@@ -1,20 +1,12 @@
 import React from "react";
 
 export default function TextMarquee() {
-  const words = [
-    "REACTJS",
-    "GSAP",
-    "DESIGN",
-    "ANIMATION",
-    "UI/UX",
-    "FRONTEND",
-    "FIGMA",
-  ];
+  const words = ["UI Engineering", "Motion & Interaction", "Web Development"];
 
   const repeated = [...words, ...words]; // duplicate for loop
 
   return (
-    <section className="md:max-w-3xl max-w-2xl overflow-hidden py-10 m-auto">
+    <section className="md:max-w-4xl max-w-2xl overflow-hidden py-1 pb-2 m-auto">
       <div className="relative overflow-hidden">
         {/* LEFT FADE */}
         <div className="pointer-events-none absolute left-0 top-0 h-full w-16 bg-linear-to-r from-white to-transparent z-10" />

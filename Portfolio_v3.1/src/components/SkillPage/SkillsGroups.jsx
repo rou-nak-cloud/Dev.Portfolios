@@ -31,7 +31,7 @@ export default function SkillSplit() {
   return (
     <section
       ref={sectionRef}
-      className="max-w-6xl mx-auto px-6 py-12 md:pb-1 overflow-hidden"
+      className="max-w-5xl mx-auto px-6 py-12 md:pb-1 overflow-hidden"
     >
       <div ref={skillHeadRef} className="mb-14 text-center">
         <h1 className="skill-head text-3xl sm:text-4xl md:text-5xl font-melodrama tracking-wide text-zinc-900">

@@ -5,6 +5,7 @@ import SkillSection from "../components/SkillPage/SkillSection";
 import SkillGroups from "../components/SkillPage/SkillsGroups";
 import AestheticClock from "../utilities/AstheticClock";
 import SoftCTA from "../utilities/SoftCTA";
+import TextMarquee from "../utilities/TextMarquee";
 import TimeFormat from "../utilities/TimeFormat";
 
 export default function Skill() {
@@ -14,6 +15,7 @@ export default function Skill() {
       <AestheticClock />
       <CurrentFocus />
       <SkillInfo />
+      <TextMarquee />
       <SkillGroups />
       <SoftCTA />
       <Footer />
