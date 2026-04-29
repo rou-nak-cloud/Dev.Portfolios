@@ -16,6 +16,7 @@ import ParaMarquee from "../utilities/ParaMarquee";
 
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import ThemeToggle from "../utilities/ThemeToggle";
 
 export default function Home() {
   const location = useLocation();
@@ -37,12 +38,13 @@ export default function Home() {
   return (
     <section>
       <Hero />
+      <ThemeToggle />
+      <BackToTop />
       <Marquee />
       <LearningPath />
       <Education />
       <Skills />
       <TextMarquee />
-      <BackToTop />
       <Project />
       <ParaMarquee
         lines={["Building scalable interfaces.", "Design meets performance."]}
