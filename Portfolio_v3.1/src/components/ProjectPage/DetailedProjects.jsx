@@ -1,23 +1,23 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
 import { FaGithub, FaExternalLinkAlt, FaCode, FaCoffee } from "react-icons/fa";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { projects } from "../../JsFiles/projects";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText"; // Ensure this is installed/accessible
 
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, SplitText);
 
 export default function DetailedProjects({ sectionRef }) {
   const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 4; // Adjust this number based on how many you want per page
+  const containerRef = useRef(null);
+  const headerTitleRef = useRef(null);
+  const headerParaRef = useRef(null);
 
-  // Create a ref for the top of the archive section
-  // const sectionTopRef = useRef(null); as i am in nesting component
-
-  // Pagination Logic
+  const projectsPerPage = 4;
   const totalPages = Math.ceil(projects.length / projectsPerPage);
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
@@ -26,34 +26,78 @@ export default function DetailedProjects({ sectionRef }) {
     indexOfLastProject,
   );
 
-  // Scroll to top of section when page changes
-  const handlePageChange = (newPage) => {
-    // setCurrentPage(newPage);
-    // // window.scrollTo({ top: 200, behavior: "smooth" });
-    // // This will scroll the window to the top of our "Archive" header
-    // if (sectionRef.current) {
-    //   sectionRef.current.scrollIntoView({
-    //     // top: 0,
-    //     behavior: "smooth",
-    //     block: "start",
-    //   });
-    // }
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // 1. Split Text Animation for Header
+      const titleSplit = new SplitText(headerTitleRef.current, {
+        type: "words",
+      });
+      const paraSplit = new SplitText(headerParaRef.current, { type: "words" });
 
-    // WITH GSAP
-    // 1. Set the new page first
+      const headerTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: headerTitleRef.current,
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      headerTl
+        .from(titleSplit.words, {
+          y: 40,
+          opacity: 0,
+          duration: 0.9,
+          stagger: 0.09,
+          ease: "power4.out",
+        })
+        .from(
+          paraSplit.words,
+          {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.05,
+            ease: "power3.out",
+          },
+          "-=0.4",
+        );
+
+      // 2. ScrollTrigger for Project Rows
+      gsap.utils.toArray(".project-row-item").forEach((row) => {
+        gsap.from(row, {
+          scrollTrigger: {
+            trigger: row,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+            //key: ScrollTrigger to re-calculate for this row
+            invalidateOnRefresh: true,
+          },
+          y: 70,
+          opacity: 0,
+          duration: 1.1,
+          ease: "power3.out",
+          clearProps: "all",
+        });
+      });
+    }, containerRef);
+    // Refresh triggers to account for new page height
+    ScrollTrigger.refresh();
+
+    return () => ctx.revert();
+  }, [currentPage]); // Re-run when page changes to animate new rows
+
+  const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
 
-    // 2. Use GSAP to scroll to the parent ref
     if (sectionRef && sectionRef.current) {
       gsap.to(window, {
-        duration: 1.5,
+        duration: 1.2,
         scrollTo: {
           y: sectionRef.current,
-          offsetY: 150, // Add a little padding so it doesn't hit the very top
+          offsetY: 100,
         },
-        ease: "expo.out",
+        ease: "expo.inOut",
         onComplete: () => {
-          // Optional: Temporarily disable ScrollTriggers to prevent "pushing"
           ScrollTrigger.refresh();
         },
       });
@@ -61,25 +105,31 @@ export default function DetailedProjects({ sectionRef }) {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <section ref={containerRef} className="py-24 bg-white">
       <div ref={sectionRef} className="max-w-4xl mx-auto px-6">
         {/* Header Section */}
-        <div className="mb-20">
+        <div className="mb-20 overflow-hidden">
           <h2 className="text-sm font-cabinet uppercase tracking-[0.3em] text-orange-600/80 mb-4">
             Archive — 2024 / 2026
           </h2>
-          <p className="text-4xl md:text-6xl font-melodrama text-zinc-900 leading-tight max-w-4xl">
-            Building takes time, a lot of coffee, and a bit of soul-crushing
-            debugging.{" "}
-            <span className="text-zinc-300 italic text-3xl md:text-5xl">
-              Here is the proof.
-            </span>
-          </p>
+          <div ref={headerTitleRef}>
+            <p className="text-4xl md:text-6xl font-melodrama text-zinc-900 leading-tight max-w-4xl">
+              Building takes time, a lot of coffee, and a bit of soul-crushing
+              debugging.{" "}
+              <span
+                ref={headerParaRef}
+                className="text-zinc-300 italic text-3xl md:text-5xl"
+              >
+                Here is the proof.
+              </span>
+            </p>
+            {/* <div></div> */}
+          </div>
         </div>
 
         {/* Projects List with Animation */}
-        <div className="space-y-40">
-          <AnimatePresence mode="wait">
+        <div className="space-y-30">
+          <AnimatePresence>
             <motion.div
               key={currentPage}
               initial={{ opacity: 0, y: 20 }}
@@ -88,14 +138,18 @@ export default function DetailedProjects({ sectionRef }) {
               transition={{ duration: 0.5, ease: "circOut" }}
             >
               {currentProjects.map((project, index) => (
-                <ProjectRow
+                <div
                   key={indexOfFirstProject + index}
-                  project={project}
-                  number={String(indexOfFirstProject + index + 1).padStart(
-                    2,
-                    "0",
-                  )}
-                />
+                  className="project-row-item mt-19"
+                >
+                  <ProjectRow
+                    project={project}
+                    number={String(indexOfFirstProject + index + 1).padStart(
+                      2,
+                      "0",
+                    )}
+                  />
+                </div>
               ))}
             </motion.div>
           </AnimatePresence>
