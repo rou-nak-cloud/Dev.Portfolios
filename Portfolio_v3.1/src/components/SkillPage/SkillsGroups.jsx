@@ -42,29 +42,29 @@ export default function SkillSplit() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7 items-stretch">
         {/* LEFT CARD — SKILL GROUPS */}
-        <div className="split-item-1 flex flex-col gap-6 p-8 md:p-10 rounded-3xl bg-zinc-50/50 border border-zinc-200/60 shadow-sm hover:shadow-md transition-shadow duration-500">
+        <div className="split-item-1 flex flex-col gap-6 p-8 md:p-10 rounded-3xl bg-orange-50/50 border border-zinc-200/60 shadow-sm hover:shadow-md transition-shadow duration-500">
           <h3 className="text-xs font-bold font-cabinet uppercase tracking-widest text-emerald-600 mb-2">
             Technical Stack
           </h3>
 
-          <div className="flex flex-col gap-3 tracking-wide text-zinc-700 text-sm md:text-base font-cabinet">
+          <div className="flex flex-col gap-2 tracking-wide text-zinc-700 text-sm md:text-base font-cabinet">
             <p>
-              <span className="text-zinc-900 font-bold block mb-1">
+              <span className="text-zinc-900 font-bold block mb-0">
                 Frontend
               </span>
               React, Tailwind, GSAP, Framer Motion
             </p>
 
             <p>
-              <span className="text-zinc-900 font-bold block mb-1">
+              <span className="text-zinc-900 font-bold block mb-0">
                 Backend
               </span>
               Node.js, MongoDB
             </p>
 
             <p>
-              <span className="text-zinc-900 font-bold block mb-1">Tools</span>
-              Git, GitHub, Postman
+              <span className="text-zinc-900 font-bold block mb-0">Tools</span>
+              Git, GitHub, Postman, Vite, Vercel
             </p>
           </div>
         </div>
@@ -75,13 +75,13 @@ export default function SkillSplit() {
             Core Philosophy
           </h3>
 
-          <p className="text-lg md:text-xl text-zinc-800 leading-relaxed font-cabinet">
+          <p className="text-lg md:text-xl text-zinc-800 leading-snug font-cabinet">
             Interfaces should feel{" "}
             <span className="text-emerald-600 italic">effortless</span> — not
             just visually appealing, but responsive, intuitive, and alive.
           </p>
 
-          <p className="mt-4 text-sm md:text-base text-zinc-500 leading-relaxed">
+          <p className="mt-4 text-sm md:text-base text-zinc-500 leading-snug">
             I focus on crafting experiences where motion, performance, and
             usability come together naturally to tell a story.
           </p>
