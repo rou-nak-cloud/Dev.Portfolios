@@ -9,15 +9,17 @@ import AestheticClock from "../utilities/AstheticClock";
 import BackToTop from "../utilities/BackToTop";
 import SoftCTA from "../utilities/SoftCTA";
 import TextMarquee from "../utilities/TextMarquee";
+import ThemeToggle from "../utilities/ThemeToggle";
 import TimeFormat from "../utilities/TimeFormat";
 
 export default function Skill() {
   return (
     <section>
       <SkillSection />
+      <ThemeToggle />
+      <BackToTop />
       <AestheticClock />
       <CurrentFocus />
-      <BackToTop />
       <SkillInfo />
       <TextMarquee />
       <SkillGroups />

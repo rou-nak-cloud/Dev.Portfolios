@@ -52,7 +52,7 @@ export default function BackToTop() {
 
   useEffect(() => {
     const checkScroll = () => {
-      if (window.scrollY > 1000) {
+      if (window.scrollY > 40) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -100,7 +100,7 @@ export default function BackToTop() {
       style={{ display: "none", opacity: 0, transform: "scale(0)" }}
       className="hidden md:flex fixed bottom-6 right-74 z-50
         w-10 h-10 rounded-full
-        bg-amber-400 text-white
+        bg-amber-600/80 text-white
         items-center justify-center
         shadow-xl shadow-amber-300/40
         hover:bg-amber-500
