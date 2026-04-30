@@ -25,12 +25,12 @@ export default function Loader({ onComplete }) {
 
     tl.to(barRef.current, {
       scaleX: 1,
-      duration: 0.8,
+      duration: 0.4,
       ease: "expo.inOut",
     })
       .to(".loader-text", {
         opacity: 0,
-        duration: 0.7,
+        duration: 0.5,
       })
       .to(".loader-text", {
         display: "none",
@@ -38,14 +38,14 @@ export default function Loader({ onComplete }) {
       //  FIXED (no width overflow)
       .to(".loader-content", {
         scaleX: 1,
-        duration: 0.8,
+        duration: 0.4,
         ease: "expo.inOut",
       })
       .to(".reveal-line", {
         opacity: 1,
         y: 0,
-        stagger: 0.25,
-        duration: 1,
+        stagger: 0.2,
+        duration: 0.8,
         ease: "power3.out",
       });
   };
