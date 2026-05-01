@@ -16,16 +16,23 @@ export default function DetailedProjects({ sectionRef }) {
   const containerRef = useRef(null);
   const headerTitleRef = useRef(null);
   const headerParaRef = useRef(null);
+  const filterRef = useRef(null);
+
+  const [activeFilter, setActiveFilter] = useState("All"); // New Filter State
+
+  // Filter Logic
+  const filteredProjects = projects.filter((proj) =>
+    activeFilter === "All" ? true : proj.category === activeFilter,
+  );
 
   const projectsPerPage = 4;
-  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-  const currentProjects = projects.slice(
+  const currentProjects = filteredProjects.slice(
     indexOfFirstProject,
     indexOfLastProject,
   );
-
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // 1. Split Text Animation for Header
@@ -62,6 +69,24 @@ export default function DetailedProjects({ sectionRef }) {
           "-=0.4",
         );
 
+      // 🔹 2. Separate Filter Animation
+      gsap.from(filterRef.current.children, {
+        y: 20,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 0.4,
+        ease: "power2.out",
+        // immediateRender: false,
+        scrollTrigger: {
+          trigger: filterRef.current,
+          start: "top 70%",
+          // toggleActions: "play none none none",
+          once: true,
+          // markers: true,
+        },
+        clearProps: "all",
+      });
+
       // 2. ScrollTrigger for Project Rows
       gsap.utils.toArray(".project-row-item").forEach((row) => {
         gsap.from(row, {
@@ -76,7 +101,6 @@ export default function DetailedProjects({ sectionRef }) {
           opacity: 0,
           duration: 1.1,
           ease: "power3.out",
-          clearProps: "all",
         });
       });
     }, containerRef);
@@ -125,6 +149,26 @@ export default function DetailedProjects({ sectionRef }) {
             </p>
             {/* <div></div> */}
           </div>
+        </div>
+
+        {/* TECH STACK FILTER */}
+        <div ref={filterRef} className="flex gap-3 mb-16 flex-wrap">
+          {["All", "React", "Animations", "Backend"].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setActiveFilter(cat);
+                setCurrentPage(1); // Important: Reset page to 1
+              }}
+              className={`px-5 py-2 rounded-full text-xs font-cabinet transition-all duration-500 border cursor-pointer ${
+                activeFilter === cat
+                  ? "bg-orange-800/50 text-white border-zinc-500/30"
+                  : "bg-transparent text-zinc-500 border-zinc-200 hover:border-zinc-900/30 hover:-translate-y-2"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
 
         {/* Projects List with Animation */}
