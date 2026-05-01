@@ -7,6 +7,7 @@ import Lenis from "@studio-freight/lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Cursor from "./utilities/Cursor";
 import Loader from "./utilities/Loader";
+import ScrollToTop from "./utilities/ScrollToTop";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,6 +61,7 @@ export default function App() {
       {/* MAIN CONTENT */}
       {!loading && (
         <div id="main-wrapper">
+          <ScrollToTop />
           <Cursor />
           <Navbar className="nav" />
           <main>
