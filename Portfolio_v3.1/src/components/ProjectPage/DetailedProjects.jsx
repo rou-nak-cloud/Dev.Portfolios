@@ -8,6 +8,7 @@ import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText"; // Ensure this is installed/accessible
+import { ProjectExtras, GlobalActivity } from "./ProjectExtras"; // adjust path if needed
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, SplitText);
 
@@ -69,7 +70,7 @@ export default function DetailedProjects({ sectionRef }) {
           "-=0.4",
         );
 
-      // 🔹 2. Separate Filter Animation
+      //  2. Separate Filter Animation
       gsap.from(filterRef.current.children, {
         y: 20,
         opacity: 0,
@@ -92,7 +93,8 @@ export default function DetailedProjects({ sectionRef }) {
         gsap.from(row, {
           scrollTrigger: {
             trigger: row,
-            start: "top 80%",
+            start: "top 75%",
+            end: "bottom 15%",
             toggleActions: "play none none reverse",
             //key: ScrollTrigger to re-calculate for this row
             invalidateOnRefresh: true,
@@ -150,7 +152,6 @@ export default function DetailedProjects({ sectionRef }) {
             {/* <div></div> */}
           </div>
         </div>
-
         {/* TECH STACK FILTER */}
         <div ref={filterRef} className="flex gap-3 mb-16 flex-wrap">
           {["All", "React", "Animations", "Backend"].map((cat) => (
@@ -170,7 +171,6 @@ export default function DetailedProjects({ sectionRef }) {
             </button>
           ))}
         </div>
-
         {/* Projects List with Animation */}
         <div className="space-y-30">
           <AnimatePresence>
@@ -193,12 +193,13 @@ export default function DetailedProjects({ sectionRef }) {
                       "0",
                     )}
                   />
+                  <ProjectExtras project={project} />{" "}
+                  {/* New Extras Component */}
                 </div>
               ))}
             </motion.div>
           </AnimatePresence>
         </div>
-
         {/* Pagination Controls */}
         <div className="mt-32 flex flex-col md:flex-row items-center justify-between border-t border-zinc-100 pt-10 gap-6">
           <div className="flex flex-col gap-1">
@@ -240,6 +241,7 @@ export default function DetailedProjects({ sectionRef }) {
             </button>
           </div>
         </div>
+        <GlobalActivity /> {/* New Global Activity Component */}
       </div>
     </section>
   );
