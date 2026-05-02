@@ -8,7 +8,7 @@ import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText"; // Ensure this is installed/accessible
-import { ProjectExtras, GlobalActivity } from "./ProjectExtras"; // adjust path if needed
+import { ProjectExtras } from "./ProjectExtras"; // adjust path if needed
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, SplitText);
 
@@ -201,7 +201,7 @@ export default function DetailedProjects({ sectionRef }) {
           </AnimatePresence>
         </div>
         {/* Pagination Controls */}
-        <div className="mt-32 flex flex-col md:flex-row items-center justify-between border-t border-zinc-100 pt-10 gap-6">
+        <div className="mt-14 flex flex-col md:flex-row items-center justify-between border-t border-zinc-100 pt-10 gap-6">
           <div className="flex flex-col gap-1">
             <span className="font-cabinet text-zinc-400 text-[10px] uppercase tracking-widest">
               Navigation
@@ -241,7 +241,7 @@ export default function DetailedProjects({ sectionRef }) {
             </button>
           </div>
         </div>
-        <GlobalActivity /> {/* New Global Activity Component */}
+        {/* <GlobalActivity /> New Global Activity Component */}
       </div>
     </section>
   );
@@ -302,7 +302,7 @@ function ProjectRow({ project, number }) {
       {/* 3. Detailed Description Section */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
         <div className="md:col-span-8">
-          <p className="text-lg md:text-xl text-zinc-600 font-cabinet leading-relaxed">
+          <p className="text-lg md:text-xl text-zinc-600 font-cabinet leading-snug">
             {project.description}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
