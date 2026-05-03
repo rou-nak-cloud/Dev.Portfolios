@@ -229,7 +229,7 @@ export default function Hero() {
           {/* Text Area */}
           <div
             ref={HeadTextContainerRef}
-            className=" flex flex-col space-y-2 md:text-left transform-3d"
+            className=" flex flex-col  space-y-2 md:text-left transform-3d"
           >
             <h1
               ref={HeadTextRef}
@@ -239,7 +239,7 @@ export default function Hero() {
             </h1>
             <p
               ref={ParaTextRef}
-              className="max-w-125 font-cabinet font-medium text-md md:text-lg leading-tight text-zinc-600/80"
+              className="max-w-lg font-cabinet font-medium text-md md:text-lg leading-tight tracking-tight text-zinc-600/80"
             >
               Electronics Engineer, now a{" "}
               <span className="underline decoration-amber-200 decoration-2 underline-offset-4">
@@ -281,7 +281,7 @@ export default function Hero() {
 
           {/* Profile Image */}
           <div ref={ProfileRef} className="relative">
-            <div className="h-34 w-34 overflow-hidden rounded-full border border-zinc-400 shadow-2xl shadow-orange-500/50 md:h-42 md:w-42 -mt-5 md:-mt-10">
+            <div className="h-34 w-34 overflow-hidden rounded-full border border-zinc-400 shadow-2xl shadow-orange-500/50 md:h-46 md:w-46 -mt-5 md:-mt-6 md:mr-5">
               <img
                 src={avatarUrl}
                 alt="Profile"
@@ -293,7 +293,7 @@ export default function Hero() {
 
         {/* About section */}
         <div ref={AboutRef}>
-          <h2 className="text-2xl font-cabinet font-bold text-slate-900 mb-3 mt-5">
+          <h2 className="text-2xl font-cabinet font-bold text-slate-900 mb-3 mt-4">
             About{" "}
             <span className="font-melodrama font-bold text-3xl md:text-[3.2xl] pl-2 tracking-wider highlight-marker">
               ME

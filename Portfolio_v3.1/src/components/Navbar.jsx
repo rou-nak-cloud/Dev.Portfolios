@@ -88,7 +88,7 @@ export default function Navbar({ className = "" }) {
       <div
         className="max-w-2xl md:w-[80%] w-[70%] mx-auto px-3 sm:px-4 py-1 flex items-center justify-between 
   border border-purple-500/20 rounded-full 
-  bg-amber-100 backdrop-blur-2xl shadow-sm shadow-amber-500/20"
+  bg-amber-100 md:bg-orange-50 backdrop-blur-2xl shadow-sm shadow-amber-500/20"
       >
         {/* Logo */}
         <Link
