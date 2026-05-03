@@ -7,6 +7,7 @@ export default function AudioPlayer({ src, isVisible }) {
   const [hasInteracted, setHasInteracted] = useState(false);
   const audioRef = useRef(null);
   const playerRef = useRef(null); // Ref for GSAP animation
+  const visualizerRef = useRef(null); // Ref for the bar container
 
   // GSAP Entrance Animation
   useLayoutEffect(() => {
@@ -27,6 +28,23 @@ export default function AudioPlayer({ src, isVisible }) {
       return () => ctx.revert();
     }
   }, [isVisible]);
+
+  // Smooth Visualizer Reveal
+  useEffect(() => {
+    if (isPlaying) {
+      gsap.fromTo(
+        visualizerRef.current,
+        { width: 0, opacity: 0, marginLeft: 0 },
+        {
+          width: "auto",
+          opacity: 1,
+          marginLeft: 8,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+      );
+    }
+  }, [isPlaying]);
 
   const togglePlay = async () => {
     if (!audioRef.current) return;
@@ -61,7 +79,7 @@ export default function AudioPlayer({ src, isVisible }) {
         {/* Play/Pause Button */}
         <button
           onClick={togglePlay}
-          className="relative flex h-8 w-8 items-center justify-center rounded-full bg-zinc-900/90 text-white transition-transform active:scale-95 cursor-pointer"
+          className="relative flex h-8 w-8 items-center justify-center rounded-full bg-amber-600/40 text-white transition-transform active:scale-95 cursor-pointer"
         >
           {/* Subtle Outer Pulse */}
           {!isPlaying && !hasInteracted && (
@@ -90,7 +108,10 @@ export default function AudioPlayer({ src, isVisible }) {
 
         {/* Minimal Animated Visualizer */}
         {isPlaying && (
-          <div className="flex items-end gap-1 h-3 ml-2 pr-1">
+          <div
+            ref={visualizerRef}
+            className="flex items-end gap-1 h-3 ml-2 pr-1"
+          >
             {[0.1, 0.3, 0.2, 0.4].map((delay, i) => (
               <div
                 key={i}
