@@ -119,19 +119,30 @@ const Contact = () => {
 
       {/* 2. Intro Text (contact-reveal) */}
       <div className="contact-reveal text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-cabinet font-bold text-slate-900 mb-2 tracking-tight leading-tight">
-          Have an awe
-          <span className="font-melodrama font-bold text-amber-400 text-3xl md:text-4xl">
-            some{" "}
+        <h2 className="text-3xl md:text-4xl font-cabinet font-bold text-slate-900/80 mb-4 tracking-tighter leading-9">
+          Building
+          <span className="font-melodrama italic font-medium text-orange-500/80">
+            {" "}
+            future{" "}
           </span>
-          idea? <br /> Let
-          <span className="font-melodrama font-bold text-amber-400 text-3xl md:text-4xl">
-            's{" "}
+          one pixel at a time. <br />
+          Let’s
+          <span className="font-melodrama italic font-medium text-orange-500/80">
+            {" "}
+            connect{" "}
           </span>
-          bring it to life.
+          and grow together.
         </h2>
-        <p className="text-slate-500 font-cabinet">
-          I am looking for freelance opportunities or internships.
+
+        <p className="text-slate-500 font-cabinet font-medium text-sm md:text-base tracking-tight max-w-xl mx-auto leading-snug">
+          Currently an Electronics Engineering graduate, I'm pivoting into the
+          world of
+          <span className="text-zinc-900">
+            {" "}
+            interactive frontend development
+          </span>
+          . I'm eager to contribute to meaningful projects where I can learn,
+          code, and refine my craft within a professional team.
         </p>
       </div>
 

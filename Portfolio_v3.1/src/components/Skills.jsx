@@ -69,7 +69,7 @@ export default function Skills() {
     <section
       id="skills"
       ref={containerRef}
-      className="max-w-2xl mx-auto px-6 py-6 select-none"
+      className="max-w-2xl mb-16 mx-auto px-6 py-6 select-none"
     >
       <h2 className="text-2xl font-cabinet font-bold text-black mb-6">
         Skill
