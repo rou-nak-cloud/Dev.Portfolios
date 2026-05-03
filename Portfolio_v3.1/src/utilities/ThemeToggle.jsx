@@ -71,9 +71,9 @@ export default function ThemeToggle() {
       onClick={handleToggle}
       // Start hidden so it can "pop" in properly
       style={{ display: "none", opacity: 0, transform: "scale(0)" }}
-      className="fixed bottom-6 left-73 z-50 
-        w-10 h-10 rounded-full
-        bg-amber-600/40 text-white
+      className="fixed bottom-5 md:bottom-6 left-73 z-50 
+        w-10 h-10 rounded-full bg-amber-200 ml-1
+        md:bg-amber-600/40 text-white
         flex items-center justify-center
         shadow-xl shadow-zinc-500/20
         active:scale-90 

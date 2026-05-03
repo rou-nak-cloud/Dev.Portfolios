@@ -281,7 +281,7 @@ export default function Hero() {
 
           {/* Profile Image */}
           <div ref={ProfileRef} className="relative">
-            <div className="h-30 w-30 overflow-hidden rounded-full border border-zinc-400 shadow-2xl shadow-orange-500/50 md:h-42 md:w-42 -mt-5 md:-mt-10">
+            <div className="h-34 w-34 overflow-hidden rounded-full border border-zinc-400 shadow-2xl shadow-orange-500/50 md:h-42 md:w-42 -mt-5 md:-mt-10">
               <img
                 src={avatarUrl}
                 alt="Profile"

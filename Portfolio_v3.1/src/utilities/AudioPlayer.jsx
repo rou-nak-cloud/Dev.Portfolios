@@ -72,14 +72,14 @@ export default function AudioPlayer({ src, isVisible }) {
   return (
     <div
       ref={playerRef}
-      className="fixed top-8 right-8 z-100 flex items-center group opacity-0"
+      className="hidden md:flex fixed top-26 right-4 md:top-8 md:right-8 z-100 items-center group opacity-0"
     >
       {/* Aesthetic Glass Pill */}
-      <div className="flex items-center gap-3 px-3 py-2 bg-white/30 backdrop-blur-xl border border-zinc-200/50 rounded-full shadow-sm transition-all duration-500 hover:border-orange-500/30 hover:bg-white/60">
+      <div className="flex items-center gap-3 px-2 py-1 md:px-3 md:py-2 bg-white/30 backdrop-blur-xl border border-zinc-200/50 rounded-full shadow-sm transition-all duration-500 hover:border-orange-500/30 hover:bg-white/60">
         {/* Play/Pause Button */}
         <button
           onClick={togglePlay}
-          className="relative flex h-8 w-8 items-center justify-center rounded-full bg-amber-600/40 text-white transition-transform active:scale-95 cursor-pointer"
+          className="relative flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-amber-600/40 text-white transition-transform active:scale-95 cursor-pointer"
         >
           {/* Subtle Outer Pulse */}
           {!isPlaying && !hasInteracted && (
