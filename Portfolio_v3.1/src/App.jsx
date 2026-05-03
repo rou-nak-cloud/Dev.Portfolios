@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Cursor from "./utilities/Cursor";
 import Loader from "./utilities/Loader";
 import ScrollToTop from "./utilities/ScrollToTop";
+import AudioPlayer from "./utilities/AudioPlayer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,6 +64,7 @@ export default function App() {
         <div id="main-wrapper">
           <ScrollToTop />
           <Cursor />
+          <AudioPlayer src="/audio/lofi_tramp.mp3" isVisible={true} />
           <Navbar className="nav" />
           <main>
             <Outlet />
