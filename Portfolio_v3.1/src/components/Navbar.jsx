@@ -86,7 +86,7 @@ export default function Navbar({ className = "" }) {
       className={`fixed bottom-4 w-full z-50 ${className}`} //  small gap from bottom
     >
       <div
-        className="max-w-xl md:w-[80%] w-[70%] mx-auto px-3 sm:px-4 py-1 flex items-center justify-between 
+        className="max-w-2xl md:w-[80%] w-[70%] mx-auto px-3 sm:px-4 py-1 flex items-center justify-between 
   border border-purple-500/20 rounded-full 
   bg-amber-100 backdrop-blur-2xl shadow-sm shadow-amber-500/20"
       >
