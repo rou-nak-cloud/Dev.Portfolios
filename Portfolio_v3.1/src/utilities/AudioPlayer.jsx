@@ -1,10 +1,32 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { MdMusicNote, MdMusicOff } from "react-icons/md";
+import gsap from "gsap";
 
 export default function AudioPlayer({ src, isVisible }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
   const audioRef = useRef(null);
+  const playerRef = useRef(null); // Ref for GSAP animation
+
+  // GSAP Entrance Animation
+  useLayoutEffect(() => {
+    if (isVisible) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          playerRef.current,
+          { y: 100, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            delay: 1.5, // High delay to wait for hero section
+            ease: "expo.out",
+          },
+        );
+      });
+      return () => ctx.revert();
+    }
+  }, [isVisible]);
 
   const togglePlay = async () => {
     if (!audioRef.current) return;
@@ -30,17 +52,20 @@ export default function AudioPlayer({ src, isVisible }) {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-8 right-8 z-100 flex items-center group">
+    <div
+      ref={playerRef}
+      className="fixed top-8 right-8 z-100 flex items-center group opacity-0"
+    >
       {/* Aesthetic Glass Pill */}
       <div className="flex items-center gap-3 px-3 py-2 bg-white/30 backdrop-blur-xl border border-zinc-200/50 rounded-full shadow-sm transition-all duration-500 hover:border-orange-500/30 hover:bg-white/60">
         {/* Play/Pause Button */}
         <button
           onClick={togglePlay}
-          className="relative flex h-8 w-8 items-center justify-center rounded-full bg-amber-900/30 text-white transition-transform active:scale-95 cursor-pointer"
+          className="relative flex h-8 w-8 items-center justify-center rounded-full bg-zinc-900/90 text-white transition-transform active:scale-95 cursor-pointer"
         >
-          {/* Subtle Outer Pulse (matches your Amber theme) */}
+          {/* Subtle Outer Pulse */}
           {!isPlaying && !hasInteracted && (
-            <span className="absolute inset-0 rounded-full bg-orange-400 animate-ping opacity-10" />
+            <span className="absolute inset-0 rounded-full bg-orange-400 animate-ping opacity-20" />
           )}
 
           {isPlaying ? (
