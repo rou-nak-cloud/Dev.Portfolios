@@ -38,7 +38,7 @@ export default function Marquee() {
   );
 }
 
-/* 🔹 Card */
+/* Card */
 function SkillCard({ skill, variant }) {
   return (
     <div

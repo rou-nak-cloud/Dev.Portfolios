@@ -95,19 +95,19 @@ export default function Cursor() {
 
   return (
     <>
-      {/* MAIN DOT: Uses mix-blend-difference to invert colors automatically */}
+      {/* CURSOR */}
       <div
         ref={cursorRef}
         className="fixed top-0 left-0 w-4 h-4 rounded-full 
-        bg-orange-600 dark:bg-orange-400 pointer-events-none z-999
-        -translate-x-1/2 -translate-y-1/2 mix-blend-difference"
+        bg-orange-600 pointer-events-none z-999
+        -translate-x-1/2 -translate-y-1/2 mix-blend-multiply"
       />
 
-      {/* FOLLOWER: Soft glow that adapts to dark mode */}
+      {/* FOLLOWER */}
       <div
         ref={followerRef}
         className="fixed top-0 left-0 w-12 h-12 rounded-full 
-        bg-indigo-500/80 dark:bg-orange-500/80 pointer-events-none z-998
+         bg-orange-500/80 pointer-events-none z-998
         -translate-x-1/2 -translate-y-1/2
         blur-xl"
         style={{ opacity: 0.5 }}
