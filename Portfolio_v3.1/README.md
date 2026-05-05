@@ -61,7 +61,7 @@ Stay tuned 🚀
 ## 🔮 Future Improvements
 
 - 🧠 Skills & Tech Breakdown Section  (DONE)
-- 🧩 Dedicated Projects Page  
+- 🧩 Dedicated Projects Page  (DONE)
 - ✍️ Blog System (sharing learnings & insights)  
 - 🌐 Backend integration (for dynamic content)  
 ---
