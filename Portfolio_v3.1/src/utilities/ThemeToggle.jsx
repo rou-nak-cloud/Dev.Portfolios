@@ -75,7 +75,7 @@ export default function ThemeToggle() {
         w-10 h-10 rounded-full bg-amber-200 ml-1
         md:bg-amber-600/40 text-white
         flex items-center justify-center
-        shadow-xl shadow-zinc-500/20
+        shadow-xl shadow-amber-300/40
         active:scale-90 
         transition-colors duration-300 cursor-pointer border border-zinc-200/50"
     >
