@@ -81,9 +81,9 @@ export default function ThemeToggle() {
     >
       <div ref={iconRef} className="flex items-center justify-center">
         {isDark ? (
-          <FiSun size={18} className="text-amber-700" />
+          <FiSun size={18} className="text-white" />
         ) : (
-          <FiMoon size={18} className="text-zinc-400" />
+          <FiMoon size={18} className="text-white" />
         )}
       </div>
     </button>
