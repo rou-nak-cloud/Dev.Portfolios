@@ -179,7 +179,7 @@ export default function Hero() {
 
     // WORD COLOR FADE (scrub effect)
     gsap.from(split.words, {
-      color: "#a1a1aa", // muted gray
+      // color: "#a1a1aa", // muted gray
       stagger: 0.03,
       opacity: 0.4,
       ease: "none",
@@ -204,22 +204,19 @@ export default function Hero() {
       }}
       onMouseLeave={handleLeave}
       ref={ContainerHomeRef}
-      className="relative w-full overflow-hidden bg-white pt-14 md:pt-16 pb-12 md:pb-15"
+      /* Added dark:bg-zinc-950 and transition-colors */
+      className="relative w-full overflow-hidden bg-white dark:bg-zinc-950 pt-14 md:pt-16 pb-12 md:pb-15 transition-colors duration-500"
     >
-      {/* DOT PATTERN LAYER 
-          - backgroundSize: 6px creates that "tight" minimal look
-          - radial-gradient: #000 (Black) at 0.8px creates the sharp dot
-      */}
+      {/* DOT PATTERN LAYER */}
       <div
         className="absolute inset-0 z-0 h-50 w-full dots-animated"
         style={{
           backgroundImage: `radial-gradient(#fb923c 2px, transparent 1px)`,
           backgroundSize: "6px 6px",
-          // This mask makes the dots visible at the top and disappear smoothly
           maskImage: "linear-gradient(to bottom, black 10%, transparent 90%)",
           WebkitMaskImage:
             "linear-gradient(to bottom, black 10%, transparent 90%)",
-          opacity: 0.6, // Low opacity keeps it "subtle" and not distracting
+          opacity: 0.6,
         }}
       />
 
@@ -229,32 +226,32 @@ export default function Hero() {
           {/* Text Area */}
           <div
             ref={HeadTextContainerRef}
-            className=" flex flex-col  space-y-2 md:text-left transform-3d"
+            className=" flex flex-col  space-y-2 md:text-left transform-3d flex-1"
           >
             <h1
               ref={HeadTextRef}
-              className="text-5xl font-melodrama font-semibold tracking-tight md:tracking-[-.1rem] text-black max-sm:text-4xl md:text-[3.4rem] "
+              className="text-5xl font-melodrama font-semibold tracking-tight md:tracking-[-.1rem] text-black dark:text-white max-sm:text-4xl md:text-[3.4rem]"
             >
               Hi, I'm Rounak<span className="text-orange-600 text-3xl">®</span>
             </h1>
             <p
               ref={ParaTextRef}
-              className="max-w-lg font-cabinet font-medium text-md md:text-lg leading-tight tracking-tight text-zinc-600/80"
+              className="max-w-xl font-cabinet font-medium text-md md:text-lg leading-tight tracking-tight text-zinc-600/80 dark:text-zinc-400"
             >
               Electronics Engineer, now a{" "}
-              <span className="underline decoration-amber-200 decoration-2 underline-offset-4">
+              <span className="underline decoration-amber-200 dark:decoration-amber-500/30 decoration-2 underline-offset-4">
                 self-taught Frontend Developer
               </span>{" "}
               dedicated to building{" "}
-              <span className=" decoration-amber-200 decoration-2 underline-offset-4">
+              <span className=" decoration-amber-200 dark:decoration-amber-500/30 decoration-2 underline-offset-4">
                 modern, engaging web experiences
               </span>
               . I love{" "}
-              <span className="underline decoration-amber-200 decoration-2 underline-offset-4">
+              <span className="underline decoration-amber-200 dark:decoration-amber-500/30 decoration-2 underline-offset-4">
                 Calisthenics
               </span>
               . Very active on{" "}
-              <span className=" decoration-amber-200 decoration-2 underline-offset-4">
+              <span className=" decoration-amber-200 dark:decoration-amber-500/30 decoration-2 underline-offset-4">
                 YouTube
               </span>
               .
@@ -265,9 +262,9 @@ export default function Hero() {
               className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6 pt-2 md:pt-2"
             >
               <div ref={WorkRef} className="work">
-                <span className="relative w-2 h-2 px-5 py-1 text-sm md:text-md font-cabinet md:font-medium text-amber-950 rounded-full bg-emerald-500 backdrop-blur-md">
+                <span className="relative inline-flex items-center gap-2 px-5 py-1 text-sm md:text-md font-cabinet md:font-medium text-amber-950 dark:text-emerald-400 rounded-full bg-emerald-500 dark:bg-emerald-500/10 backdrop-blur-md">
                   <span>Available for Work</span>
-                  <span className="w-1 h-1 bg-emerald-300 rounded-full absolute left-0 top-2 ml-2 mt-0.5 animate-ping"></span>
+                  <span className="w-1 h-1 bg-emerald-300 dark:bg-emerald-500 rounded-full absolute left-0 top-2 ml-2 mt-0.5 animate-ping"></span>
                 </span>
               </div>
               <div ref={ButtonRef}>
@@ -280,8 +277,8 @@ export default function Hero() {
           </div>
 
           {/* Profile Image */}
-          <div ref={ProfileRef} className="relative">
-            <div className="h-34 w-34 overflow-hidden rounded-full border border-zinc-400 shadow-2xl shadow-orange-500/50 md:h-46 md:w-46 -mt-5 md:-mt-6 md:mr-5">
+          <div ref={ProfileRef} className="relative shrink-0">
+            <div className="h-34 w-34 overflow-hidden rounded-full border border-zinc-400 dark:border-zinc-700 shadow-2xl shadow-orange-500/50 md:h-46 md:w-46 -mt-5 md:-mt-6 md:mr-5">
               <img
                 src={avatarUrl}
                 alt="Profile"
@@ -293,7 +290,7 @@ export default function Hero() {
 
         {/* About section */}
         <div ref={AboutRef}>
-          <h2 className="text-2xl font-cabinet font-bold text-slate-900 mb-3 mt-4">
+          <h2 className="text-2xl font-cabinet font-bold text-slate-900 dark:text-white mb-3 mt-4">
             About{" "}
             <span className="font-melodrama font-bold text-3xl md:text-[3.2xl] pl-2 tracking-wider highlight-marker">
               ME
@@ -302,40 +299,41 @@ export default function Hero() {
           {/* Body Content */}
           <p
             ref={AboutParaRef}
-            className="max-w-3xl font-cabinet text-md md:text-lg leading-tighter tracking-normal text-zinc-800/90"
+            className="max-w-3xl font-cabinet text-md md:text-lg leading-tighter tracking-normal text-zinc-800/90 dark:text-zinc-200/90"
           >
             Hi, I'm{" "}
-            <span className="custom-underline font-melodrama font-bold tracking-wider text-xl text-slate-900">
+            <span className="custom-underline font-melodrama font-bold tracking-wider text-xl text-slate-900 dark:text-white">
               Rounak Bakshi
             </span>
             , an Electronics Engineering graduate (2025) with a passion for
             crafting{" "}
-            <span className="custom-underline font-cabinet font-medium text-slate-900">
+            <span className="custom-underline font-cabinet font-medium text-slate-900 dark:text-zinc-100">
               modern, aesthetic, and minimal web experiences
             </span>
             . I enjoy building interfaces that are both{" "}
-            <span className="custom-underline font-cabinet font-medium text-slate-950">
+            <span className="custom-underline font-cabinet font-medium text-slate-950 dark:text-zinc-50">
               visually striking and highly interactive
             </span>
             , inspired by the design and motion of award-winning websites.
             <br />
             Through consistent coding practice, I’ve built several{" "}
-            <span className="custom-underline font-cabinet font-medium text-slate-950">
+            <span className="custom-underline font-cabinet font-medium text-slate-950 dark:text-zinc-50">
               eye-catching projects
             </span>{" "}
             focused on smooth animations, clean layouts, and engaging user
             experiences. When I’m not coding, I’m dedicated to{" "}
-            <span className="custom-underline font-cabinet font-medium text-slate-950">
+            <span className="custom-underline font-cabinet font-medium text-slate-950 dark:text-zinc-50">
               calisthenics training
             </span>
             — capable of doing{" "}
-            <span className="custom-underline font-cabinet font-medium text-slate-950">
+            <span className="custom-underline font-cabinet font-medium text-slate-950 dark:text-zinc-50">
               200 push-ups and a 90° hold
             </span>
             , which reflects the same discipline and consistency I bring to my
             work as a developer.
           </p>
-          <div>
+          {/* Stats section - added dark mode colors */}
+          <div className="dark:text-zinc-400">
             {aboutItems.map((item, index) => {
               const Icon = item.icon;
 
@@ -344,7 +342,7 @@ export default function Hero() {
                   key={index}
                   className="flex gap-1 items-center justify-end"
                 >
-                  <span className="font-cabinet font-medium text-lg md:text-xl pt-1">
+                  <span className="font-cabinet font-medium text-lg md:text-xl pt-1 dark:text-zinc-100">
                     {item.number}+
                   </span>
 
@@ -354,10 +352,10 @@ export default function Hero() {
                         href="https://github.com/rou-nak-cloud"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-amber-800 transition-all duration-300"
+                        className="hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300"
                       >
                         <p
-                          className="custom-underline highlight-marker font-melodrama font-semibold text-md md:text-lg"
+                          className="custom-underline highlight-marker font-melodrama font-semibold text-md md:text-lg dark:text-zinc-100"
                           style={{ animationDelay: `${index * 1}s` }}
                         >
                           {item.label}
@@ -366,10 +364,10 @@ export default function Hero() {
                     ) : (
                       <Link
                         to="/blogs"
-                        className="hover:text-amber-800 transition-all duration-300"
+                        className="hover:text-amber-800 dark:hover:text-amber-400 transition-all duration-300"
                       >
                         <p
-                          className="custom-underline highlight-marker font-melodrama font-semibold text-md md:text-lg"
+                          className="custom-underline highlight-marker font-melodrama font-semibold text-md md:text-lg dark:text-zinc-100"
                           style={{ animationDelay: `${index * 1}s` }}
                         >
                           {item.label}
@@ -377,7 +375,9 @@ export default function Hero() {
                       </Link>
                     )}
 
-                    <span>{Icon && <Icon />}</span>
+                    <span>
+                      {Icon && <Icon className="dark:text-zinc-400" />}
+                    </span>
                   </div>
                 </div>
               );
