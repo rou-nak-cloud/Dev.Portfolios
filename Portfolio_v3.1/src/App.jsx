@@ -9,7 +9,7 @@ import Cursor from "./utilities/Cursor";
 import Loader from "./utilities/Loader";
 import ScrollToTop from "./utilities/ScrollToTop";
 import AudioPlayer from "./utilities/AudioPlayer";
-import ThemeToggle from "./utilities/ThemeToggle";
+// import ThemeToggle from "./utilities/ThemeToggle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,7 +68,7 @@ export default function App() {
           <AudioPlayer src="/audio/lofi_tramp.mp3" isVisible={true} />
           <Navbar className="nav" />
           {/* ThemeToggle globally */}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <main>
             <Outlet />
           </main>

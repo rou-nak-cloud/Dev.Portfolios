@@ -81,8 +81,8 @@ export default function ThemeToggle() {
       onClick={handleToggle}
       // Start hidden to allow GSAP to animate the first entry
       style={{ display: "none", opacity: 0, transform: "scale(0)" }}
-      className={`fixed bottom-4 md:bottom-5 left-74 md:left-74 z-100 
-        w-10 h-10 rounded-full flex items-center justify-center 
+      className={`fixed bottom-4 md:bottom-5 left-104 md:left-104 z-100
+        w-10 h-10 rounded-full flex items-center justify-center
         shadow-xl transition-all duration-500 cursor-pointer border border-zinc-200/50 dark:border-zinc-700/50
         ${
           isDark

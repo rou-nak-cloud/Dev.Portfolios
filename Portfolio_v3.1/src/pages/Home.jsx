@@ -16,7 +16,7 @@ import ParaMarquee from "../utilities/ParaMarquee";
 
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import ThemeToggle from "../utilities/ThemeToggle";
+import GlobeStatus from "../utilities/GlobeStatus";
 
 export default function Home() {
   const location = useLocation();
@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <section>
       <Hero />
-      <ThemeToggle />
+      <GlobeStatus />
       <BackToTop />
       <Marquee />
       <LearningPath />
