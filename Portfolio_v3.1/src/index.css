@@ -27,6 +27,9 @@
   color: #111827;
 }
 
+/* In v4, this is how you ensure dark mode works with a class */
+@variant dark (&:where(.dark, .dark *));
+
 /* Thin scrollbar */
 html::-webkit-scrollbar {
   width: 20px;
@@ -219,6 +222,19 @@ html::-webkit-scrollbar-thumb:hover {
     }
   }
   --animate-music-bar: music-bar 0.6s ease-in-out infinite;
+}
+
+/* Base styles for smooth transition */
+@layer base {
+  html {
+    @apply transition-colors duration-500;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    background-color: #09090b; /* zinc-950 */
+    color: #fafafa; /* zinc-50 */
+  }
 }
 
 /* Normal css */
