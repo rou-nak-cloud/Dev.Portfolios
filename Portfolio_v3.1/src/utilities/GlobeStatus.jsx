@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { FiGlobe } from "react-icons/fi";
 import gsap from "gsap";
 
-export default function GlobeLocation() {
+export default function GlobeStatus() {
   const [showLocation, setShowLocation] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 

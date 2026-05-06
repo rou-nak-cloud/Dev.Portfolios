@@ -1,17 +1,19 @@
 // import DetailedProjects from "../components/ProjectPage/DetailedProjects";
 import ProjectSection from "../components/ProjectPage/ProjectSection";
-import ThemeToggle from "../utilities/ThemeToggle";
+// import ThemeToggle from "../utilities/ThemeToggle";
 import BackToTop from "../utilities/BackToTop";
 import { GithubActivity } from "../components/ProjectPage/GithubActivity";
 import AestheticClock from "../utilities/AstheticClock";
 import Footer from "../components/Footer";
 import ProjectMarquee from "../utilities/ProjectMarquee";
+import GlobeStatus from "../utilities/GlobeStatus";
 
 export default function Projects() {
   return (
     <section>
       <ProjectSection />
-      <ThemeToggle />
+      <GlobeStatus />
+      {/* <ThemeToggle /> */}
       <BackToTop />
       <GithubActivity />
       <ProjectMarquee />
