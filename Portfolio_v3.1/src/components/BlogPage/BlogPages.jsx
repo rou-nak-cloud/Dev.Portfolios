@@ -25,7 +25,7 @@ export default function Blog() {
           <h1 className="text-4xl md:text-5xl font-melodrama font-bold text-amber-500">
             Blog
           </h1>
-          <span className="px-2.5 rounded-full border border-zinc-200 text-[14px] font-medium text-zinc-800 bg-white shadow-sm">
+          <span className="px-2.5 rounded-full border border-zinc-200 text-[14px] font-medium text-zinc-800 bg-white shadow-sm mb-4">
             {BLOG_DATA.length} posts
           </span>
         </div>
@@ -34,7 +34,7 @@ export default function Blog() {
         </p>
       </header>
 
-      {/* Main Content Area - Flex Grow handles the space */}
+      {/* Main Content Area */}
       <div className="grow overflow-hidden relative">
         <AnimatePresence mode="wait">
           <motion.div
@@ -75,7 +75,7 @@ export default function Blog() {
         </AnimatePresence>
       </div>
 
-      {/* Footer - Fixed to bottom of screen area */}
+      {/* Footer Pagination */}
       <footer className="mt-auto mb-25 pt-4 border-t border-zinc-200/40 flex items-center justify-between shrink-0">
         <span className="text-zinc-400 text-xs italic">
           Page {currentPage} of {totalPages}
