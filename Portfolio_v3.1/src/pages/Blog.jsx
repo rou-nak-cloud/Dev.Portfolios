@@ -1,7 +1,9 @@
+import BlogSection from "../components/BlogPage/BlogSection";
+
 export default function Blog() {
   return (
-    <h1 className="flex items-center justify-center w-full min-h-screen text-5xl text-emerald-500 font-melodrama">
-      Blog Page
-    </h1>
+    <section>
+      <BlogSection />
+    </section>
   );
 }
