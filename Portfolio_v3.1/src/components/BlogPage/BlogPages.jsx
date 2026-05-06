@@ -12,7 +12,13 @@ export default function Blog() {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(BLOG_DATA.length / POSTS_PER_PAGE);
 
-  const currentPosts = BLOG_DATA.slice(
+  // sorting posts by date
+  const sortedPosts = [...BLOG_DATA].sort(
+    (a, b) => new Date(b.date) - new Date(a.date),
+  );
+
+  // Use sortedPosts for pagination slicing
+  const currentPosts = sortedPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
     currentPage * POSTS_PER_PAGE,
   );
@@ -23,7 +29,7 @@ export default function Blog() {
       <header className="pt-19 mb-3 shrink-0">
         <div className="flex items-center gap-4 mb-2">
           <h1 className="text-4xl md:text-5xl font-melodrama font-bold text-amber-500">
-            Blog
+            Blogs
           </h1>
           <span className="px-2.5 rounded-full border border-zinc-200 text-[14px] font-medium text-zinc-800 bg-white shadow-sm mb-4">
             {BLOG_DATA.length} posts
