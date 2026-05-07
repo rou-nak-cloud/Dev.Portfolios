@@ -67,7 +67,7 @@ export default function GlobeStatus() {
 
   return (
     <div className="fixed bottom-4 md:bottom-10 left-74 md:left-74 z-100 flex flex-col items-center">
-      {/* POP-OUT NOTIFICATION (Positions to UP) */}
+      {/* POP-OUT */}
       {showLocation && (
         <div
           ref={popoutRef}
