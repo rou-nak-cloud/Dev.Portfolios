@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import BlogButton from "./BlogButton";
+import { BLOG_DATA } from "../JsFiles/BlogPosts";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Hero() {
@@ -196,6 +197,14 @@ export default function Hero() {
     return () => split.revert();
   });
 
+  // Create a dynamic version of your about items
+  const dynamicAboutItems = aboutItems.map((item) => {
+    if (item.label.toLowerCase().includes("blog")) {
+      return { ...item, number: BLOG_DATA.length };
+    }
+    return item;
+  });
+
   return (
     <section
       id="home"
@@ -333,7 +342,7 @@ export default function Hero() {
           </p>
           {/* Stats section */}
           <div>
-            {aboutItems.map((item, index) => {
+            {dynamicAboutItems.map((item, index) => {
               const Icon = item.icon;
 
               return (
