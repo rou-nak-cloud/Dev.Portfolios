@@ -43,11 +43,10 @@ This portfolio is a reflection of:
 ## 🧠 Philosophy
 
 > “Crafting modern experiences where design meets motion and performance.”
->"I believe great interfaces are not just built — they are **felt**."
 
 ---
 
-## 📝 Blog (Coming Soon)
+## 📝 Blog Posts 
 
 I plan to share:
 - Frontend learnings  
@@ -55,36 +54,34 @@ I plan to share:
 - UI/UX insights  
 - Developer journey  
 
-Stay tuned 🚀
 ---
 
-## 🔮 Future Improvements
+# 🚀 The "Antigravity" Core
 
-- 🧠 Skills & Tech Breakdown Section  (DONE)
-- 🧩 Dedicated Projects Page  (DONE)
-- ✍️ Blog System (sharing learnings & insights)  
+An engineering-first portfolio focused on high-performance motion and scalable architecture.
+
+### 🛠️ Interactive Skills
+A physics-based sandbox built with **Framer Motion**. Features draggable icons and magnetic interactions to turn a static tech stack into a tangible, reactive workbench.
+
+### ✍️ Dynamic Blog Engine
+A custom "Markdown-lite" system that decouples content from code. It parses symbols like `**bold**` or `_underline_` on the fly, allowing for rapid, "Khichdi-free" content updates and scalable storytelling.
+
+### 🏗️ Component Architecture
+A modular system of dozens of custom components (Bento grids, animated cards, GSAP-orchestrated reveals) inspired by the high-end minimalist designs at Vercel.
+
+### 📊 Live Orchestration
+Integrated real-time counters that track GitHub projects and blog entries directly from the codebase logic, ensuring the portfolio grows alongside my skills.
+
+## 🔮 Future Improvements 
 - 🌐 Backend integration (for dynamic content)  
 ---
 
-## 🛠️ Skills Section
-
-An interactive showcase of my technical stack, designed with motion and minimal aesthetics in mind.
-
-### ✨ Highlights
-- 🎯 Draggable skill icons using Framer Motion  
-- 🧲 Physics-based interactions for a playful feel  
-- 🧠 Skill keywords to reflect tools & mindset  
-- 🎨 Clean UI with subtle gradients and depth  
-- ⚡ Smooth animations powered by GSAP  
-
-### 🎯 Purpose
-To present not just the tools I use, but how I think, build, and interact with modern web technologies.
-
 ## 🤝 Connect With Me
 
-- 💼 LinkedIn: *(add later)*  
-- 🧑‍💻 GitHub: *(add later)*  
-- 📧 Email: *(add later)*  
+- 💼 LinkedIn: *(https://www.linkedin.com/in/rounak-bakshi/)*  
+- 🧑‍💻 GitHub: (https://github.com/rou-nak-cloud)  
+- 📧 Email: *(https://github.com/rou-nak-cloud)*
+- ![Rounak's GitHub stats](https://github-readme-stats.vercel.app/api?username=rou-nak-cloud&show_icons=true&theme=transparent&hide_border=true&title_color=fb923c&icon_color=fb923c&text_color=52525b)
 ---
 
 ## 🪪 License
